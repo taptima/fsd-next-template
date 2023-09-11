@@ -1,0 +1,85 @@
+{
+  "name": "fsd-next-template",
+  "version": "0.0.1",
+  "description": "Skeleton front-end project built on top of Next.js",
+  "license": "MIT",
+  "author": "aimdragman2@yandex.ru",
+  "scripts": {
+    "dev": "next",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "format": "prettier --write --check",
+    "format-all": "yarn run format \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
+    "lint-js": "eslint --fix",
+    "lint-js-all": "yarn run lint-js \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint-styles": "stylelint --config .stylelintrc.json",
+    "lint-styles-all": "yarn run lint-styles \"src/**/*.{css,scss,js,jsx,ts,tsx}\"",
+    "lint": "yarn run lint-js-all && yarn run lint-styles-all && yarn format-all --check",
+    "graphql:build": "graphql-codegen --config codegen.yml",
+    "graphql:watch": "graphql-codegen --config codegen.yml -w",
+    "configure": "dotenv-configure .env .env.local",
+    "prepare": "husky install"
+  },
+  "browserslist": [
+    "last 1 Chrome major versions",
+    "last 2 Firefox major versions",
+    "last 2 Safari major versions",
+    "last 2 Edge major versions",
+    "last 3 Android major versions",
+    "last 3 ChromeAndroid major versions",
+    "last 2 iOS major versions"
+  ],
+  "engines": {
+    "node": "18.3.0",
+    "pnpm": "8.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "dependencies": {
+    "@sentry/nextjs": "^7.68.0",
+    "@types/node": "20.5.7",
+    "@types/react": "18.2.21",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.48.0",
+    "eslint-config-next": "13.4.19",
+    "next": "13.4.19",
+    "next-seo": "^6.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.15",
+    "@babel/plugin-proposal-decorators": "^7.22.15",
+    "@babel/preset-env": "^7.22.15",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "dotenv-configure": "^0.1.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "node-sass": "^9.0.0",
+    "plop": "^4.0.0",
+    "prettier": "^3.0.3",
+    "regex-git": "^1.0.0",
+    "stylelint": "^15.10.3",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
+    "validate-npm-package-name": "^5.0.0",
+    "webpack": "^5.88.2"
+  }
+}

@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env.local
+dist
+.bitmap
+
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.idea
+.php_cs.cache
+yarn-error.log
+
+.vercel
+
+.sentryclirc

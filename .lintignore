@@ -1,0 +1,12 @@
+.next
+.github
+.cache
+public
+__mocks__
+package.json
+yarn.lock
+package-lock.json
+yarn-error.log
+node_modules
+vendor
+web
