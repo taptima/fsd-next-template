@@ -1,7 +1,10 @@
 {
     "compilerOptions": {
         "strict": true,
-        "baseUrl": "./src",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["./src/*"]
+        },
         "jsx": "preserve",
         "allowSyntheticDefaultImports": true,
         "target": "es6",
@@ -26,5 +29,5 @@
         ]
     },
     "exclude": ["node_modules"],
-    "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx"]
+    "include": ["next-env.d.ts", "./src/**/*.ts", "./src/**/*.tsx", ".next/types/**/*.ts"]
 }
