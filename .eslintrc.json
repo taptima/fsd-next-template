@@ -1,176 +1,57 @@
 {
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:@next/next/recommended",
-    "prettier"
-  ],
-  "ignorePatterns": ["*.config.js"],
-  "env": {
-    "browser": true,
-    "node": true
-  },
-  "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import", "jsx-a11y", "react", "react-hooks", "eslint-plugin-import"],
-  "parserOptions": {
-    "project": "./tsconfig.json",
-    "tsconfigRootDir": "."
-  },
-  "settings": {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
+    "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "next/core-web-vitals",
+        "prettier"
+    ],
+    "ignorePatterns": ["*.config.js"],
+    "env": {
+        "browser": true,
+        "node": true
     },
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
-          "external",
-          "builtin",
-          "object",
-          "type"
-        ]
-      }
-    ],
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true,
-        "project": "tsconfig.json"
-      }
-    }
-  },
-  "rules": {
-    "no-plusplus": "off",
-    "import/no-unresolved": "off",
-    "react/require-default-props": "off",
-    "react/no-unused-prop-types": "error",
-    "react/function-component-definition": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    "import/order": [
-      "warn",
-      {
-        "groups": [
-          // "type" and "object" commonly unused in code, uses only as divide anchor in "pathGroups"
-          "builtin", // import path from 'path'
-          "external", // import _ from 'lodash'
-          "type", // import type { Foo } from 'foo',
-          "object", // import log = console.log,
-          "internal", // import foo from "src/foo",
-          "parent", // import paerntFoo from "../foo",
-          "sibling", // import {Block} from "./styles",
-          "index"
+    "plugins": ["@typescript-eslint", "import"],
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "."
+    },
+    "rules": {
+        "no-plusplus": "off",
+        "react/require-default-props": "off",
+        "react/function-component-definition": "off",
+        "import/no-cycle": [
+            "warn",
+            {
+                "maxDepth": 2
+            }
         ],
-        "pathGroups": [
-          // Sorts by record order in array, but "group" and "position" have bigger priority
-          // so keep order consistant with "group" and "position" values
-          { "pattern": "constant/**", "group": "type", "position": "before" },
-          { "pattern": "container/**", "group": "type", "position": "before" },
-          { "pattern": "framework/**", "group": "type", "position": "before" },
-          { "pattern": "domain/entity/**", "group": "type", "position": "before" },
-          { "pattern": "domain/repository/**", "group": "type", "position": "before" },
-          { "pattern": "domain/service/**", "group": "type", "position": "before" },
-          { "pattern": "data/AbstractApi", "group": "type", "position": "after" },
-          { "pattern": "data/AbstractApi/**", "group": "type", "position": "after" },
-          { "pattern": "data/driver/**", "group": "type", "position": "after" },
-          { "pattern": "data/DTO/**", "group": "type", "position": "after" },
-          { "pattern": "data/store/**", "group": "type", "position": "after" },
-          { "pattern": "data/validationSchema/**", "group": "type", "position": "after" },
-          { "pattern": "helper/**", "group": "object", "position": "after" },
-          { "pattern": "util/**", "group": "object", "position": "after" },
-          {
-            "pattern": "presentation/context/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/controller/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/type/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/hook/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/component/layout/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/component/common/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/component/feature/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/component/page/**",
-            "group": "internal",
-            "position": "after"
-          },
-          {
-            "pattern": "presentation/mediaquery",
-            "group": "sibling",
-            "position": "before"
-          },
-          { "pattern": "./styles", "group": "sibling", "position": "after" }
-        ]
-      }
-    ],
-    "import/no-cycle": [
-      "warn",
-      {
-        "maxDepth": 2
-      }
-    ],
-    "no-empty": [
-      "error",
-      {
-        "allowEmptyCatch": true
-      }
-    ],
-    "spaced-comment": "warn",
-    "no-unused-vars": "warn",
-    "no-underscore-dangle": "off",
-    "consistent-return": "off",
-    "react/state-in-constructor": ["error", "never"],
-    "react/jsx-props-no-spreading": [
-      "error",
-      {
-        "html": "enforce",
-        "custom": "ignore",
-        "explicitSpread": "enforce",
-        "exceptions": []
-      }
-    ],
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "max-classes-per-file": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "react/static-property-placement": "off",
-    "newline-before-return": "error",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight"],
-        "aspects": ["invalidHref", "preferButton"]
-      }
-    ],
-    "@typescript-eslint/no-redeclare": "off",
-    "arrow-body-style": "off"
-  }
+        "no-empty": [
+            "error",
+            {
+                "allowEmptyCatch": true
+            }
+        ],
+        "spaced-comment": "warn",
+        "no-underscore-dangle": "off",
+        "consistent-return": "off",
+        "react/jsx-props-no-spreading": "off",
+        //            "react/jsx-props-no-spreading": [
+        //              "error",
+        //              {
+        //                "html": "enforce",
+        //                "custom": "ignore",
+        //                "explicitSpread": "enforce",
+        //                "exceptions": []
+        //              }
+        //            ],
+        "newline-before-return": "error",
+        "@typescript-eslint/no-redeclare": [
+            "error",
+            {
+                "ignoreDeclarationMerge": false
+            }
+        ],
+        "arrow-body-style": "off"
+    }
 }
