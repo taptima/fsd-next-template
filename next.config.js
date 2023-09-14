@@ -15,7 +15,7 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
-    headers() {
+    async headers() {
         return [
             {
                 source: '/fonts/(.*?)',
