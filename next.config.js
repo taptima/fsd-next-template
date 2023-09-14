@@ -39,26 +39,35 @@ const nextConfig = {
     },
 };
 
-/**
- * @type {import('@sentry/nextjs').SentryWebpackPluginOptions}
- **/
-const SentryWebpackPluginOptions = {
-    include: '.next',
-    ignore: ['node_modules'],
-    urlPrefix: '~/_next',
-    configFile: 'sentry.properties',
-};
+const withNextJSConfigs = [];
 
 if (process.env.NODE_ENV === 'production' && Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN)) {
-    module.exports = withSentryConfig(
-        {
-            ...nextConfig,
-            sentry: {
-                hideSourceMaps: true,
+    /**
+     * @type {import('@sentry/nextjs').SentryWebpackPluginOptions}
+     **/
+    const SentryWebpackPluginOptions = {
+        include: '.next',
+        ignore: ['node_modules'],
+        urlPrefix: '~/_next',
+        configFile: 'sentry.properties',
+    };
+
+    withNextJSConfigs.push((config) =>
+        withSentryConfig(
+            {
+                ...config,
+                sentry: {
+                    hideSourceMaps: true,
+                },
             },
-        },
-        SentryWebpackPluginOptions,
+            SentryWebpackPluginOptions,
+        ),
     );
-} else {
-    module.exports = nextConfig;
 }
+
+const resultConfig = withNextJSConfigs.reduce(
+    (acc, withNextConfig) => withNextConfig(acc),
+    nextConfig,
+);
+
+module.exports = resultConfig;
