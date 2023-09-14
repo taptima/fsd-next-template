@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Develop
+1. Install the dependencies. Run:
+    ```shell
+    pnpm install
+    ```
+2. Set up environment variables. See list of pre-configured environment
+   variables bellow. <br>
+   Note: `.env.local` overwrite `.env` ([more](https://nextjs.org/docs/app/building-your-application/configuring/environment-variables))
+3. Start the development server ([see](https://nextjs.org/docs/api-reference/cli#development) additional info about this feature). Run:
+    ```shell
+    pnpm dev
+    ```
+4. Open `http://localhost:3000` in your browser.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Publish
+1. Install the dependencies. Run:
+    ```shell
+    pnpm install
+    ```
+2. Make the production build. Run:
+    ```shell
+    pnpm build
+    ```
+3. Start server ([see](https://nextjs.org/docs/api-reference/cli#production) additional info about this feature). Run:
+    ```shell
+    pnpm start
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+## Pre-configured environment variables
+1. `NEXT_PUBLIC_API_BASE_URL` — useful for configuring base URL for any
+   API calls.
+2. `NEXT_PUBLIC_ASSETS_VERSION` — version of public assets. Can be used
+   to reset browser cache of any assets.
+3. `NEXT_PUBLIC_SENTRY_DSN` — used to log errors to Sentry.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Sentry**
+1. Add `NEXT_PUBLIC_SENTRY_DSN` to `.env` file
+2. `sentry-cli login` — to login through browser or enter auth token
+3. Fill `defaults.project` field in `sentry.properties` file
