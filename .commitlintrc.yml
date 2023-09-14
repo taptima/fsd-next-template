@@ -1,0 +1,3 @@
+extends:
+  - '@commitlint/config-conventional'
+helpUrl: 'https://www.notion.so/taptima/a72c5271d38d4ba79604a5aea2da2769'
