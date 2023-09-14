@@ -1,0 +1,6 @@
+"*.{js,jsx,ts,tsx}":
+  - pnpm run lint-js
+  - pnpm run format --write
+
+"*.json":
+  - pnpm run format --write
