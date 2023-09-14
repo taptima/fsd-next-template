@@ -11,7 +11,7 @@
         "start": "next start",
         "export": "next export",
         "format": "prettier --write --check",
-        "format-all": "yarn run format \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
+        "format-all": "pnpm run format \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
         "lint-js": "eslint --fix",
         "lint-js-all": "pnpm run lint-js \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint-styles": "stylelint --config .stylelintrc.json",

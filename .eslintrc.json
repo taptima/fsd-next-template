@@ -26,6 +26,7 @@
                 "maxDepth": 2
             }
         ],
+        "import/no-relative-parent-imports": "error",
         "no-empty": [
             "error",
             {
