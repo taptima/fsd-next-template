@@ -1,14 +1,10 @@
-import { DefaultActions } from '../../../../shared/types/defaultActions';
+import { StoreActions } from 'shared/types/storeActions';
 
 export interface ProductsState {
     limit: number;
     page: number;
 }
 
-export interface ProductsAction
-    extends DefaultActions<{
-        setLimit: (limit: number) => void;
-        setPage: (page: number) => void;
-    }> {}
+export interface ProductsAction extends StoreActions<ProductsState> {}
 
 export type ProductsStoreSchema = ProductsState & ProductsAction;

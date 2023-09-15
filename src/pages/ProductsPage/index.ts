@@ -1,3 +1,3 @@
-import ProductsPage from './ui/ProductsPage/ProductsPage';
+import ProductsPage from './ui/ProductsPage';
 
 export { ProductsPage };

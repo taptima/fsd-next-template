@@ -1,18 +1,19 @@
 import React, { ChangeEvent } from 'react';
 
-import { useProductsSWR } from '../../model/services/useGetProductsSWR/useGetProductsSWR';
+import clsx from 'clsx';
 import {
     useProductsActions,
     useProductsLimit,
     useProductsPage,
 } from '../../model/selectors/products';
-import cls from './ProductsList.module.css';
+import cls from './styles.module.css';
+import { useGetProductsSWR } from '../../model/services/useGetProductsSWR';
 
 const ProductsList = () => {
     const limit = useProductsLimit();
     const page = useProductsPage();
     const { setLimit, setPage } = useProductsActions();
-    const { data, isLoading } = useProductsSWR();
+    const { data, isLoading } = useGetProductsSWR();
 
     const onLimitChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setLimit(Number(event.target.value));
@@ -38,7 +39,7 @@ const ProductsList = () => {
 
     return (
         <>
-            <div className={cls.grid}>
+            <div className={clsx(cls.grid, { big: isLoading })}>
                 {data?.products?.map((el) => {
                     return (
                         <div className={cls.cardWrapper} key={el.id}>
