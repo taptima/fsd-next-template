@@ -69,8 +69,9 @@ if (process.env.NODE_ENV === 'production' && Boolean(process.env.NEXT_PUBLIC_SEN
 if (process.env.NEXT_ANALYZE === 'true') {
     withNextJSConfigs.push((config) =>
         withBundleAnalyzer({
+            openAnalyzer: false,
             enabled: true,
-        }),
+        })(config),
     );
 }
 
