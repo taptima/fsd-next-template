@@ -1,8 +1,8 @@
 import { actionParams } from 'shared/lib/helpers/actionParams';
-import { createStoreWithDevtools } from 'shared/lib/helpers/createStore';
+import { createStore } from 'shared/lib/config/createStore';
 import { ProductsStoreSchema } from '../types/store';
 
-export const useProductsStore = createStoreWithDevtools<ProductsStoreSchema>(
+export const useProductsStore = createStore<ProductsStoreSchema>(
     (set) => ({
         limit: 10,
         page: 1,

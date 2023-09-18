@@ -1,10 +1,12 @@
 import { DevtoolsOptions } from 'zustand/middleware';
 
-export const initializeDevtoolsOptions = (
+export default function initializeDevtoolsOptions(
     name: string,
     options?: DevtoolsOptions,
-): DevtoolsOptions => ({
-    name,
-    store: name,
-    ...options,
-});
+): DevtoolsOptions {
+    return {
+        name,
+        store: name,
+        ...options,
+    };
+}
