@@ -1,4 +1,5 @@
 const { withSentryConfig } = require('@sentry/nextjs');
+const withBundleAnalyzer = require('@next/bundle-analyzer');
 
 /**
  * @type {import('next').NextConfig}
@@ -62,6 +63,15 @@ if (process.env.NODE_ENV === 'production' && Boolean(process.env.NEXT_PUBLIC_SEN
             },
             SentryWebpackPluginOptions,
         ),
+    );
+}
+
+if (process.env.NEXT_ANALYZE === 'true') {
+    withNextJSConfigs.push((config) =>
+        withBundleAnalyzer({
+            openAnalyzer: false,
+            enabled: true,
+        })(config),
     );
 }
 
