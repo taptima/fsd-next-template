@@ -4,13 +4,18 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  next@13.4.19:
+    hash: ezhjmmgvh3ss5tyjxufps2qf5u
+    path: patches/next@13.4.19.patch
+
 dependencies:
   '@sentry/nextjs':
     specifier: ^7.68.0
     version: 7.68.0(next@13.4.19)(react@18.2.0)(webpack@5.88.2)
   next:
     specifier: 13.4.19
-    version: 13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
+    version: 13.4.19(patch_hash=ezhjmmgvh3ss5tyjxufps2qf5u)(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -1912,7 +1917,7 @@ packages:
       '@sentry/utils': 7.68.0
       '@sentry/webpack-plugin': 1.20.0
       chalk: 3.0.0
-      next: 13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
+      next: 13.4.19(patch_hash=ezhjmmgvh3ss5tyjxufps2qf5u)(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       rollup: 2.78.0
       stacktrace-parser: 0.1.10
@@ -4895,7 +4900,7 @@ packages:
   /neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /next@13.4.19(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0):
+  /next@13.4.19(patch_hash=ezhjmmgvh3ss5tyjxufps2qf5u)(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-HuPSzzAbJ1T4BD8e0bs6B9C1kWQ6gv8ykZoRWs5AQoiIuqbGHHdQO7Ljuvg05Q0Z24E2ABozHe6FxDvI6HfyAw==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -4934,6 +4939,7 @@ packages:
       - '@babel/core'
       - babel-plugin-macros
     dev: false
+    patched: true
 
   /no-case@3.0.4:
     resolution: {integrity: sha512-fgAN3jGAh+RoxUGZHTSOLJIqUc2wmoBwGR4tbpNAKmmovFoWq0OdRkb0VkldReO2a2iBT/OEulG9XSUc10r3zg==}

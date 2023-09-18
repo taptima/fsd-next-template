@@ -1,0 +1,156 @@
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+index 0000000000000000000000000000000000000000..b58b603fea78041071d125a30db58d79b3d49217
+--- /dev/null
++++ b/.idea/.gitignore
+@@ -0,0 +1,5 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
+diff --git a/.idea/300a27ff84e7790e098e22140a777781.iml b/.idea/300a27ff84e7790e098e22140a777781.iml
+new file mode 100644
+index 0000000000000000000000000000000000000000..24643cc37449b4bde54411a80b8ed61258225e34
+--- /dev/null
++++ b/.idea/300a27ff84e7790e098e22140a777781.iml
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+diff --git a/.idea/aws.xml b/.idea/aws.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..03f1bb6ee9ad30c4339021bc693f7879ce9d044f
+--- /dev/null
++++ b/.idea/aws.xml
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="accountSettings">
++    <option name="activeProfile" value="profile:default" />
++    <option name="activeRegion" value="us-east-1" />
++    <option name="recentlyUsedProfiles">
++      <list>
++        <option value="profile:default" />
++      </list>
++    </option>
++    <option name="recentlyUsedRegions">
++      <list>
++        <option value="us-east-1" />
++      </list>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/i18nSettings.xml b/.idea/i18nSettings.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..b554a427a73cb29ea3cfb1f23d5da5a2aacb33bd
+--- /dev/null
++++ b/.idea/i18nSettings.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="i18nSettings">
++    <option name="preferredLocalization" value="json" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..3f72714a0460e8d84dde95cd9de0defe7c86646c
+--- /dev/null
++++ b/.idea/modules.xml
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/300a27ff84e7790e098e22140a777781.iml" filepath="$PROJECT_DIR$/.idea/300a27ff84e7790e098e22140a777781.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..4c3fad0cd98596816f24287f5449136b00a1099e
+--- /dev/null
++++ b/.idea/workspace.xml
+@@ -0,0 +1,45 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ChangeListManager">
++    <list default="true" id="ffc33d69-a4cb-4c98-95dd-c3b3cebe73c2" name="Changes" comment="" />
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2VYpFRVwB6sYrYuNOGy5WJ1ebNw" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "true",
++    "nodejs_interpreter_path": "/Users/alcotras/.nvm/versions/node/v18.3.0/bin/node",
++    "nodejs_package_manager_path": "npm",
++    "settings.editor.selected.configurable": "settings.nodejs",
++    "ts.external.directory.path": "/Users/alcotras/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/231.9161.29/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
++    "vue.rearranger.settings.migration": "true"
++  }
++}]]></component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="ffc33d69-a4cb-4c98-95dd-c3b3cebe73c2" name="Changes" comment="" />
++      <created>1695022764320</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1695022764320</updated>
++      <workItem from="1695022767901" duration="73000" />
++    </task>
++    <servers />
++  </component>
++  <component name="TypeScriptGeneratedFilesManager">
++    <option name="version" value="3" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/image-types/global.d.ts b/image-types/global.d.ts
+index 661c316e89b3c1aa5913b8afebdbf3e6299eccd7..18a20fbd88cb157eb84329adbe8d43b4692f6fee 100644
+--- a/image-types/global.d.ts
++++ b/image-types/global.d.ts
+@@ -8,14 +8,10 @@ declare module '*.png' {
+ }
+ 
+ declare module '*.svg' {
+-  /**
+-   * Use `any` to avoid conflicts with
+-   * `@svgr/webpack` plugin or
+-   * `babel-plugin-inline-react-svg` plugin.
+-   */
+-  const content: any
++  import React from 'react';
+ 
+-  export default content
++  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
++  export default SVG;
+ }
+ 
+ declare module '*.jpg' {
