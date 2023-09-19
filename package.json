@@ -19,8 +19,7 @@
         "lint": "pnpm run lint-js-all && pnpm run lint-styles-all && pnpm format-all --check",
         "graphql:build": "graphql-codegen --config codegen.yml",
         "graphql:watch": "graphql-codegen --config codegen.yml -w",
-        "prepare": "husky install",
-        "generate-icons": "svgr --out-dir src/shared/ui/icons --typescript --ignore-existing -- src/shared/assets/icons"
+        "prepare": "husky install"
     },
     "browserslist": [
         "last 1 Chrome major versions",
@@ -46,7 +45,6 @@
         "@commitlint/cli": "^17.7.1",
         "@commitlint/config-conventional": "^17.7.0",
         "@next/bundle-analyzer": "^13.4.19",
-        "@svgr/cli": "^8.1.0",
         "@svgr/webpack": "^8.1.0",
         "@types/node": "18",
         "@types/react": "^18.2.21",
