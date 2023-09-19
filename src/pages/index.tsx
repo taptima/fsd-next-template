@@ -3,6 +3,8 @@ import { FC } from 'react';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
 
+import NextSVG from './next.svg';
+
 const inter = Inter({ subsets: ['latin'] });
 
 const Home: FC = () => {
@@ -39,7 +41,7 @@ const Home: FC = () => {
                 </div>
 
                 <div>
-                    <Image src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
+                    <NextSVG width={200} />
                 </div>
 
                 <div>

@@ -53,6 +53,7 @@
                 "ignoreDeclarationMerge": false
             }
         ],
-        "arrow-body-style": "off"
+        "arrow-body-style": "off",
+        "import/prefer-default-export": "off"
     }
 }
