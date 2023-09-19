@@ -5,12 +5,12 @@ export interface Product {
     description: string;
     discountPercentage: number;
     images: string[];
-    length: number;
     price: number;
     rating: number;
     stock: number;
     thumbnail: string;
     title: string;
+    length?: number;
 }
 
 export interface GetProductsResponse {

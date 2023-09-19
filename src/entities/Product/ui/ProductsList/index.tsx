@@ -7,13 +7,14 @@ import {
     useProductsPage,
 } from 'entities/Product/model/selectors/products';
 import { useGetProductsSWR } from 'entities/Product/model/services/useGetProductsSWR';
-import styles from './styles.module.scss';
+import cls from './styles.module.css';
 
 const ProductsList = () => {
     const limit = useProductsLimit();
     const page = useProductsPage();
     const { setLimit, setPage } = useProductsActions();
-    const { data, isLoading } = useGetProductsSWR();
+
+    const { data, isLoading, error } = useGetProductsSWR();
 
     const onLimitChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setLimit(Number(event.target.value));
@@ -37,23 +38,27 @@ const ProductsList = () => {
         return <div>LOADING...</div>;
     }
 
+    if (error) {
+        return <div>Error</div>;
+    }
+
     return (
         <>
-            <div className={clsx(styles.grid, { big: isLoading })}>
+            <div className={clsx(cls.grid, { big: isLoading })}>
                 {data?.products?.map((el) => {
                     return (
-                        <div className={styles.cardWrapper} key={el.id}>
-                            <div className={styles.card}>
+                        <div className={cls.cardWrapper} key={el.id}>
+                            <div className={cls.card}>
                                 <div>{el.title}</div>
                                 <div>{el.brand}</div>
-                                <div>{el.category}</div>
+                                <div>{el.description}</div>
                             </div>
                         </div>
                     );
                 })}
             </div>
-            <div className={styles.paginationWrapper}>
-                <div className={styles.pagination}>
+            <div className={cls.paginationWrapper}>
+                <div className={cls.pagination}>
                     <select value={limit} onChange={onLimitChange}>
                         <option value={10}>10</option>
                         <option value={25}>25</option>
