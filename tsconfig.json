@@ -1,10 +1,7 @@
 {
     "compilerOptions": {
         "strict": true,
-        "baseUrl": ".",
-        "paths": {
-            "*": ["./src/*"]
-        },
+        "baseUrl": "./src",
         "jsx": "preserve",
         "allowSyntheticDefaultImports": true,
         "target": "es6",

@@ -26,7 +26,6 @@
                 "maxDepth": 2
             }
         ],
-        "import/no-relative-parent-imports": "error",
         "no-empty": [
             "error",
             {
@@ -54,6 +53,7 @@
             }
         ],
         "arrow-body-style": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "import/no-relative-parent-imports": "off"
     }
 }
