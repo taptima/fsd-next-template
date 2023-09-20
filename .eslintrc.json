@@ -11,7 +11,7 @@
         "browser": true,
         "node": true
     },
-    "plugins": ["@typescript-eslint", "import"],
+    "plugins": ["@typescript-eslint", "import", "no-relative-import-paths"],
     "parserOptions": {
         "project": "./tsconfig.json",
         "tsconfigRootDir": "."
@@ -54,6 +54,10 @@
         ],
         "arrow-body-style": "off",
         "import/prefer-default-export": "off",
-        "import/no-relative-parent-imports": "off"
+        "import/no-relative-parent-imports": "off",
+        "no-relative-import-paths/no-relative-import-paths": [
+            "error",
+            { "allowSameFolder": true, "rootDir": "src" }
+        ]
     }
 }

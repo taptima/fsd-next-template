@@ -1,6 +1,6 @@
 import { actionParams } from 'shared/lib/helpers/actionParams';
 import { createStore } from 'shared/lib/config/createStore';
-import { ProductsStoreSchema } from '../types/store';
+import { ProductsStoreSchema } from 'entities/Product/model/types/store';
 
 export const useProductsStore = createStore<ProductsStoreSchema>(
     (set) => ({
