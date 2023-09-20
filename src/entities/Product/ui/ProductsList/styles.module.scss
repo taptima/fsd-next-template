@@ -5,15 +5,15 @@
     margin-top: 10px;
 }
 
-.cardWrapper {
-    display: flex;
-    justify-content: center;
-}
-
 .card {
     border: 1px solid black;
     width: 200px;
     height: 200px;
+
+    &Wrapper {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .paginationWrapper {
