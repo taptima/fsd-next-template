@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const $axios = axios.create({
+export const axiosInstance = axios.create({
     baseURL: 'https://dummyjson.com',
 });
 
-export const $axiosFrontend = axios.create();
+export const axiosInstanceFrontend = axios.create();

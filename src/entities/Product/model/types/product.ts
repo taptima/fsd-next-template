@@ -1,21 +1,13 @@
 export interface Product {
     id: number;
-    brand: string;
-    category: string;
+    title: string;
     description: string;
-    discountPercentage: number;
-    images: string[];
     price: number;
+    discount: number;
     rating: number;
     stock: number;
+    brand: string;
+    category: string;
     thumbnail: string;
-    title: string;
-    length?: number;
-}
-
-export interface GetProductsResponse {
-    limit: number;
-    products: Product[];
-    skip: number;
-    total: number;
+    images: string[];
 }

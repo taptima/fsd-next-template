@@ -1,18 +1,18 @@
 import useSWR from 'swr';
-import { useProductsLimit, useProductsPage } from 'entities/Product/model/selectors/products';
 import { AxiosResponse } from 'axios';
-import { fetcher, HttpMethods } from 'shared/lib/api/fetcher';
-import { GetProductsResponse } from '../types/product';
+import { fetcher, HttpMethod } from 'shared/lib/api/fetcher';
+import { Product } from 'entities/Product/model/types/product';
+import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
 
 export const useGetProductsSWR = () => {
-    const limit = useProductsLimit();
-    const page = useProductsPage();
+    const limit = useProductsStore.use.limit();
+    const page = useProductsStore.use.page();
 
     const skip = page * limit;
 
-    const { data, ...rest } = useSWR<AxiosResponse<GetProductsResponse>>(
+    const { data, ...rest } = useSWR<AxiosResponse<Product[]>>(
         [`/api/products`, { skip, limit }],
-        fetcher(HttpMethods.GET),
+        fetcher(HttpMethod.GET),
     );
 
     return { data: data?.data, ...rest };

@@ -1,3 +1,3 @@
-import { Product } from 'entities/Product/model/types/product';
+import type { Product } from 'entities/Product';
 
-export type ProductsProduct = Replace<Product, 'discountPercentage', 'discount'>;
+export type ProductsProduct = Pick<Product, 'id' | 'title' | 'description' | 'price'>;

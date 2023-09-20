@@ -1,15 +1,19 @@
 import { actionParams } from 'shared/lib/helpers/actionParams';
 import { createStore } from 'shared/lib/config/createStore';
-import { ProductsStoreSchema } from 'entities/Product/model/types/store';
+import { ProductsState, ProductsStoreSchema } from 'entities/Product/model/types/store';
+
+const initialState: ProductsState = {
+    limit: 10,
+    page: 1,
+};
 
 export const useProductsStore = createStore<ProductsStoreSchema>(
     (set) => ({
-        limit: 10,
-        page: 1,
+        ...initialState,
         actions: {
             setLimit: (limit) =>
                 set(
-                    ...actionParams<ProductsStoreSchema>({
+                    ...actionParams<ProductsStoreSchema, number>({
                         callback: () => ({ limit }),
                         value: limit,
                         type: 'setLimit',
@@ -17,10 +21,18 @@ export const useProductsStore = createStore<ProductsStoreSchema>(
                 ),
             setPage: (page) =>
                 set(
-                    ...actionParams<ProductsStoreSchema>({
+                    ...actionParams<ProductsStoreSchema, number>({
                         callback: () => ({ page }),
                         value: page,
                         type: 'setPage',
+                    }),
+                ),
+            reset: () =>
+                set(
+                    ...actionParams<ProductsStoreSchema, ProductsState>({
+                        callback: () => ({ ...initialState }),
+                        value: initialState,
+                        type: 'reset',
                     }),
                 ),
         },

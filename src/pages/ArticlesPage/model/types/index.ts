@@ -1,3 +1,6 @@
-import { Product } from 'entities/Product/model/types/product';
+import type { Product } from 'entities/Product';
 
-export type ArticlesProduct = Replace<Product, 'images', 'image', Product['images'][0]>;
+export type ArticleProduct = Pick<
+    Product,
+    'id' | 'title' | 'description' | 'price' | 'rating' | 'thumbnail'
+>;

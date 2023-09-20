@@ -1,20 +1,21 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 import clsx from 'clsx';
-import {
-    useProductsActions,
-    useProductsLimit,
-    useProductsPage,
-} from 'entities/Product/model/selectors/products';
-import { useGetProductsSWR } from 'entities/Product/model/services/useGetProductsSWR';
+import type { ProductsProduct } from 'pages/ProductsPage';
+import type { ArticleProduct } from 'pages/ArticlesPage';
+import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
 import cls from './styles.module.css';
 
-const ProductsList = () => {
-    const limit = useProductsLimit();
-    const page = useProductsPage();
-    const { setLimit, setPage } = useProductsActions();
+type Props = {
+    products?: ProductsProduct[] | ArticleProduct[];
+    isLoading: boolean;
+    error: string;
+};
 
-    const { data, isLoading, error } = useGetProductsSWR();
+const ProductsList: FC<Props> = ({ products, isLoading, error }) => {
+    const limit = useProductsStore.use.limit();
+    const page = useProductsStore.use.page();
+    const { setLimit, setPage } = useProductsStore.use.actions();
 
     const onLimitChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setLimit(Number(event.target.value));
@@ -34,6 +35,32 @@ const ProductsList = () => {
         }
     };
 
+    const renderListItem = (el: ArticleProduct | ProductsProduct) => {
+        if ('thumbnail' in el && el.thumbnail) {
+            return (
+                <div className={cls.cardWrapper} key={el.id}>
+                    <div className={cls.card}>
+                        <div>Title: {el.title}</div>
+                        <div>Price: {el.price}</div>
+                        <div>Descr: {el.description}</div>
+                        <div>Thumbnail: {el.thumbnail}</div>
+                        <div>Rating: {el.rating}</div>
+                    </div>
+                </div>
+            );
+        }
+
+        return (
+            <div className={cls.cardWrapper} key={el.id}>
+                <div className={cls.card}>
+                    <div>Title: {el.title}</div>
+                    <div>Price: {el.price}</div>
+                    <div>Descr: {el.description}</div>
+                </div>
+            </div>
+        );
+    };
+
     if (isLoading) {
         return <div>LOADING...</div>;
     }
@@ -45,17 +72,7 @@ const ProductsList = () => {
     return (
         <>
             <div className={clsx(cls.grid, { big: isLoading })}>
-                {data?.products?.map((el) => {
-                    return (
-                        <div className={cls.cardWrapper} key={el.id}>
-                            <div className={cls.card}>
-                                <div>{el.title}</div>
-                                <div>{el.brand}</div>
-                                <div>{el.description}</div>
-                            </div>
-                        </div>
-                    );
-                })}
+                {products?.map(renderListItem)}
             </div>
             <div className={cls.paginationWrapper}>
                 <div className={cls.pagination}>

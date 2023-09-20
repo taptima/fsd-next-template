@@ -5,6 +5,10 @@ export interface ProductsState {
     page: number;
 }
 
-export interface ProductsAction extends StoreActions<ProductsState> {}
+export type ProductsAction = StoreActions<ProductsState> & {
+    actions: {
+        reset: () => void;
+    };
+};
 
 export type ProductsStoreSchema = ProductsState & ProductsAction;
