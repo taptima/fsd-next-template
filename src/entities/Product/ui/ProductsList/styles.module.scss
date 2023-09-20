@@ -1,0 +1,26 @@
+.grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 10px;
+}
+
+.cardWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+.paginationWrapper {
+    $offset: 20px;
+
+    margin-top: $offset;
+    margin-right: $offset;
+    display: flex;
+    justify-content: flex-end;
+}
