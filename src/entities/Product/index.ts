@@ -1,3 +1,3 @@
-import ProductsList from 'entities/Product/ui/ProductsList';
+import ProductsList from './ui/ProductsList';
 
 export { ProductsList };

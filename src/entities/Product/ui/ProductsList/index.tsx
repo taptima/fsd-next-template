@@ -5,9 +5,9 @@ import {
     useProductsActions,
     useProductsLimit,
     useProductsPage,
-} from '../../model/selectors/products';
+} from 'entities/Product/model/selectors/products';
+import { useGetProductsSWR } from 'entities/Product/model/services/useGetProductsSWR';
 import styles from './styles.module.scss';
-import { useGetProductsSWR } from '../../model/services/useGetProductsSWR';
 
 const ProductsList = () => {
     const limit = useProductsLimit();
