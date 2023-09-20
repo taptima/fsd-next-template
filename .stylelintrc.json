@@ -1,5 +1,5 @@
 {
-    "extends": ["stylelint-config-standard"],
+    "extends": ["stylelint-config-standard-scss"],
     "plugins": ["stylelint-order"],
     "rules": {
         "selector-no-qualifying-type": true,
@@ -11,6 +11,13 @@
             "declarations",
             "rules",
             "at-rules"
+        ],
+        "selector-class-pattern": [
+            "^[a-z]+([A-Z][a-z]+)*$",
+            {
+                "message": "Expected class selector to be written in camelCase (selector-class-pattern)",
+                "resolveNestedSelectors": true
+            }
         ]
     }
 }
