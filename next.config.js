@@ -29,7 +29,7 @@ const nextConfig = {
             },
         ];
     },
-    webpack(config) {
+    webpack(config, { dev }) {
         config.module.rules.push({
             test: /\.graphql$/,
             loader: 'graphql-tag/loader',

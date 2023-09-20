@@ -6,7 +6,7 @@ import {
     useProductsLimit,
     useProductsPage,
 } from '../../model/selectors/products';
-import cls from './styles.module.css';
+import styles from './styles.module.scss';
 import { useGetProductsSWR } from '../../model/services/useGetProductsSWR';
 
 const ProductsList = () => {
@@ -39,11 +39,11 @@ const ProductsList = () => {
 
     return (
         <>
-            <div className={clsx(cls.grid, { big: isLoading })}>
+            <div className={clsx(styles.grid, { big: isLoading })}>
                 {data?.products?.map((el) => {
                     return (
-                        <div className={cls.cardWrapper} key={el.id}>
-                            <div className={cls.card}>
+                        <div className={styles.cardWrapper} key={el.id}>
+                            <div className={styles.card}>
                                 <div>{el.title}</div>
                                 <div>{el.brand}</div>
                                 <div>{el.category}</div>
@@ -52,8 +52,8 @@ const ProductsList = () => {
                     );
                 })}
             </div>
-            <div className={cls.paginationWrapper}>
-                <div className={cls.pagination}>
+            <div className={styles.paginationWrapper}>
+                <div className={styles.pagination}>
                     <select value={limit} onChange={onLimitChange}>
                         <option value={10}>10</option>
                         <option value={25}>25</option>

@@ -3,7 +3,7 @@
         "strict": true,
         "baseUrl": "./src",
         "paths": {
-            //            To fix the error: Cannot find module 'node_modules/entities/*'
+            // To fix the error: Cannot find module 'node_modules/entities/*'
             "entities/*": ["entities/*"]
         },
         "jsx": "preserve",

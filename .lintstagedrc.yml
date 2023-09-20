@@ -2,5 +2,5 @@
   - pnpm run lint-js
   - pnpm run format --write
 
-"*.json":
+"*.{json,scss}":
   - pnpm run format --write
