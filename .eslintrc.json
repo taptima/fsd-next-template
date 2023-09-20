@@ -6,7 +6,7 @@
         "next/core-web-vitals",
         "prettier"
     ],
-    "ignorePatterns": ["*.config.js"],
+    "ignorePatterns": ["*.config.js", "config/**/*.js"],
     "env": {
         "browser": true,
         "node": true

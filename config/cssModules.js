@@ -6,6 +6,8 @@
 const loaderUtils = require('loader-utils');
 const path = require('path');
 
+const regexLikeIndexStylesModule = /(?<!pages[\\/])(index|styles)\.module\.(scss|sass|css)$/;
+
 // Вместо <directory>__<classname>__<hash>
 // Возвращает <hash>
 function getCssModuleIdent(context, _, exportName, options) {
@@ -20,8 +22,17 @@ function getCssModuleIdent(context, _, exportName, options) {
         6,
     );
 
+    // Generate a more meaningful name (parent folder) when the user names the
+    // file `index.module.css` or `styles.module.css`
+    const fileNameOrFolder = regexLikeIndexStylesModule.test(relativePath) ? '[folder]' : '[name]';
+
+    const className =
+        process.env.NODE_ENV === 'production'
+            ? hash
+            : `${fileNameOrFolder}__${exportName}__${hash}`;
+
     return loaderUtils
-        .interpolateName(context, hash, options)
+        .interpolateName(context, className, options)
         .replace(/\.module_/, '_')
         .replace(/[^a-zA-Z0-9-_]/g, '_')
         .replace(/^(\d|--|-\d)/, '__$1');
@@ -46,7 +57,7 @@ function cssLoaderOptions(modules) {
     };
 }
 
-function hashCssModulesConfig(config) {
+function cssModulesConfig(config) {
     const oneOf = config.module.rules.find((rule) => typeof rule.oneOf === 'object');
 
     if (!oneOf) {
@@ -71,4 +82,4 @@ function hashCssModulesConfig(config) {
     }
 }
 
-module.exports = hashCssModulesConfig;
+module.exports = cssModulesConfig;
