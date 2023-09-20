@@ -2,6 +2,10 @@
     "compilerOptions": {
         "strict": true,
         "baseUrl": "./src",
+        "paths": {
+            //            To fix the error: Cannot find module 'node_modules/entities/*'
+            "entities/*": ["entities/*"]
+        },
         "jsx": "preserve",
         "allowSyntheticDefaultImports": true,
         "target": "es6",
