@@ -1,7 +1,6 @@
 import { create, StateCreator } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { devtools, DevtoolsOptions } from 'zustand/middleware';
 import initializeDevtoolsOptions from 'shared/lib/helpers/initializeDevtoolsOptions';
-import { DevtoolsOptions } from 'zustand/esm/middleware';
 import { withGeneratedSelectors } from 'shared/lib/helpers/withGeneratedSelectors';
 
 export const createStore = <Schema extends object>(
@@ -9,9 +8,20 @@ export const createStore = <Schema extends object>(
     storeName: string,
     devtoolsOptions?: DevtoolsOptions,
 ) => {
-    return withGeneratedSelectors(
-        create<Schema>()(
-            devtools(initializer, initializeDevtoolsOptions(storeName, devtoolsOptions)),
-        ),
+    const withDevtools = devtools<Schema>(
+        (setState, getState, store) => {
+            // eslint-disable-next-line no-param-reassign
+            store.setState = (state, replace, nameOrAction) => {
+                const stateModifiedNameRegex = /[a-zA-Z]{2,}/;
+                const [stateName] = state.toString().match(stateModifiedNameRegex) ?? [undefined];
+
+                return setState(state, replace, (nameOrAction ?? stateName) as string);
+            };
+
+            return initializer(store.setState, getState, store);
+        },
+        initializeDevtoolsOptions(storeName, devtoolsOptions),
     );
+
+    return withGeneratedSelectors(create<Schema>()(withDevtools));
 };
