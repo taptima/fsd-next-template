@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { ProductsList, useProductsStore } from 'entities/Product';
-import { useGetProductPageProductsSWR } from '../../model/services/useGetProductPageProductsSWR';
+import { useGetProductPageProductsSWR } from 'pages/ProductsPage/model/services/useGetProductPageProductsSWR';
 
 export default function ProductsPage() {
     const { data, isLoading, error } = useGetProductPageProductsSWR();
@@ -18,7 +18,7 @@ export default function ProductsPage() {
         <div>
             <div>Products</div>
             <Link href="/">To MAIN</Link>
-            <ProductsList products={data} isLoading={isLoading} error={error} />
+            <ProductsList products={data?.products} isLoading={isLoading} error={error} />
         </div>
     );
 }

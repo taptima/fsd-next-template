@@ -4,5 +4,5 @@ export type Setters<Schema extends object> = {
     ) => void;
 };
 
-export interface StoreActions<Schema extends object>
-    extends Readonly<{ actions: Setters<Schema> }> {}
+export interface StoreActions<Schema extends object = object, Actions = object>
+    extends Readonly<{ actions: Setters<Schema> & Actions }> {}

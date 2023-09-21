@@ -1,12 +1,12 @@
 import { createStore } from 'shared/lib/config/createStore';
-import { ProductsState, ProductsStoreSchema } from 'entities/Product/model/types/store';
+import { ProductsState, ProductsStore } from 'entities/Product/model/types/store';
 
 const initialState: ProductsState = {
     limit: 10,
     page: 1,
 };
 
-export const useProductsStore = createStore<ProductsStoreSchema>(
+export const useProductsStore = createStore<ProductsStore>(
     (set) => ({
         ...initialState,
         actions: {

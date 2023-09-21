@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 import { AxiosResponse } from 'axios';
 import { fetcher, HttpMethod } from 'shared/lib/api/fetcher';
-import { Product } from 'entities/Product/model/types/product';
+import { GetProductsResponse } from 'entities/Product/model/types/product';
 import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
 
 export const useGetProductsSWR = () => {
@@ -10,7 +10,7 @@ export const useGetProductsSWR = () => {
 
     const skip = page * limit;
 
-    const { data, ...rest } = useSWR<AxiosResponse<Product[]>>(
+    const { data, ...rest } = useSWR<AxiosResponse<GetProductsResponse>>(
         [`/api/products`, { skip, limit }],
         fetcher(HttpMethod.GET),
     );

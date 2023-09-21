@@ -2,7 +2,7 @@ import useSWR from 'swr';
 import { AxiosResponse } from 'axios';
 import { fetcher, HttpMethod } from 'shared/lib/api/fetcher';
 import { useProductsStore } from 'entities/Product';
-import { ArticleProduct } from '../types';
+import { GetArticlesProductResponse } from 'pages/ArticlesPage/model/types';
 
 export const useGetArticlesPageProductsSWR = () => {
     const limit = useProductsStore.use.limit();
@@ -12,7 +12,7 @@ export const useGetArticlesPageProductsSWR = () => {
 
     // For the GraphQL request, we will send the fields that we want to receive.
     // Since in this example there is a REST request, it's identical to the request from the entity.
-    const { data, ...rest } = useSWR<AxiosResponse<ArticleProduct[]>>(
+    const { data, ...rest } = useSWR<AxiosResponse<GetArticlesProductResponse>>(
         [`/api/products`, { skip, limit }],
         fetcher(HttpMethod.GET),
     );
