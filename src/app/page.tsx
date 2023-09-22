@@ -11,6 +11,7 @@ export default async function Home() {
                 </p>
                 <div>
                     <Link href="/products">To PRODUCTS</Link>
+                    <Link href="/articles">To Articles</Link>
                 </div>
             </div>
 
