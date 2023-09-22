@@ -2,7 +2,6 @@
     "extends": ["stylelint-config-standard-scss"],
     "plugins": ["stylelint-order"],
     "rules": {
-        "selector-no-qualifying-type": true,
         "font-family-name-quotes": "always-unless-keyword",
         "declaration-no-important": true,
         "order/order": [
@@ -17,6 +16,12 @@
             {
                 "message": "Expected class selector to be written in camelCase (selector-class-pattern)",
                 "resolveNestedSelectors": true
+            }
+        ],
+        "selector-no-qualifying-type": [
+            true,
+            {
+                "ignore": ["attribute"]
             }
         ]
     }
