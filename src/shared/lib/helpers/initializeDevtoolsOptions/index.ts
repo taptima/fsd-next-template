@@ -1,5 +1,5 @@
 import { DevtoolsOptions } from 'zustand/middleware';
-import { IS_PRODUCTION } from 'shared/config/env';
+import { IS_PRODUCTION } from 'shared/const/env';
 
 export default function initializeDevtoolsOptions(
     name: string,

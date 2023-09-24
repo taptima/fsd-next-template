@@ -1,5 +1,5 @@
-import { axiosInstanceFrontend } from 'shared/lib/api/axios';
 import { AxiosRequestConfig } from 'axios';
+import { restFrontendClient } from 'shared/lib/api/restApi';
 
 export const enum HttpMethod {
     GET = 'get',
@@ -10,15 +10,15 @@ export const enum HttpMethod {
 
 type FetcherProps = [string, AxiosRequestConfig['params'] | undefined];
 
-export const fetcher =
+export const swrRestFetcher =
     <T extends HttpMethod>(method: T) =>
     (props: FetcherProps | string) => {
         if (typeof props === 'string') {
-            return axiosInstanceFrontend[method](props);
+            return restFrontendClient[method](props);
         }
         const [url, params] = props;
 
-        return axiosInstanceFrontend[method](url, {
+        return restFrontendClient[method](url, {
             params,
         });
     };

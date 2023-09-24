@@ -1,4 +1,4 @@
-import { createStore } from 'shared/lib/config/createStore';
+import { createStore } from 'shared/config/createStore';
 import { ProductsState, ProductsStore } from 'entities/Product/model/types/store';
 
 const initialState: ProductsState = {

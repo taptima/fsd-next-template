@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 import { AxiosResponse } from 'axios';
-import { fetcher, HttpMethod } from 'shared/lib/api/fetcher';
+import { swrRestFetcher, HttpMethod } from 'shared/lib/api/fetcher';
 import { useProductsStore } from 'entities/Product';
 import { GetArticlesProductResponse } from 'pages/ArticlesPage/model/types';
 
@@ -14,7 +14,7 @@ export const useGetArticlesPageProductsSWR = () => {
     // Since in this example there is a REST request, it's identical to the request from the entity.
     const { data, ...rest } = useSWR<AxiosResponse<GetArticlesProductResponse>>(
         [`/api/products`, { skip, limit }],
-        fetcher(HttpMethod.GET),
+        swrRestFetcher(HttpMethod.GET),
     );
 
     return { data: data?.data, ...rest };

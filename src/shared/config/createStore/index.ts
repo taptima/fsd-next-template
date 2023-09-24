@@ -2,7 +2,7 @@ import { create, StateCreator } from 'zustand';
 import { devtools, DevtoolsOptions } from 'zustand/middleware';
 import initializeDevtoolsOptions from 'shared/lib/helpers/initializeDevtoolsOptions';
 import { withGeneratedSelectors } from 'shared/lib/helpers/withGeneratedSelectors';
-import { IS_PRODUCTION } from 'shared/config/env';
+import { IS_PRODUCTION } from 'shared/const/env';
 import { StoreActions } from 'shared/types/storeActions';
 
 export const createStore = <Schema extends StoreActions>(

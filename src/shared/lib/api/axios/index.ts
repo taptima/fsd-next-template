@@ -1,12 +1,12 @@
 import axios, { AxiosInstance } from 'axios';
-import { handleError } from 'shared/lib/config/logger';
+import { handleError } from 'shared/config/logger';
 
 const TIMEOUT_ERROR_MESSAGE = 'TimeoutError';
 
-class AxiosClient {
-    private readonly _client: AxiosInstance;
+export default abstract class AbstractAxiosClient {
+    protected readonly _client: AxiosInstance;
 
-    public constructor(apiBaseURL: string = '') {
+    public constructor(apiBaseURL: string) {
         this._client = axios.create({
             baseURL: apiBaseURL,
             timeout: 10000,
@@ -25,12 +25,4 @@ class AxiosClient {
             throw error;
         });
     }
-
-    public get client(): AxiosInstance {
-        return this._client;
-    }
 }
-
-export const axiosInstance = new AxiosClient('https://dummyjson.com').client;
-
-export const axiosInstanceFrontend = new AxiosClient().client;
