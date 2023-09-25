@@ -1,4 +1,4 @@
 {
-    "pattern": "^(master|main|develop|dev){1}$|^(feature|bugfix|hotfix|release)/.+$",
+    "pattern": "^(master|dev){1}$|^(feature|bugfix|hotfix|release)/.+$",
     "errorMsg": "Branch name validate failed please rename your current branch. Follow these guidelines https://www.notion.so/2fd730f153184df497d5e1096f9533aa"
 }
