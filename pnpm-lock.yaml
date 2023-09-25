@@ -13,12 +13,18 @@ dependencies:
   '@sentry/nextjs':
     specifier: ^7.68.0
     version: 7.68.0(next@13.4.19)(react@18.2.0)(webpack@5.88.2)
+  async-mutex:
+    specifier: ^0.4.0
+    version: 0.4.0
   axios:
     specifier: ^1.5.0
     version: 1.5.0
   clsx:
     specifier: ^2.0.0
     version: 2.0.0
+  graphql:
+    specifier: ^16.8.1
+    version: 16.8.1
   next:
     specifier: 13.4.19
     version: 13.4.19(patch_hash=ezhjmmgvh3ss5tyjxufps2qf5u)(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)(sass@1.67.0)
@@ -2699,6 +2705,12 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /async-mutex@0.4.0:
+    resolution: {integrity: sha512-eJFZ1YhRR8UN8eBLoNzcDPcy/jqjsg6I1AP+KvWQX80BqOSW1oJPJXDylPUEeMr2ZQvHgnQ//Lp6f3RQ1zI7HA==}
+    dependencies:
+      tslib: 2.6.2
+    dev: false
+
   /asynciterator.prototype@1.0.0:
     resolution: {integrity: sha512-wwHYEIS0Q80f5mosx3L/dfG5t5rjEa9Ft51GTaNt862EnpyGHpgz2RkZvLPp1oF5TnAiTohkEKVEu8pQPJI7Vg==}
     dependencies:
@@ -4123,6 +4135,11 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
+
+  /graphql@16.8.1:
+    resolution: {integrity: sha512-59LZHPdGZVh695Ud9lRzPBVTtlX9ZCV150Er2W43ro37wVof0ctenSaskPPjN7lVTIN8mSZt8PHUNKZuNQUuxw==}
+    engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+    dev: false
 
   /gzip-size@6.0.0:
     resolution: {integrity: sha512-ax7ZYomf6jqPTQ4+XCpUGyXKHk5WweS+e05MBO4/y3WJ5RkmPXNKvX+bx1behVILVwr6JSQvZAku021CHPXG3Q==}

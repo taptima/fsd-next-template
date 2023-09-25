@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import type { ProductsProduct } from 'pages/ProductsPage';
 import type { ArticleProduct } from 'pages/ArticlesPage';
 import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
-import cls from './styles.module.css';
+import cls from './styles.module.scss';
 
 type Props = {
     products?: ProductsProduct[] | ArticleProduct[];

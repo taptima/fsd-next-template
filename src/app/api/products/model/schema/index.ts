@@ -23,4 +23,4 @@ export const GetProductsResponseSchema = object({
 
 export type ProductBackend = Infer<typeof ProductBackendSchema>;
 
-export type GetProductsResponse = Infer<typeof GetProductsResponseSchema>;
+export type GetProductsResponseBackend = Infer<typeof GetProductsResponseSchema>;
