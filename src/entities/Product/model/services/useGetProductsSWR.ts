@@ -1,8 +1,8 @@
 import useSWR from 'swr';
 import { AxiosResponse } from 'axios';
 import { swrRestFetcher, HttpMethod } from 'shared/lib/api/fetcher';
-import { GetProductsResponse } from 'entities/Product/model/types/product';
 import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
+import { GetProductsResponse } from 'entities/Product/model/types/schema';
 
 export const useGetProductsSWR = () => {
     const limit = useProductsStore.use.limit();

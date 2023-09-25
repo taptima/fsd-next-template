@@ -1,8 +1,8 @@
 import type { Product } from 'entities/Product';
-import { GetProductResponse } from 'entities/Product/model/types/product';
+import type { GetProductsResponse } from 'entities/Product/model/types/schema';
 
 export type ProductsProduct = Pick<Product, 'id' | 'title' | 'description' | 'price'>;
 
-export interface GetProductsProductResponse extends StrictOmit<GetProductResponse, 'products'> {
+export interface GetProductsProductResponse extends StrictOmit<GetProductsResponse, 'products'> {
     products: ProductsProduct[];
 }

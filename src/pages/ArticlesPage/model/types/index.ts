@@ -1,5 +1,5 @@
 import type { Product } from 'entities/Product';
-import { GetProductsResponse } from 'entities/Product/model/types/product';
+import type { GetProductsResponse } from 'entities/Product/model/types/schema';
 
 export type ArticleProduct = Pick<
     Product,

@@ -1,5 +1,5 @@
-import type { GetProductsResponse } from 'entities/Product/model/types/product';
 import type { GetProductsResponseBackend } from 'app/api/products/model/schema';
+import { GetProductsResponse } from 'entities/Product/model/types/schema';
 
 export const productMapper = (data: GetProductsResponseBackend): GetProductsResponse => ({
     limit: data.limit ?? NaN,
