@@ -1,11 +1,11 @@
 import type { Product } from 'entities/Product';
-import { GetProductResponse } from 'entities/Product/model/types/product';
+import { GetProductsResponse } from 'entities/Product/model/types/product';
 
 export type ArticleProduct = Pick<
     Product,
     'id' | 'title' | 'description' | 'price' | 'rating' | 'thumbnail'
 >;
 
-export interface GetArticlesProductResponse extends StrictOmit<GetProductResponse, 'products'> {
+export interface GetArticlesProductResponse extends StrictOmit<GetProductsResponse, 'products'> {
     products: ArticleProduct[];
 }

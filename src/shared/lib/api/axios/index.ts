@@ -25,4 +25,8 @@ export default abstract class AbstractAxiosClient {
             throw error;
         });
     }
+
+    public get client(): AxiosInstance {
+        return this._client;
+    }
 }
