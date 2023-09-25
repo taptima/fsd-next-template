@@ -1,5 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
+
+import NextSvg from 'shared/assets/icons/next.svg';
 
 export default async function Home() {
     return (
@@ -16,7 +17,7 @@ export default async function Home() {
             </div>
 
             <div>
-                <Image src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
+                <NextSvg width={180} height={37} />
             </div>
 
             <div>

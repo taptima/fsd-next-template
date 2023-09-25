@@ -11,7 +11,7 @@ function svgrConfig(config) {
         // Convert all other *.svg imports to React components
         {
             test: /\.svg$/i,
-            issuer: /\.[jt]sx?$/,
+            issuer: fileLoaderRule.issuer,
             resourceQuery: { not: /url/ }, // exclude if *.svg?url
             use: ['@svgr/webpack'],
         },

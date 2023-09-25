@@ -9,25 +9,6 @@ index 0000000000000000000000000000000000000000..b58b603fea78041071d125a30db58d79
 +/workspace.xml
 +# Editor-based HTTP Client requests
 +/httpRequests/
-diff --git a/.idea/300a27ff84e7790e098e22140a777781.iml b/.idea/300a27ff84e7790e098e22140a777781.iml
-new file mode 100644
-index 0000000000000000000000000000000000000000..24643cc37449b4bde54411a80b8ed61258225e34
---- /dev/null
-+++ b/.idea/300a27ff84e7790e098e22140a777781.iml
-@@ -0,0 +1,12 @@
-+<?xml version="1.0" encoding="UTF-8"?>
-+<module type="WEB_MODULE" version="4">
-+  <component name="NewModuleRootManager">
-+    <content url="file://$MODULE_DIR$">
-+      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
-+      <excludeFolder url="file://$MODULE_DIR$/temp" />
-+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
-+    </content>
-+    <orderEntry type="inheritedJdk" />
-+    <orderEntry type="sourceFolder" forTests="false" />
-+  </component>
-+</module>
-\ No newline at end of file
 diff --git a/.idea/aws.xml b/.idea/aws.xml
 new file mode 100644
 index 0000000000000000000000000000000000000000..03f1bb6ee9ad30c4339021bc693f7879ce9d044f
@@ -52,22 +33,28 @@ index 0000000000000000000000000000000000000000..03f1bb6ee9ad30c4339021bc693f7879
 +  </component>
 +</project>
 \ No newline at end of file
-diff --git a/.idea/i18nSettings.xml b/.idea/i18nSettings.xml
+diff --git a/.idea/da4ff0849f0d8a62360adaa1b3de60c7.iml b/.idea/da4ff0849f0d8a62360adaa1b3de60c7.iml
 new file mode 100644
-index 0000000000000000000000000000000000000000..b554a427a73cb29ea3cfb1f23d5da5a2aacb33bd
+index 0000000000000000000000000000000000000000..24643cc37449b4bde54411a80b8ed61258225e34
 --- /dev/null
-+++ b/.idea/i18nSettings.xml
-@@ -0,0 +1,6 @@
++++ b/.idea/da4ff0849f0d8a62360adaa1b3de60c7.iml
+@@ -0,0 +1,12 @@
 +<?xml version="1.0" encoding="UTF-8"?>
-+<project version="4">
-+  <component name="i18nSettings">
-+    <option name="preferredLocalization" value="json" />
++<module type="WEB_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.tmp" />
++      <excludeFolder url="file://$MODULE_DIR$/temp" />
++      <excludeFolder url="file://$MODULE_DIR$/tmp" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
 +  </component>
-+</project>
++</module>
 \ No newline at end of file
 diff --git a/.idea/modules.xml b/.idea/modules.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..3f72714a0460e8d84dde95cd9de0defe7c86646c
+index 0000000000000000000000000000000000000000..4ea57e546fcb86b0f242f0b40fc1b8476c60cac8
 --- /dev/null
 +++ b/.idea/modules.xml
 @@ -0,0 +1,8 @@
@@ -75,21 +62,21 @@ index 0000000000000000000000000000000000000000..3f72714a0460e8d84dde95cd9de0defe
 +<project version="4">
 +  <component name="ProjectModuleManager">
 +    <modules>
-+      <module fileurl="file://$PROJECT_DIR$/.idea/300a27ff84e7790e098e22140a777781.iml" filepath="$PROJECT_DIR$/.idea/300a27ff84e7790e098e22140a777781.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/da4ff0849f0d8a62360adaa1b3de60c7.iml" filepath="$PROJECT_DIR$/.idea/da4ff0849f0d8a62360adaa1b3de60c7.iml" />
 +    </modules>
 +  </component>
 +</project>
 \ No newline at end of file
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..4c3fad0cd98596816f24287f5449136b00a1099e
+index 0000000000000000000000000000000000000000..03785988e763a15a9fd9dffe4e5abd5bb405baf2
 --- /dev/null
 +++ b/.idea/workspace.xml
-@@ -0,0 +1,45 @@
+@@ -0,0 +1,48 @@
 +<?xml version="1.0" encoding="UTF-8"?>
 +<project version="4">
 +  <component name="ChangeListManager">
-+    <list default="true" id="ffc33d69-a4cb-4c98-95dd-c3b3cebe73c2" name="Changes" comment="" />
++    <list default="true" id="ffd0de58-e193-44b0-95ae-f937d6293e99" name="Changes" comment="" />
 +    <option name="SHOW_DIALOG" value="false" />
 +    <option name="HIGHLIGHT_CONFLICTS" value="true" />
 +    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +85,10 @@ index 0000000000000000000000000000000000000000..4c3fad0cd98596816f24287f5449136b
 +  <component name="MarkdownSettingsMigration">
 +    <option name="stateVersion" value="1" />
 +  </component>
-+  <component name="ProjectId" id="2VYpFRVwB6sYrYuNOGy5WJ1ebNw" />
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 2
++}]]></component>
++  <component name="ProjectId" id="2VtLAB3en54YFASbY8MAtLBPSo8" />
 +  <component name="ProjectViewState">
 +    <option name="hideEmptyMiddlePackages" value="true" />
 +    <option name="showLibraryContents" value="true" />
@@ -111,19 +101,19 @@ index 0000000000000000000000000000000000000000..4c3fad0cd98596816f24287f5449136b
 +    "nodejs_interpreter_path": "/Users/alcotras/.nvm/versions/node/v18.3.0/bin/node",
 +    "nodejs_package_manager_path": "npm",
 +    "settings.editor.selected.configurable": "settings.nodejs",
-+    "ts.external.directory.path": "/Users/alcotras/Library/Application Support/JetBrains/Toolbox/apps/WebStorm/ch-0/231.9161.29/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
++    "ts.external.directory.path": "/Users/alcotras/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
 +    "vue.rearranger.settings.migration": "true"
 +  }
 +}]]></component>
 +  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
 +  <component name="TaskManager">
 +    <task active="true" id="Default" summary="Default task">
-+      <changelist id="ffc33d69-a4cb-4c98-95dd-c3b3cebe73c2" name="Changes" comment="" />
-+      <created>1695022764320</created>
++      <changelist id="ffd0de58-e193-44b0-95ae-f937d6293e99" name="Changes" comment="" />
++      <created>1695650283926</created>
 +      <option name="number" value="Default" />
 +      <option name="presentableId" value="Default" />
-+      <updated>1695022764320</updated>
-+      <workItem from="1695022767901" duration="73000" />
++      <updated>1695650283926</updated>
++      <workItem from="1695650286590" duration="32000" />
 +    </task>
 +    <servers />
 +  </component>
