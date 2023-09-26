@@ -6,7 +6,7 @@
         "next/core-web-vitals",
         "prettier"
     ],
-    "ignorePatterns": ["*.config.js", "config/**/*.js"],
+    "ignorePatterns": ["*.config.js", "config/build/*.js", "scripts"],
     "env": {
         "browser": true,
         "node": true
@@ -59,5 +59,10 @@
             "error",
             { "allowSameFolder": true, "rootDir": "src" }
         ]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["**/src/**/*.{test,stories}.{ts,tsx}"]
+        }
+    ]
 }

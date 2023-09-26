@@ -1,7 +1,7 @@
 const { withSentryConfig } = require('@sentry/nextjs');
 const withBundleAnalyzer = require('@next/bundle-analyzer');
-const cssModulesConfig = require('./config/cssModules');
-const svgrConfig = require('./config/svgr');
+const cssModulesConfig = require('./config/build/cssModules');
+const svgrConfig = require('./config/build/svgr');
 
 /**
  * @type {import('next').NextConfig}
@@ -29,6 +29,21 @@ const nextConfig = {
                     },
                 ],
             },
+            ...(process.env.NODE_ENV !== 'production' && [
+                {
+                    source: '/api/(.*)',
+                    headers: [
+                        {
+                            key: 'Access-Control-Allow-Origin',
+                            value: '*',
+                        },
+                        {
+                            key: 'Access-Control-Allow-Credentials',
+                            value: 'true',
+                        },
+                    ],
+                },
+            ]),
         ];
     },
     webpack(config) {
