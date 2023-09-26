@@ -17,3 +17,5 @@ yarn-error.log
 .sentryclirc
 
 analyze
+
+storybook-static

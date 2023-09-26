@@ -13,7 +13,7 @@ export const useGetArticlesPageProductsSWR = () => {
     // For the GraphQL request, we will send the fields that we want to receive.
     // Since in this example there is a REST request, it's identical to the request from the entity.
     const { data, ...rest } = useSWR<AxiosResponse<GetArticlesProductResponse>>(
-        [`/api/products`, { skip, limit }],
+        [`http://localhost:3000/api/products`, { skip, limit }],
         swrRestFetcher(HttpMethod.GET),
     );
 

@@ -16,7 +16,7 @@ export default function ArticlesPage() {
 
     return (
         <div>
-            <div>Articles</div>
+            <div>Articles Hello World</div>
             <Link href="/">To MAIN</Link>
             <ProductsList products={data?.products} isLoading={isLoading} error={error} />
         </div>

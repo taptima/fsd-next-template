@@ -19,6 +19,13 @@
         "lint": "pnpm run lint-js-all && pnpm run lint-styles-all && pnpm format-all --check",
         "graphql:build": "graphql-codegen --config codegen.yml",
         "graphql:watch": "graphql-codegen --config codegen.yml -w",
+        "storybook:dev": "storybook dev -p 6006 -c ./config/storybook",
+        "storybook:build": "storybook build -c ./config/storybook",
+        "test:ui": "loki test",
+        "test:ui:json": "node scripts/generate-visual-json-report.js",
+        "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+        "test:ui:report": "pnpm run test:ui:json && pnpm run test:ui:html",
+        "test:ui:ok": "loki approve",
         "prepare": "husky install"
     },
     "browserslist": [
@@ -52,6 +59,14 @@
         "@commitlint/cli": "^17.7.1",
         "@commitlint/config-conventional": "^17.7.0",
         "@next/bundle-analyzer": "^13.5.2",
+        "@storybook/addon-essentials": "^7.4.5",
+        "@storybook/addon-interactions": "^7.4.5",
+        "@storybook/addon-links": "^7.4.5",
+        "@storybook/addon-onboarding": "^1.0.8",
+        "@storybook/blocks": "^7.4.5",
+        "@storybook/nextjs": "^7.4.5",
+        "@storybook/react": "^7.4.5",
+        "@storybook/testing-library": "^0.2.1",
         "@svgr/webpack": "^8.1.0",
         "@types/node": "18",
         "@types/react": "^18.2.22",
@@ -69,11 +84,15 @@
         "eslint-plugin-no-relative-import-paths": "^1.5.2",
         "eslint-plugin-react": "^7.33.2",
         "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-storybook": "^0.6.14",
         "husky": "^8.0.3",
         "lint-staged": "^14.0.1",
         "loader-utils": "^3.2.1",
+        "loki": "^0.32.0",
         "prettier": "^3.0.3",
+        "reg-cli": "^0.17.7",
         "sass": "^1.68.0",
+        "storybook": "^7.4.5",
         "stylelint": "^15.10.3",
         "stylelint-config-standard-scss": "^11.0.0",
         "stylelint-order": "^6.0.3",
@@ -83,6 +102,11 @@
     "pnpm": {
         "patchedDependencies": {
             "next@13.5.2": "patches/next@13.5.2.patch"
+        }
+    },
+    "overrides": {
+        "loki": {
+            "@storybook/react": "$@storybook/react"
         }
     }
 }
