@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react';
 
+import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
+
 const preview: Preview = {
     parameters: {
         nextjs: {
@@ -13,6 +15,7 @@ const preview: Preview = {
             },
         },
     },
+    decorators: [StyleDecorator],
 };
 
 export default preview;

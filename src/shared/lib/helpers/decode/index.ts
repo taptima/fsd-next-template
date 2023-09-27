@@ -1,5 +1,5 @@
 import { Struct, validate } from 'superstruct';
-import { handleError } from 'shared/config/logger';
+import { handleError } from 'shared/config/project/logger';
 
 export const decode = <T, Fn extends AnyFunction<T>>(
     data: T,
