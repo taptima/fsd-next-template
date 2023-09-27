@@ -1,0 +1,9 @@
+/* stylelint-disable selector-pseudo-class-no-unknown, property-no-unknown */
+:export {
+    primary20: var(--primary-20);
+    primary50: var(--primary-50);
+    primary100: var(--primary-100);
+    primary300: var(--primary-300);
+    primary500: var(--primary-500);
+}
+/* stylelint-enable selector-pseudo-class-no-unknown */
