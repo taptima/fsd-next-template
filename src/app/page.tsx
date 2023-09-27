@@ -1,13 +1,13 @@
 import Link from 'next/link';
 
 import NextSvg from 'shared/assets/icons/next.svg';
-import { primary500 } from 'shared/styles/colors.module.scss';
+import colors from 'shared/styles/colors.module.scss';
 
 export default async function Home() {
     return (
         <main>
             <div>
-                <p style={{ color: primary500 }}>
+                <p style={{ color: colors.primary500 }}>
                     Get started by editing&nbsp;
                     <code>src/app/page.tsx</code>
                 </p>

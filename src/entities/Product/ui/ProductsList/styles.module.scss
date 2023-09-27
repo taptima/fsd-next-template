@@ -1,8 +1,20 @@
+@use 'shared/styles/mq';
+@use 'shared/styles/font';
+
 .grid {
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(6, 1fr);
     margin-top: 10px;
+
+    @include font.b1;
+
+    @include mq.lower-xxs {
+        width: 100px;
+        height: 100px;
+
+        @include font.b2;
+    }
 }
 
 .card {
