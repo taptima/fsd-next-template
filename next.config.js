@@ -29,21 +29,23 @@ const nextConfig = {
                     },
                 ],
             },
-            ...(process.env.NODE_ENV !== 'production' && [
-                {
-                    source: '/api/(.*)',
-                    headers: [
-                        {
-                            key: 'Access-Control-Allow-Origin',
-                            value: '*',
-                        },
-                        {
-                            key: 'Access-Control-Allow-Credentials',
-                            value: 'true',
-                        },
-                    ],
-                },
-            ]),
+            ...(process.env.NODE_ENV !== 'production'
+                ? [
+                      {
+                          source: '/api/(.*)',
+                          headers: [
+                              {
+                                  key: 'Access-Control-Allow-Origin',
+                                  value: '*',
+                              },
+                              {
+                                  key: 'Access-Control-Allow-Credentials',
+                                  value: 'true',
+                              },
+                          ],
+                      },
+                  ]
+                : []),
         ];
     },
     webpack(config) {

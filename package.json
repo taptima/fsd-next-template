@@ -19,6 +19,8 @@
         "lint": "pnpm run lint-js-all && pnpm run lint-styles-all && pnpm format-all --check",
         "graphql:build": "graphql-codegen --config codegen.yml",
         "graphql:watch": "graphql-codegen --config codegen.yml -w",
+        "svg:optimize": "svgo --exclude \".*\\.raw\\.svg\"",
+        "svg:optimize-all": "pnpm run svg:optimize -f src/shared/assets/icons",
         "storybook:dev": "storybook dev -p 6006 -c ./config/storybook",
         "storybook:build": "storybook build -c ./config/storybook",
         "test:ui": "loki test",
@@ -96,6 +98,7 @@
         "stylelint": "^15.10.3",
         "stylelint-config-standard-scss": "^11.0.0",
         "stylelint-order": "^6.0.3",
+        "svgo": "^3.0.2",
         "validate-branch-name": "^1.3.0",
         "webpack": "^5.88.2"
     },
