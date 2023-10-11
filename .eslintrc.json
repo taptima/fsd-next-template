@@ -36,15 +36,6 @@
         "no-underscore-dangle": "off",
         "consistent-return": "off",
         "react/jsx-props-no-spreading": "off",
-        //            "react/jsx-props-no-spreading": [
-        //              "error",
-        //              {
-        //                "html": "enforce",
-        //                "custom": "ignore",
-        //                "explicitSpread": "enforce",
-        //                "exceptions": []
-        //              }
-        //            ],
         "newline-before-return": "error",
         "@typescript-eslint/no-redeclare": [
             "error",
@@ -62,7 +53,7 @@
         "import/no-extraneous-dependencies": [
             "error",
             {
-                "devDependencies": ["**/storybook/**", "**/*.stories.tsx"]
+                "devDependencies": ["**/storybook/**", "**/*.stories.tsx", "**/jest/**"]
             }
         ],
         "@typescript-eslint/naming-convention": [
