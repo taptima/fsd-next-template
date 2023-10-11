@@ -1,8 +1,6 @@
 import useSWR from 'swr';
 import { AxiosRequestConfig, AxiosResponse } from 'axios';
-
 import { HttpMethod, swrRestFetcher } from 'shared/lib/api/fetcher';
-import * as process from 'process';
 
 export const useCustomSWR = <T, Body>(
     url: string,
