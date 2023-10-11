@@ -8,3 +8,6 @@
 "*{css,scss}":
   - pnpm run lint-styles
   - pnpm run format --write
+
+"!(*.raw).svg":
+  - pnpm run svg:optimize -i
