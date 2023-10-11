@@ -64,6 +64,17 @@
             {
                 "devDependencies": ["**/storybook/**", "**/*.stories.tsx"]
             }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": ["interface", "typeAlias"],
+                "format": ["PascalCase"],
+                "custom": {
+                    "regex": "(^[IT][A-Z]|[IT]$)",
+                    "match": false
+                }
+            }
         ]
     },
     "overrides": [
