@@ -58,6 +58,12 @@
         "no-relative-import-paths/no-relative-import-paths": [
             "error",
             { "allowSameFolder": true, "rootDir": "src" }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": ["**/storybook/**", "**/*.stories.tsx"]
+            }
         ]
     },
     "overrides": [

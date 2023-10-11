@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { handleError } from 'shared/config/logger';
+import { handleError } from 'shared/config/project/logger';
 
 const TIMEOUT_ERROR_MESSAGE = 'TimeoutError';
 
