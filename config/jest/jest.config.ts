@@ -1,10 +1,12 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/configuration
- */
 import path from 'path';
+import nextJest from 'next/jest';
 
-export default {
+const createJestConfig = nextJest({
+    // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
+    dir: './',
+});
+
+const customJestConfig = {
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: ['/node_modules/'],
@@ -20,3 +22,5 @@ export default {
         axios: 'axios/dist/node/axios.cjs',
     },
 };
+
+export default createJestConfig(customJestConfig);
