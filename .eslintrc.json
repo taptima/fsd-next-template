@@ -53,7 +53,13 @@
         "import/no-extraneous-dependencies": [
             "error",
             {
-                "devDependencies": ["**/storybook/**", "**/*.stories.tsx", "**/jest/**"]
+                "devDependencies": [
+                    "**/storybook/**",
+                    "**/*.stories.tsx",
+                    "**/jest/**",
+                    "__mocks__/**",
+                    "**/*.test.ts"
+                ]
             }
         ],
         "@typescript-eslint/naming-convention": [
