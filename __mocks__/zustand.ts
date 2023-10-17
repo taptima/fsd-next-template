@@ -6,30 +6,31 @@ const { create: actualCreate, createStore: actualCreateStore } =
 
 export const storeResetFns = new Set<() => void>();
 
-export const create = (<T>() => {
-    console.log('zustand create mock');
+type Variant = 'create' | 'createStore';
 
-    return (stateCreator: zustand.StateCreator<T>) => {
-        const store = actualCreate(stateCreator);
-        const initialState = store.getState();
-        storeResetFns.add(() => {
-            store.setState(initialState, true);
-        });
-
-        return store;
-    };
-}) as typeof zustand.create;
-
-export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) => {
-    console.log('zustand createStore mock');
-
-    const store = actualCreateStore(stateCreator);
+const createTestStore = <T>(stateCreator: zustand.StateCreator<T>, variant: Variant) => {
+    const store =
+        variant === 'create' ? actualCreate(stateCreator) : actualCreateStore(stateCreator);
     const initialState = store.getState();
     storeResetFns.add(() => {
         store.setState(initialState, true);
     });
 
     return store;
+};
+
+export const create = (<T>() => {
+    console.log('zustand create mock');
+
+    return (stateCreator: zustand.StateCreator<T>) => {
+        return createTestStore(stateCreator, 'create');
+    };
+}) as typeof zustand.create;
+
+export const createStore = (<T>(stateCreator: zustand.StateCreator<T>) => {
+    console.log('zustand createStore mock');
+
+    return createTestStore(stateCreator, 'createStore');
 }) as typeof zustand.createStore;
 
 afterEach(() => {

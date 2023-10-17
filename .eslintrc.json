@@ -58,7 +58,8 @@
                     "**/*.stories.tsx",
                     "**/jest/**",
                     "__mocks__/**",
-                    "**/*.test.ts"
+                    "**/*.test.{ts,tsx}",
+                    "**/test/**"
                 ]
             }
         ],
