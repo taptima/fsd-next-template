@@ -15,7 +15,7 @@ export default function ProductsPage() {
     }, [reset]);
 
     return (
-        <div>
+        <div data-testid="products">
             <div>Products</div>
             <Link href="/">To MAIN</Link>
             <ProductsList products={data?.products} isLoading={isLoading} error={error} />

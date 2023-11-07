@@ -35,6 +35,8 @@
         "./src/**/*.ts",
         "./src/**/*.tsx",
         ".next/types/**/*.ts",
-        "./config/**/*.ts"
+        "./config/**/*.ts",
+        "./config/**/*.tsx",
+        "./__mocks__/*.ts"
     ]
 }
