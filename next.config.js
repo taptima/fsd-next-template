@@ -8,6 +8,7 @@ const svgrConfig = require('./config/build/svgr');
  **/
 const nextConfig = {
     reactStrictMode: true,
+    compiler: { reactRemoveProperties: process.env.NODE_ENV === 'production' },
     i18n: {
         locales: ['ru'],
         defaultLocale: 'ru',
