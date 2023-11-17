@@ -6,7 +6,12 @@
         "next/core-web-vitals",
         "prettier"
     ],
-    "ignorePatterns": ["*.config.js", "config/build/*.js", "scripts"],
+    "ignorePatterns": [
+        "*.config.js",
+        "config/build/*.js",
+        "scripts",
+        "src/shared/types/graphql/**/*"
+    ],
     "env": {
         "browser": true,
         "node": true
@@ -20,6 +25,52 @@
         "no-plusplus": "off",
         "react/require-default-props": "off",
         "react/function-component-definition": "off",
+        "import/order": [
+            "warn",
+            {
+                "groups": [
+                    "builtin", // import fs from 'fs'
+                    "external", // import _ from 'lodash'
+                    "type", // import type { Foo } from 'foo'
+                    "object", // import log = console.log
+                    "internal", // import foo from 'src/foo'
+                    "parent", // import foo from '../foo'
+                    "sibling", // import bar from './bar'
+                    "index" // import main from './'
+                ],
+                "pathGroups": [
+                    { "pattern": "shared/assets/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/styles/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/const/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/config/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/types/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/hooks/**", "group": "internal", "position": "after" },
+                    { "pattern": "shared/lib/**", "group": "internal", "position": "after" },
+                    {
+                        "pattern": "shared/ui/surfaces/**",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    { "pattern": "shared/ui/display/**", "group": "internal", "position": "after" },
+                    {
+                        "pattern": "shared/ui/feedback/**",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    {
+                        "pattern": "shared/ui/navigation/**",
+                        "group": "internal",
+                        "position": "after"
+                    },
+                    { "pattern": "shared/ui/inputs/**", "group": "internal", "position": "after" },
+                    { "pattern": "entities/**", "group": "internal", "position": "after" },
+                    { "pattern": "features/**", "group": "internal", "position": "after" },
+                    { "pattern": "widgets/**", "group": "internal", "position": "after" },
+                    { "pattern": "pages/**", "group": "internal", "position": "after" },
+                    { "pattern": "./styles.module.scss", "group": "sibling", "position": "after" }
+                ]
+            }
+        ],
         "import/no-cycle": [
             "warn",
             {
@@ -50,6 +101,17 @@
             "error",
             { "allowSameFolder": true, "rootDir": "src" }
         ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+                "selector": ["interface", "typeAlias"],
+                "format": ["PascalCase"],
+                "custom": {
+                    "regex": "(^[IT][A-Z]|[IT]$)",
+                    "match": false
+                }
+            }
+        ],
         "import/no-extraneous-dependencies": [
             "error",
             {
@@ -63,14 +125,19 @@
                 ]
             }
         ],
-        "@typescript-eslint/naming-convention": [
+        "jsx-a11y/label-has-associated-control": [
             "error",
             {
-                "selector": ["interface", "typeAlias"],
-                "format": ["PascalCase"],
-                "custom": {
-                    "regex": "(^[IT][A-Z]|[IT]$)",
-                    "match": false
+                "required": {
+                    "some": ["nesting", "id"]
+                }
+            }
+        ],
+        "jsx-a11y/label-has-for": [
+            "error",
+            {
+                "required": {
+                    "some": ["nesting", "id"]
                 }
             }
         ]
