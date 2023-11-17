@@ -1,4 +1,4 @@
-import createCssVariable from './createCssVariable';
+import { createCssVariable } from './createCssVariable';
 
 describe('createCssVariable', () => {
     test('variable without units', () => {
