@@ -11,11 +11,11 @@
             "rules",
             "at-rules"
         ],
-        "selector-class-pattern": [
-            "^[a-z]+([A-Z][a-z]+)*$",
+        "selector-class-pattern": null,
+        "selector-pseudo-class-no-unknown": [
+            true,
             {
-                "message": "Expected class selector to be written in camelCase (selector-class-pattern)",
-                "resolveNestedSelectors": true
+                "ignorePseudoClasses": ["global"]
             }
         ],
         "selector-no-qualifying-type": [
