@@ -1,7 +1,9 @@
+import { IS_PRODUCTION } from 'shared/const/env';
+
 export const sendErrorToSentry = async (error: Error): Promise<void> => {
     const Sentry = await import('@sentry/nextjs');
 
-    if (!process.env.NEXT_PUBLIC_SENTRY_DSN || process.env.NODE_ENV !== 'production') return;
+    if (!process.env.NEXT_PUBLIC_SENTRY_DSN || !IS_PRODUCTION) return;
 
     try {
         Sentry.captureException(error);
@@ -10,14 +12,20 @@ export const sendErrorToSentry = async (error: Error): Promise<void> => {
 };
 
 export const handleError = (title = '', error?: Error | null) => {
-    if (process.env.NODE_ENV === 'development') {
+    if (!IS_PRODUCTION) {
         // eslint-disable-next-line no-console
-        console.log(JSON.stringify({ title, error }, null, 2));
+        console.groupCollapsed(title);
+
+        if (error) {
+            // eslint-disable-next-line no-console
+            console.error(error);
+        }
+
+        // eslint-disable-next-line no-console
+        console.groupEnd();
     }
 
-    if (process.env.NODE_ENV === 'production') {
-        if (error) {
-            sendErrorToSentry(error).then();
-        }
+    if (IS_PRODUCTION && error) {
+        sendErrorToSentry(error).then();
     }
 };
