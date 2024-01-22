@@ -49,27 +49,3 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
    ```shell
    pnpm storybook:build
    ```
-## Testing Storybook with Loki
-1. First of all, you need both storybook and next app to be running in dev mode
-   ```shell
-   pnpm dev && pnpm storybook:dev
-   ```
-2. Now you can run tests using Loki
-   ```shell
-   pnpm test:ui
-   ```
-   Then in the terminal you will see files that were changed during the development process. In the .loki folder, 2 folders will appear: current and difference.
-3. To view these changes in an interactive format, you need to generate a report
-   ```shell
-   pnpm test:ui:report
-   ```
-   After executing this command, 2 files will be generated in the .loki folder. You can run the report file in a browser and see all the changes there.
-   For Mac you can use this command
-   ```shell
-   open .loki/report.html
-   ```
-4. If you agree with all the changes, you should run the following command
-   ```shell
-   pnpm test:ui:ok
-   ```
-   After its execution, all changes will be confirmed and the next run of the ```pnpm test:ui``` command will show that all tests passed successfully
