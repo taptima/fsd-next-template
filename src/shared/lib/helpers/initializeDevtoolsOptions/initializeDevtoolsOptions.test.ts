@@ -1,5 +1,5 @@
+import type { DevtoolsOptions } from 'zustand/middleware';
 import { IS_PRODUCTION } from 'shared/const/env';
-import { DevtoolsOptions } from 'zustand/middleware';
 import initializeDevtoolsOptions from './index';
 
 describe('initializeDevtoolsOptions', () => {

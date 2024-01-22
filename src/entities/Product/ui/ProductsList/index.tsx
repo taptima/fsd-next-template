@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC } from 'react';
 
 import clsx from 'clsx';
+import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
 import type { ProductsProduct } from 'pages/ProductsPage';
 import type { ArticleProduct } from 'pages/ArticlesPage';
-import { useProductsStore } from 'entities/Product/model/store/useProductsStore';
 import cls from './styles.module.scss';
 
 type Props = {
