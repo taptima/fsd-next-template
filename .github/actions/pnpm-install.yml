@@ -8,7 +8,7 @@ runs:
     - uses: pnpm/action-setup@v2.2.4
       with:
         run_install: false
-        version: env.PNPM_VERSION
+        version: ${{ env.PNPM_VERSION }}
 
     - name: Get pnpm store directory
       shell: bash
