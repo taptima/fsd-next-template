@@ -3,8 +3,8 @@ import { print } from 'graphql/language/printer';
 // import isExtractableFile from 'extract-files/isExtractableFile.mjs';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 import type { DocumentNode } from 'graphql/language/ast';
-import AbstractAxiosClient from 'shared/lib/api/axios';
 import { handleError } from 'shared/config/project/logger';
+import AbstractAxiosClient from 'shared/lib/api/axios';
 
 type QueryVariables = {
     [key: string]: unknown;

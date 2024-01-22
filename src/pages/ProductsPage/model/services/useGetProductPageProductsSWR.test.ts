@@ -1,7 +1,7 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { server } from 'shared/lib/helpers/test/mockServer';
 import { rest } from 'msw';
 import { mockProducts } from 'shared/mock/products';
+import { server } from 'shared/lib/helpers/test/mockServer';
 import { useGetProductPageProductsSWR } from './useGetProductPageProductsSWR';
 
 describe('useGetProductPageProductsSWR', () => {
