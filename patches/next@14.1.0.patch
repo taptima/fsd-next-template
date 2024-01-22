@@ -1,0 +1,22 @@
+diff --git a/image-types/global.d.ts b/image-types/global.d.ts
+index 661c316e89b3c1aa5913b8afebdbf3e6299eccd7..a7a1c8d48f80faee1d9e6ba5c7999e5f3bd52dac 100644
+--- a/image-types/global.d.ts
++++ b/image-types/global.d.ts
+@@ -8,14 +8,9 @@ declare module '*.png' {
+ }
+ 
+ declare module '*.svg' {
+-  /**
+-   * Use `any` to avoid conflicts with
+-   * `@svgr/webpack` plugin or
+-   * `babel-plugin-inline-react-svg` plugin.
+-   */
+-  const content: any
+-
+-  export default content
++  const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
++  
++  export default SVG;
+ }
+ 
+ declare module '*.jpg' {

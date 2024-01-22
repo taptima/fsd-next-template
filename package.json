@@ -43,7 +43,7 @@
         "axios": "^1.6.3",
         "clsx": "^2.0.0",
         "graphql": "^16.8.1",
-        "next": "13.5.2",
+        "next": "14.1.0",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "swr": "^2.2.4",
@@ -67,14 +67,14 @@
         "@testing-library/react": "^14.1.2",
         "@types/jest": "^29.5.11",
         "@types/node": "18",
-        "@types/react": "^18.2.46",
+        "@types/react": "^18.2.48",
         "@types/react-dom": "^18.2.18",
         "@typescript-eslint/eslint-plugin": "^6.16.0",
         "@typescript-eslint/parser": "^6.16.0",
         "eslint": "8.56.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-airbnb-typescript": "^17.1.0",
-        "eslint-config-next": "13.5.2",
+        "eslint-config-next": "14.1.0",
         "eslint-config-prettier": "^9.1.0",
         "eslint-import-resolver-typescript": "^3.6.1",
         "eslint-plugin-import": "^2.29.1",
@@ -100,7 +100,7 @@
     },
     "pnpm": {
         "patchedDependencies": {
-            "next@13.5.2": "patches/next@13.5.2.patch"
+            "next@14.1.0": "patches/next@14.1.0.patch"
         }
     }
 }
