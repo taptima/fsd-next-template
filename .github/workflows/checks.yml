@@ -1,0 +1,41 @@
+on:
+  - pull_request
+
+env:
+  NODE_VERSION: 18.17.x
+  PNPM_VERSION: 8.7.x
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        uses: ./.github/actions/pnpm-install
+
+      - name: Run build
+        run: pnpm build
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        uses: ./.github/actions/pnpm-install
+
+      - name: Run lint
+        run: pnpm lint
