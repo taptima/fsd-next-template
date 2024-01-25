@@ -19,6 +19,9 @@ const nextConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
+    sassOptions: {
+        'includePaths': ['./src'],
+    },
     async headers() {
         return [
             {
