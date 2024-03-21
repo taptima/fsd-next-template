@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import UserIcon from 'shared/assets/icons/next.svg';
 import InfoIcon from 'shared/assets/icons/vercel.svg';
 import colors from 'shared/styles/colors.module.scss';
-import Button from './index';
+import { Button } from './index';
 
 const meta: Meta<typeof Button> = {
     title: 'shared/Button',
