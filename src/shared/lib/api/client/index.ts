@@ -1,6 +1,3 @@
-import FrontendApiClient from 'shared/lib/api/client/FrontendApiClient';
-import BackendApiClient from 'shared/lib/api/client/BackendApiClient';
+import ApiClient from './ApiClient';
 
-export const backendApiClient = new BackendApiClient();
-
-export const frontendApiClient = new FrontendApiClient();
+export const apiClient = new ApiClient();

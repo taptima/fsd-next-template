@@ -1,6 +1,5 @@
-export const API_BASE_URL = 'https://dummyjson.com';
-export const CREDENTIALS_LOCAL_STORAGE_NAME = 'AUTH';
-export const GRAPHQL_ENDPOINT = 'graphql/';
-export const REST_BACKEND_ENDPOINT = '';
-export const REST_FRONTEND_ENDPOINT = '';
-export const REFRESH_TOKENS_ENDPOINT = '';
+import { ENV_API_BASE_URL } from 'shared/const/env';
+
+export const API_BASE_URL = ENV_API_BASE_URL;
+export const GRAPHQL_ENDPOINT = '/graphql';
+export const REST_API_ENDPOINT = '/api';
