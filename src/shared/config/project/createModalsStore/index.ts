@@ -1,5 +1,5 @@
-import { createStore } from 'shared/config/project/createStore';
 import type { ModalsStore, Setters, StoreActions } from 'shared/types/store';
+import { createStore } from 'shared/config/project/createStore';
 
 export function createModalsStore<
     T extends Capitalize<string>,

@@ -1,7 +1,7 @@
 import { create, StateCreator } from 'zustand';
 import { devtools, DevtoolsOptions } from 'zustand/middleware';
-import { IS_DEV, IS_PRODUCTION } from 'shared/const/env';
 import type { StoreActions } from 'shared/types/store';
+import { IS_DEV, IS_PRODUCTION } from 'shared/const/env';
 import initializeDevtoolsOptions from 'shared/lib/helpers/initializeDevtoolsOptions';
 import { withGeneratedSelectors } from 'shared/lib/helpers/withGeneratedSelectors';
 

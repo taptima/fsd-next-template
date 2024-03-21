@@ -1,5 +1,5 @@
-import clsx from 'clsx';
 import type { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import clsx from 'clsx';
 import styles from './styles.module.scss';
 
 type ButtonVariant = 'primary' | 'secondary';
