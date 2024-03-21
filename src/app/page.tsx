@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import NextSvg from 'shared/assets/icons/next.svg';
 import colors from 'shared/styles/colors.module.scss';
 

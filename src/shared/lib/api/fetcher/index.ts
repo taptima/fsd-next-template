@@ -1,22 +1,12 @@
-import { AxiosRequestConfig } from 'axios';
-import { frontendApiClient } from 'shared/lib/api/client';
+import { API_BASE_URL, REST_API_ENDPOINT } from 'shared/lib/api/const';
 
-export const enum HttpMethod {
-    GET = 'get',
-    POST = 'post',
+export async function fetcher<T>(input: string, init?: RequestInit): Promise<T> {
+    const apiUrl = new URL(
+        input.startsWith('http') ? input : `${REST_API_ENDPOINT}${input}`,
+        API_BASE_URL,
+    );
+
+    const response = await fetch(apiUrl, init);
+
+    return response.json();
 }
-
-type FetcherProps = [string, AxiosRequestConfig['params'] | undefined];
-
-export const swrRestFetcher =
-    <T extends HttpMethod>(method: T) =>
-    (props: FetcherProps | string) => {
-        if (typeof props === 'string') {
-            return frontendApiClient.rest[method](props);
-        }
-        const [url, params] = props;
-
-        return frontendApiClient.rest[method](url, {
-            params,
-        });
-    };

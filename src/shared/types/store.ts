@@ -6,3 +6,7 @@ export type Setters<Schema extends object> = {
 
 export interface StoreActions<Schema extends object = object, Actions = object>
     extends Readonly<{ actions: Setters<Schema> & Actions }> {}
+
+export type ModalsStore<Type extends Capitalize<string>> = {
+    [Key in Type as `is${Key}ModalOpen`]: boolean;
+};

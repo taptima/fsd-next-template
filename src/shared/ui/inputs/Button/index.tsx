@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 
@@ -15,7 +15,7 @@ const MAP_VARIANT_TO_STYLES: Record<ButtonVariant, string> = {
     'secondary': styles.secondary,
 };
 
-const Button: FC<ButtonProps> = (props) => {
+export const Button: FC<ButtonProps> = (props) => {
     const { children, variant = 'primary', startIcon, endIcon, ...restProps } = props;
 
     return (
@@ -30,5 +30,3 @@ const Button: FC<ButtonProps> = (props) => {
         </button>
     );
 };
-
-export default Button;

@@ -1,15 +1,14 @@
 import REST from 'shared/lib/api/REST';
-import { REST_FRONTEND_ENDPOINT } from 'shared/lib/api/const';
+import { REST_API_ENDPOINT, API_BASE_URL } from 'shared/lib/api/const';
 import AbstractApiClient from './AbstractApiClient';
 
-export default class FrontendApiClient extends AbstractApiClient {
+export default class ApiClient extends AbstractApiClient {
     public readonly rest: REST;
 
     constructor() {
         super();
-        this.rest = new REST(`/${REST_FRONTEND_ENDPOINT}`);
+        this.rest = new REST(`${API_BASE_URL}${REST_API_ENDPOINT}`);
 
-        // TODO: Разобраться с работой токенов на клиенте с BFF
         this.useCredentialsInterceptor([this.rest.client]);
         this.useRefreshCredentialsInterceptor([this.rest.client]);
     }
