@@ -116,7 +116,8 @@ button:-moz-focusring,
 }
 
 fieldset {
-    padding: 0.35em 0.625em 0.75em;
+    padding: 0;
+    border: none;
 }
 
 legend {
@@ -171,6 +172,10 @@ summary {
 
 template {
     display: none;
+}
+
+dl {
+    margin: 0;
 }
 
 [hidden] {

@@ -1,0 +1,18 @@
+:root {
+    --transition-fast: 0ms;
+    --transition-normal: 0ms;
+    --transition-slow: 0ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        --transition-fast: 200ms;
+        --transition-normal: 400ms;
+        --transition-slow: 700ms;
+    }
+
+    html,
+    body {
+        scroll-behavior: smooth;
+    }
+}
