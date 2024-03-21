@@ -16,7 +16,7 @@
         "browser": true,
         "node": true
     },
-    "plugins": ["@typescript-eslint", "import", "no-relative-import-paths"],
+    "plugins": ["@typescript-eslint", "no-relative-import-paths", "perfectionist"],
     "parserOptions": {
         "project": "./tsconfig.json",
         "tsconfigRootDir": "."
@@ -25,49 +25,58 @@
         "no-plusplus": "off",
         "react/require-default-props": "off",
         "react/function-component-definition": "off",
-        "import/order": [
+        "import/order": "off",
+        "perfectionist/sort-imports": [
             "warn",
             {
+                "type": "natural",
+                "order": "asc",
                 "groups": [
-                    "builtin", // import fs from 'fs'
-                    "external", // import _ from 'lodash'
-                    "type", // import type { Foo } from 'foo'
-                    "object", // import log = console.log
-                    "internal", // import foo from 'src/foo'
-                    "parent", // import foo from '../foo'
-                    "sibling", // import bar from './bar'
-                    "index" // import main from './'
+                    "type",
+                    "react",
+                    ["builtin", "external"],
+                    "shared-types",
+                    "internal-type",
+                    "shared/assets",
+                    "shared/styles",
+                    "shared/const",
+                    "shared/config",
+                    "shared/types",
+                    "shared/hooks",
+                    "shared/lib",
+                    "shared/ui",
+                    "internal",
+                    ["parent-type", "sibling-type", "index-type"],
+                    ["parent", "sibling", "index"],
+                    "side-effect",
+                    "style",
+                    "object",
+                    "unknown"
                 ],
-                "pathGroups": [
-                    { "pattern": "shared/assets/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/styles/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/const/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/config/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/types/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/hooks/**", "group": "internal", "position": "after" },
-                    { "pattern": "shared/lib/**", "group": "internal", "position": "after" },
-                    {
-                        "pattern": "shared/ui/surfaces/**",
-                        "group": "internal",
-                        "position": "after"
+                "custom-groups": {
+                    "value": {
+                        "react": ["react", "react-*"],
+                        "shared/assets": "shared/assets/**",
+                        "shared/styles": "shared/styles/**",
+                        "shared/const": "shared/const/**",
+                        "shared/config": "shared/config/**",
+                        "shared/types": "shared/types/**",
+                        "shared/hooks": "shared/hooks/**",
+                        "shared/lib": "shared/lib/**",
+                        "shared/ui": "shared/ui/**"
                     },
-                    { "pattern": "shared/ui/display/**", "group": "internal", "position": "after" },
-                    {
-                        "pattern": "shared/ui/feedback/**",
-                        "group": "internal",
-                        "position": "after"
-                    },
-                    {
-                        "pattern": "shared/ui/navigation/**",
-                        "group": "internal",
-                        "position": "after"
-                    },
-                    { "pattern": "shared/ui/inputs/**", "group": "internal", "position": "after" },
-                    { "pattern": "entities/**", "group": "internal", "position": "after" },
-                    { "pattern": "features/**", "group": "internal", "position": "after" },
-                    { "pattern": "widgets/**", "group": "internal", "position": "after" },
-                    { "pattern": "pages/**", "group": "internal", "position": "after" },
-                    { "pattern": "./styles.module.scss", "group": "sibling", "position": "after" }
+                    "type": {
+                        "react": "react",
+                        "shared-types": "shared/**"
+                    }
+                },
+                "newlines-between": "never",
+                "internal-pattern": [
+                    "entities/**",
+                    "features/**",
+                    "pages/**",
+                    "shared/**",
+                    "widgets/**"
                 ]
             }
         ],
