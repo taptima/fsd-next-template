@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/react';
-
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
 
 const preview: Preview = {
@@ -7,7 +6,7 @@ const preview: Preview = {
         nextjs: {
             appDirectory: true,
         },
-        actions: { argTypesRegex: '^on[A-Z].*' },
+        // actions: { argTypesRegex: '^on[A-Z].*' },
         controls: {
             matchers: {
                 color: /(background|color)$/i,
