@@ -17,8 +17,8 @@ dependencies:
     specifier: ^0.4.1
     version: 0.4.1
   axios:
-    specifier: ^1.6.3
-    version: 1.6.5
+    specifier: ^1.6.8
+    version: 1.6.8
   clsx:
     specifier: ^2.1.0
     version: 2.1.0
@@ -7149,8 +7149,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios@1.6.5:
-    resolution: {integrity: sha512-Ii012v05KEVuUoFWmMW/UQv9aRIc3ZwkWDcM+h5Il8izZCtRVpDUfwpoFf7eOtajT3QiGR4yDUx7lPqHJULgbg==}
+  /axios@1.6.8:
+    resolution: {integrity: sha512-v/ZHtJDU39mDpyBoFVkETcd/uNdxrWRrg3bKpOKzXFA6Bvqopts6ALSMU3y6ijYxbw2B+wPrIv46egTzJXCLGQ==}
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
