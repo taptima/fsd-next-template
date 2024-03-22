@@ -92,7 +92,7 @@
         "loader-utils": "^3.2.1",
         "prettier": "^3.2.5",
         "regenerator-runtime": "^0.14.1",
-        "sass": "^1.70.0",
+        "sass": "^1.72.0",
         "storybook": "^7.6.10",
         "stylelint": "^16.2.1",
         "stylelint-config-standard-scss": "^13.0.0",
