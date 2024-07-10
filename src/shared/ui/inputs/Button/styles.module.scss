@@ -1,19 +1,37 @@
 .wrapper {
+    position: relative;
     padding: 10px 20px;
     border-radius: 8px;
+    overflow: hidden;
     transition: {
-        property: background-color, color;
+        property: background-color, color, fill, border-color, opacity;
         duration: var(--transition-fast);
     }
 
     &:disabled {
         cursor: not-allowed;
     }
+
+    &.loading {
+        cursor: wait;
+    }
+}
+
+.loaderWrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .primary {
-    background-color: var(--primary-500);
     color: var(--neutral-0);
+
+    &,
+    .loaderWrapper {
+        background-color: var(--primary-500);
+    }
 
     &:hover {
         background-color: var(--primary-300);
@@ -30,8 +48,20 @@
 }
 
 .secondary {
-    background-color: var(--primary-20);
     color: var(--primary-500);
+
+    &,
+    .loaderWrapper {
+        background-color: var(--primary-20);
+    }
+
+    &:hover {
+        color: var(--primary-300);
+    }
+
+    &:active {
+        color: var(--primary-700);
+    }
 
     &:disabled {
         background-color: var(--neutral-100);
@@ -43,6 +73,7 @@
     display: inline-block;
 
     & svg {
+        fill: currentcolor;
         vertical-align: middle;
     }
 }

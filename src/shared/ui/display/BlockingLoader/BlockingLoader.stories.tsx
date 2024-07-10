@@ -10,7 +10,7 @@ const LayoutDecorator: Decorator = (Story: StoryFn) => {
 };
 
 const meta: Meta<typeof BlockingLoader> = {
-    title: 'shared/feedback/BlockingLoader',
+    title: 'shared/display/BlockingLoader',
     component: BlockingLoader,
     tags: ['autodocs'],
     decorators: [LayoutDecorator],
@@ -20,4 +20,6 @@ export default meta;
 
 type Story = StoryObj<typeof BlockingLoader>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+    args: {},
+};

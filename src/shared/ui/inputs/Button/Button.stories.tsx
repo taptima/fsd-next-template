@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import UserIcon from 'shared/assets/icons/next.svg';
-import InfoIcon from 'shared/assets/icons/vercel.svg';
+import NextIcon from 'shared/assets/icons/next.svg';
+import VercelIcon from 'shared/assets/icons/vercel.svg';
 import colors from 'shared/styles/colors.module.scss';
 import { Button } from './index';
 
 const meta: Meta<typeof Button> = {
-    title: 'shared/Button',
+    title: 'shared/inputs/Button',
     component: Button,
     tags: ['autodocs'],
 };
@@ -16,37 +16,57 @@ type Story = StoryObj<typeof Button>;
 
 const text = 'SomeText';
 
+const COMMON_PROPS: Story['args'] = {
+    children: text,
+    disabled: false,
+};
+
 export const Primary: Story = {
     args: {
-        children: text,
+        ...COMMON_PROPS,
     },
 };
 
 export const Secondary: Story = {
     args: {
-        children: text,
+        ...COMMON_PROPS,
         variant: 'secondary',
     },
 };
 
 export const WithStartIcon: Story = {
     args: {
-        children: text,
-        startIcon: <InfoIcon width={20} />,
+        ...COMMON_PROPS,
+        startIcon: <NextIcon width={20} />,
     },
 };
 
 export const WithEndIcon: Story = {
     args: {
-        children: text,
-        endIcon: <UserIcon width={20} />,
+        ...COMMON_PROPS,
+        endIcon: <VercelIcon width={20} />,
     },
 };
 
 export const WithStartAndEndIcons: Story = {
     args: {
-        children: text,
-        startIcon: <InfoIcon width={16} fill={colors.primary500} />,
-        endIcon: <UserIcon width={16} fill={colors.primary300} />,
+        ...COMMON_PROPS,
+        startIcon: <NextIcon width={16} fill={colors.neutral0} />,
+        endIcon: <VercelIcon width={16} fill={colors.primary20} />,
+    },
+};
+
+export const PrimaryLoading: Story = {
+    args: {
+        ...COMMON_PROPS,
+        isLoading: true,
+    },
+};
+
+export const SecondaryLoading: Story = {
+    args: {
+        ...COMMON_PROPS,
+        variant: 'secondary',
+        isLoading: true,
     },
 };

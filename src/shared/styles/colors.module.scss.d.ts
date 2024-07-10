@@ -1,8 +1,4 @@
 export const neutral0: string;
-export const neutral50: string;
-export const neutral100: string;
-export const neutral200: string;
-export const neutral400: string;
 export const neutral600: string;
 export const neutral900: string;
 export const primary20: string;
@@ -11,8 +7,3 @@ export const primary100: string;
 export const primary300: string;
 export const primary500: string;
 export const primary700: string;
-export const error50: string;
-export const error900: string;
-export const warning50: string;
-export const warning900: string;
-export const success900: string;

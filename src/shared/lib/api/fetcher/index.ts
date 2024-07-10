@@ -1,4 +1,5 @@
-import { API_BASE_URL, REST_API_ENDPOINT } from 'shared/lib/api/const';
+import { API_BASE_URL } from 'shared/const/env';
+import { REST_API_ENDPOINT } from 'shared/lib/api/const';
 
 export async function fetcher<T>(input: string, init?: RequestInit): Promise<T> {
     const apiUrl = new URL(
