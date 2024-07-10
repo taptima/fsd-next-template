@@ -1,6 +1,6 @@
 import { type ComponentType, useEffect, useState } from 'react';
 import dynamic, { type Loader } from 'next/dynamic';
-import { BlockingLoader } from 'shared/ui/feedback/BlockingLoader';
+import { BlockingLoader } from 'shared/ui/display/BlockingLoader';
 
 // TODO: Заменить на пропсы из модалки
 type ModalProps = {

@@ -1,10 +1,6 @@
 /* stylelint-disable selector-pseudo-class-no-unknown, property-no-unknown */
 :export {
     neutral0: var(--neutral-0);
-    neutral50: var(--neutral-50);
-    neutral100: var(--neutral-100);
-    neutral200: var(--neutral-200);
-    neutral400: var(--neutral-400);
     neutral600: var(--neutral-600);
     neutral900: var(--neutral-900);
     primary20: var(--primary-20);
@@ -13,10 +9,5 @@
     primary300: var(--primary-300);
     primary500: var(--primary-500);
     primary700: var(--primary-700);
-    error50: var(--error-50);
-    error900: var(--error-900);
-    warning50: var(--warning-50);
-    warning900: var(--warning-900);
-    success900: var(--success-900);
 }
 /* stylelint-enable selector-pseudo-class-no-unknown */
