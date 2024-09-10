@@ -8,6 +8,7 @@ $breakpoints: (
     lg: 1200px,
     xl: 1300px,
     xxl: 1440px,
+    xxxl: 1600px,
 );
 
 @mixin -lower($key) {
@@ -38,5 +39,107 @@ $breakpoints: (
 @mixin lower-xxs {
     @include -lower(xxs) {
         @content;
+    }
+}
+
+@mixin lower-xs {
+    @include -lower(xs) {
+        @content;
+    }
+}
+
+@mixin lower-sm {
+    @include -lower(sm) {
+        @content;
+    }
+}
+
+@mixin lower-md {
+    @include -lower(md) {
+        @content;
+    }
+}
+
+@mixin lower-lg {
+    @include -lower(lg) {
+        @content;
+    }
+}
+
+@mixin lower-xl {
+    @include -lower(xl) {
+        @content;
+    }
+}
+
+@mixin lower-xxl {
+    @include -lower(xxl) {
+        @content;
+    }
+}
+
+@mixin lower-xxxl {
+    @include -lower(xxxl) {
+        @content;
+    }
+}
+
+@mixin greater-xxs {
+    @include -greater(xxs) {
+        @content;
+    }
+}
+
+@mixin greater-xs {
+    @include -greater(xs) {
+        @content;
+    }
+}
+
+@mixin greater-sm {
+    @include -greater(sm) {
+        @content;
+    }
+}
+
+@mixin greater-md {
+    @include -greater(md) {
+        @content;
+    }
+}
+
+@mixin greater-lg {
+    @include -greater(lg) {
+        @content;
+    }
+}
+
+@mixin greater-xl {
+    @include -greater(xl) {
+        @content;
+    }
+}
+
+@mixin greater-xxl {
+    @include -greater(xxl) {
+        @content;
+    }
+}
+
+@mixin greater-xxxl {
+    @include -greater(xxxl) {
+        @content;
+    }
+}
+
+@mixin hide-lower($key) {
+    @include -lower($key) {
+        display: none;
+    }
+}
+
+@mixin hide-greater($key) {
+    @include -greater($key) {
+        display: none;
     }
 }

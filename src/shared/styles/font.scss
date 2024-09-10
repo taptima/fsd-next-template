@@ -16,12 +16,6 @@
     font-weight: 700;
 }
 
-@mixin h4 {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 700;
-}
-
 @mixin b1 {
     font-size: 20px;
     line-height: 28px;
@@ -37,41 +31,5 @@
 @mixin b3 {
     font-size: 14px;
     line-height: 22px;
-    font-weight: 400;
-}
-
-@mixin form-label {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 600;
-}
-
-@mixin form-placeholder {
-    font-size: 16px;
-    line-height: 26px;
-    font-weight: 400;
-}
-
-@mixin form-description {
-    font-size: 13px;
-    line-height: 20px;
-    font-weight: 400;
-}
-
-@mixin button {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 500;
-}
-
-@mixin table-header {
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: 400;
-}
-
-@mixin table-cell {
-    font-size: 16px;
-    line-height: 24px;
     font-weight: 400;
 }

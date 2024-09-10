@@ -1,9 +1,9 @@
 @keyframes show {
-    from {
+    0% {
         opacity: 0;
     }
 
-    to {
+    100% {
         opacity: 1;
     }
 }
@@ -17,5 +17,16 @@
     align-items: center;
     animation-name: show;
     animation-duration: var(--transition-fast);
-    background-color: rgb(0 0 0 / 30%);
+
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: var(--neutral-900);
+        opacity: 0.3;
+    }
+}
+
+.loader {
+    position: relative;
 }

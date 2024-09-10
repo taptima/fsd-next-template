@@ -1,0 +1,26 @@
+.link {
+    transition-property: color, opacity;
+    transition-duration: var(--transition-fast);
+}
+
+.primary {
+    color: var(--primary-500);
+
+    &:hover,
+    &:focus-visible {
+        color: var(--primary-300);
+    }
+
+    &:active {
+        color: var(--primary-700);
+    }
+}
+
+.secondary {
+    color: var(--neutral-900);
+
+    &:hover,
+    &:focus-visible {
+        opacity: 0.9;
+    }
+}
