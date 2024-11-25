@@ -1,0 +1,20 @@
+.wrapper {
+    padding: 0 20px;
+    border-bottom: 1px solid var(--neture-100);
+}
+
+.tabs {
+    &:global(.ant-tabs) {
+        :global(.ant-tabs-tab) {
+            padding: 24px 0;
+        }
+
+        :global(.ant-tabs-nav) {
+            margin-bottom: 0;
+
+            &::before {
+                border-bottom: none;
+            }
+        }
+    }
+}

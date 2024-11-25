@@ -1,0 +1,7 @@
+@use 'shared/styles/font';
+
+.subtitle {
+    color: var(--neture-500);
+
+    @include font.b2;
+}

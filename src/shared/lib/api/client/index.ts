@@ -1,3 +1,3 @@
-import ApiClient from './ApiClient';
+import FrontendApiClient from './FrontendApiClient';
 
-export const apiClient = new ApiClient();
+export const frontendApiClient = new FrontendApiClient();

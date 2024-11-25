@@ -1,0 +1,91 @@
+@use 'shared/styles/font';
+
+.wrapper {
+    max-width: max-content;
+    padding: 4px 12px;
+    border-radius: 50px;
+
+    &.green {
+        background-color: var(--success-200);
+    }
+
+    &.blue {
+        background-color: var(--primary-200);
+    }
+
+    &.red {
+        background-color: var(--error-200);
+    }
+
+    &.default {
+        background-color: var(--neture-50);
+    }
+
+    &.orange {
+        background-color: var(--sunset-orange-20);
+    }
+
+    &.purple {
+        background-color: var(--purple-200);
+    }
+
+    @include font.b2;
+}
+
+.text {
+    &.green {
+        color: var(--success-900);
+    }
+
+    &.blue {
+        color: var(--primary-900);
+    }
+
+    &.red {
+        color: var(--error-900);
+    }
+
+    &.default {
+        color: var(--neture-500);
+    }
+
+    &.orange {
+        color: var(--sunset-orange-900);
+    }
+
+    &.purple {
+        color: var(--purple-900);
+    }
+}
+
+.indicator {
+    &.green {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--success-900) !important;
+    }
+
+    &.blue {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--primary-900) !important;
+    }
+
+    &.red {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--error-900) !important;
+    }
+
+    &.default {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--neture-500) !important;
+    }
+
+    &.orange {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--sunset-orange-900) !important;
+    }
+
+    &.purple {
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--purple-900) !important;
+    }
+}

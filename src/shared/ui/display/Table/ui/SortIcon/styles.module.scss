@@ -1,0 +1,14 @@
+.icon {
+    width: 16px;
+    fill: var(--neture-300);
+    transition: fill var(--transition-fast);
+
+    &Active {
+        fill: var(--primary-900);
+    }
+
+    &AscendActive {
+        fill: var(--primary-900);
+        transform: scale(-1, 1) rotate(180deg);
+    }
+}

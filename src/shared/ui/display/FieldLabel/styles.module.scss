@@ -1,0 +1,7 @@
+.labelRequired {
+    &::before {
+        content: '*';
+        margin-right: 4px;
+        color: var(--error-900);
+    }
+}

@@ -1,0 +1,43 @@
+.wrapper {
+    overflow: hidden;
+}
+
+.variant {
+    &White {
+        background-color: var(--neture-0);
+    }
+
+    &Gray {
+        background-color: var(--neture-50);
+    }
+}
+
+.padding {
+    &Smaller {
+        padding: 16px;
+    }
+
+    &Medium {
+        padding: 20px;
+    }
+
+    &Large {
+        padding: 40px;
+    }
+}
+
+.border {
+    &Gray {
+        border: 1px solid var(--neture-100);
+    }
+}
+
+.borderRadius {
+    &Medium {
+        border-radius: 8px;
+    }
+
+    &Large {
+        border-radius: 20px;
+    }
+}

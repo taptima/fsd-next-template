@@ -1,0 +1,5 @@
+.formItem {
+    &:global(.ant-form-item .ant-form-item-control-input) {
+        min-height: auto;
+    }
+}

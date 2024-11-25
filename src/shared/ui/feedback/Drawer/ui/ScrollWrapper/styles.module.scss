@@ -1,0 +1,18 @@
+@use 'shared/styles/utils';
+@use 'shared/styles/mq';
+
+.wrapper {
+    margin-right: -24px;
+    padding: 24px 24px 24px 0;
+    height: 100%;
+    display: grid;
+    grid-auto-rows: max-content;
+    row-gap: 16px;
+    overflow-y: auto;
+
+    @include utils.custom-scrollbar;
+
+    @include mq.lower-sm {
+        padding: 16px 24px 16px 0;
+    }
+}

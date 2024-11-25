@@ -19,3 +19,23 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+@mixin custom-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--neture-300) var(--neture-50);
+
+    &::-webkit-scrollbar {
+        width: 8px;
+        background-color: var(--neture-50);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--neture-300);
+        border-radius: 50px;
+    }
+
+    &::-webkit-scrollbar-button {
+        display: none;
+    }
+}

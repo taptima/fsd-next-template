@@ -1,0 +1,6 @@
+@mixin container($top-offset: 0, $bottom-offset: $top-offset) {
+    margin: 0 auto;
+    padding: $top-offset var(--container-gutter) $bottom-offset;
+    max-width: var(--container-width);
+    width: 100%;
+}

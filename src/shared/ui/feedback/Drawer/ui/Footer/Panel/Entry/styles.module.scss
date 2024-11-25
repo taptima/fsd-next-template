@@ -1,0 +1,9 @@
+@use 'shared/styles/font';
+
+.label {
+    color: var(--neture-500);
+}
+
+.value {
+    @include font.h3;
+}

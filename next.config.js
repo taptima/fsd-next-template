@@ -22,6 +22,15 @@ const nextConfig = {
     sassOptions: {
         'includePaths': ['./src'],
     },
+    async redirects() {
+        return [
+            {
+                source: '/',
+                destination: '/admin/sign-in',
+                permanent: true,
+            },
+        ];
+    },
     async headers() {
         return [
             {

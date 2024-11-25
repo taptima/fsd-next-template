@@ -1,0 +1,66 @@
+.wrapper {
+    height: 100%;
+    border-right: 1px solid var(--neture-100);
+    background-color: var(--neture-0);
+}
+
+.logoWrapper {
+    padding: 12px 13px;
+}
+
+.nav {
+    margin-top: 10px;
+}
+
+.list {
+    display: grid;
+    row-gap: 4px;
+}
+
+.link {
+    position: relative;
+    padding: 9px 16px;
+    display: grid;
+    grid-template-columns: max-content auto;
+    column-gap: 8px;
+    align-items: center;
+    fill: var(--neture-900);
+    color: var(--neture-900);
+    transition-property: color, background-color;
+    transition-duration: var(--transition-fast);
+
+    &:hover,
+    &:focus-visible {
+        fill: var(--primary-900);
+        color: var(--primary-900);
+        background-color: var(--neture-50);
+    }
+
+    &Active {
+        &,
+        &:hover,
+        &:focus-visible {
+            fill: var(--primary-900);
+            color: var(--primary-900);
+            background-color: var(--primary-50);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+            background-color: var(--primary-900);
+        }
+    }
+}
+
+.icon {
+    width: 16px;
+    fill: inherit;
+    transition-property: fill;
+    transition-duration: var(--transition-fast);
+}

@@ -1,35 +1,47 @@
 @mixin h1 {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
 }
 
 @mixin h2 {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
 }
 
 @mixin h3 {
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+@mixin h4 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 @mixin b1 {
-    font-size: 20px;
-    line-height: 28px;
     font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 @mixin b2 {
-    font-size: 16px;
-    line-height: 24px;
     font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
 }
 
 @mixin b3 {
-    font-size: 14px;
-    line-height: 22px;
     font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+@mixin b4 {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 14px;
 }

@@ -1,0 +1,34 @@
+@use 'shared/styles/font';
+
+.tableWrapper {
+    table {
+        th {
+            user-select: none;
+        }
+
+        th:global(.ant-table-cell) {
+            color: var(--neture-500);
+
+            @include font.h4;
+        }
+
+        :global(.ant-table-cell) {
+            @include font.b2;
+        }
+
+        tr:last-of-type td {
+            border-bottom-color: transparent;
+        }
+    }
+
+    :global(.ant-table-placeholder) {
+        // stylelint-disable-next-line declaration-no-important
+        z-index: auto !important;
+    }
+}
+
+.rowClickable {
+    tbody tr {
+        cursor: pointer;
+    }
+}

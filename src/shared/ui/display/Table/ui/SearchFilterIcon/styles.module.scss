@@ -1,0 +1,8 @@
+.icon {
+    fill: var(--neture-300);
+    transition: fill var(--transition-fast);
+
+    &Active {
+        fill: var(--primary-900);
+    }
+}

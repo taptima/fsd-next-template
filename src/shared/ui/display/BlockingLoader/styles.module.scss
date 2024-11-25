@@ -12,21 +12,10 @@
     position: fixed;
     inset: 0;
     z-index: var(--z-blocking-loader);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     animation-name: show;
     animation-duration: var(--transition-fast);
 
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-color: var(--neutral-900);
-        opacity: 0.3;
+    :global(.ant-spin-fullscreen) {
+        background-color: rgb(17 25 40 / 20%);
     }
-}
-
-.loader {
-    position: relative;
 }
