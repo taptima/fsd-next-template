@@ -1,0 +1,103 @@
+@use 'shared/styles/font';
+@use 'shared/styles/mq';
+
+:global(.ant-drawer .ant-drawer-content) {
+    border-radius: var(--drawer-border-radius);
+    background: transparent;
+}
+
+.wrapper {
+    margin: 20px 20px 20px 0;
+
+    &:global(.ant-drawer-content-wrapper) {
+        --drawer-border-radius: 20px;
+
+        // stylelint-disable-next-line declaration-no-important
+        box-shadow: none !important;
+        border-radius: var(--drawer-border-radius);
+
+        @include mq.lower-sm {
+            --drawer-border-radius: 0;
+
+            // stylelint-disable-next-line declaration-no-important
+            width: 100vw !important;
+            margin: 0;
+        }
+    }
+
+    :global(.ant-drawer-title) {
+        order: -1;
+    }
+
+    :global(.ant-drawer-close) {
+        margin-inline-end: 0;
+    }
+}
+
+.body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--drawer-border-radius);
+    background-color: var(--neture-0);
+    overflow: hidden;
+
+    @include mq.lower-sm {
+        border-radius: 0;
+    }
+}
+
+.header {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &.border {
+        &Regular {
+            border-bottom: 1px solid var(--neture-100);
+        }
+    }
+
+    @include mq.lower-sm {
+        gap: 8px;
+    }
+}
+
+.title {
+    @include font.h3;
+}
+
+.actions {
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 12px;
+    align-items: center;
+}
+
+.closeButton {
+    &Border {
+        padding: 8px 7px;
+    }
+
+    &Text {
+        padding: 0;
+    }
+
+    @include mq.lower-sm {
+        &:global(.ant-btn) {
+            width: 32px;
+            height: 32px;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.content {
+    height: 100%;
+    padding: 0 24px;
+    overflow: hidden;
+}

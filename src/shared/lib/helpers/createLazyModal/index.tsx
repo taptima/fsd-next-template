@@ -1,32 +1,28 @@
-import { type ComponentType, useEffect, useState } from 'react';
-import dynamic, { type Loader } from 'next/dynamic';
+import { ComponentType, useEffect, useState } from 'react';
+import dynamic, { Loader } from 'next/dynamic';
+import type { ModalProps } from 'shared/ui/feedback/Modal';
 import { BlockingLoader } from 'shared/ui/display/BlockingLoader';
 
-// TODO: Заменить на пропсы из модалки
-type ModalProps = {
-    isOpen: boolean;
-};
-
-type BaseModalProps = Pick<ModalProps, 'isOpen'>;
+type BaseModalProps = Pick<ModalProps, 'open'>;
 
 type Props<T extends BaseModalProps> = T & {
     Modal: ComponentType<T>;
 };
 
 const LazyModalManager = <T extends BaseModalProps>(props: Props<T>) => {
-    const { Modal, isOpen, ...modalProps } = props;
-    const LazyModal = Modal as ComponentType<Omit<T, 'isOpen' | 'Modal'>>;
+    const { Modal, open = false, ...modalProps } = props;
+    const LazyModal = Modal as ComponentType<Omit<T, 'open' | 'Modal'>>;
     const [wasOpen, setWasOpen] = useState(false);
 
     useEffect(() => {
-        setWasOpen((prev) => prev || isOpen);
-    }, [isOpen]);
+        setWasOpen((prev) => prev || open);
+    }, [open]);
 
     if (!wasOpen) {
         return null;
     }
 
-    return <LazyModal isOpen={isOpen} {...modalProps} />;
+    return <LazyModal open={open} {...modalProps} />;
 };
 
 export const createLazyModal = <T extends BaseModalProps>(loader: Loader<T>) => {
@@ -35,7 +31,6 @@ export const createLazyModal = <T extends BaseModalProps>(loader: Loader<T>) => 
         loading: () => <BlockingLoader />,
     });
 
-    return function LazyModal(props: T) {
-        return <LazyModalManager Modal={DynamicModal} {...props} />;
-    };
+    // eslint-disable-next-line react/display-name
+    return (props: T) => <LazyModalManager Modal={DynamicModal} {...props} />;
 };

@@ -1,0 +1,39 @@
+@use 'shared/styles/font';
+
+.wrapper {
+    &Regular {
+        width: 200px;
+    }
+
+    &Large {
+        width: 300px;
+    }
+}
+
+.filters {
+    padding: 4px 0;
+}
+
+.checkbox {
+    &:global(.ant-checkbox-wrapper) {
+        width: 100%;
+        padding: 8px 12px;
+        transition: background-color var(--transition-fast);
+
+        &:hover {
+            background-color: #e6f7ff;
+        }
+    }
+}
+
+.filterText {
+    @include font.b2;
+}
+
+.actions {
+    padding: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--neture-100);
+}

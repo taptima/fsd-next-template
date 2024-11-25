@@ -1,0 +1,5 @@
+.button {
+    &:global(.ant-btn) {
+        cursor: grab;
+    }
+}

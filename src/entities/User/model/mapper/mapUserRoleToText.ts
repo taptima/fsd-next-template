@@ -1,6 +1,7 @@
-import { RoleTypeEnum } from 'entities/User/model/types/roleTypeEnum';
+import { Role } from 'entities/User';
 
-export const MAP_USER_ROLE_TO_TEXT: Record<RoleTypeEnum, string> = {
-    [RoleTypeEnum.Client]: 'Клиент',
-    [RoleTypeEnum.Admin]: 'Администратор',
+export const MAP_USER_ROLE_TO_TEXT: Record<Role, string> = {
+    [Role.RoleAdmin]: 'Администратор',
+    [Role.RoleSuperAdmin]: 'Суперадминистратор',
+    [Role.RoleUser]: 'Клиент',
 };

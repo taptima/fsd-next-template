@@ -1,19 +1,139 @@
-.wrapper {
+.button {
     position: relative;
-    padding: 10px 20px;
-    border-radius: 8px;
     overflow: hidden;
-    transition: {
-        property: background-color, color, fill, border-color, opacity;
-        duration: var(--transition-fast);
+
+    &:global(.ant-btn) {
+        height: auto;
+        border-radius: 8px;
+        white-space: normal;
     }
 
-    &:disabled {
-        cursor: not-allowed;
+    &Loading {
+        &:global(.ant-btn):disabled {
+            cursor: wait;
+            background: var(--primary-900);
+        }
+    }
+}
+
+.text {
+    &:global(.ant-btn-text:disabled) {
+        background-color: var(--neture-100);
+        opacity: 0.75;
+    }
+}
+
+.secondary {
+    &:global(.ant-btn) {
+        fill: var(--primary-900);
+        color: var(--primary-900);
+        border-color: var(--neture-100);
+
+        &:disabled {
+            color: var(--neture-400);
+        }
+    }
+}
+
+.secondaryDanger {
+    &:global(.ant-btn) {
+        color: var(--error-900);
+        border-color: var(--neture-100);
+        background-color: var(--neture-0);
+
+        &:hover {
+            border-color: var(--error-900);
+        }
+    }
+}
+
+.tertiary {
+    &:global(.ant-btn) {
+        color: var(--neture-900);
+        border-color: var(--neture-100);
+    }
+}
+
+.quaternary {
+    &:global(.ant-btn) {
+        color: var(--neture-900);
+        border-radius: 0;
+        border-color: transparent;
+        box-shadow: none;
+
+        &:not(:disabled):hover {
+            // stylelint-disable-next-line declaration-no-important
+            color: var(--neture-900) !important;
+            // stylelint-disable-next-line declaration-no-important
+            border-color: transparent !important;
+            // stylelint-disable-next-line declaration-no-important
+            background-color: var(--neture-50) !important;
+        }
+    }
+}
+
+.danger {
+    &:global(.ant-btn) {
+        fill: var(--error-900);
+        color: var(--error-900);
+        border-color: var(--error-900);
+        background-color: var(--neture-0);
     }
 
-    &.loading {
-        cursor: wait;
+    &:global(.ant-btn-default:not(:disabled, .ant-btn-disabled):hover) {
+        color: var(--error-900);
+        border-color: var(--error-900);
+        opacity: 0.75;
+    }
+}
+
+.padding {
+    &None {
+        &:global(.ant-btn) {
+            padding: 0;
+        }
+    }
+
+    &Icon {
+        &:global(.ant-btn) {
+            padding: 4px;
+        }
+    }
+
+    &IconLarge {
+        &:global(.ant-btn) {
+            padding: 8px;
+        }
+    }
+
+    &Small {
+        &:global(.ant-btn) {
+            padding: 4px 8px;
+        }
+    }
+
+    &Smaller {
+        &:global(.ant-btn) {
+            padding: 8px;
+        }
+    }
+
+    &Medium {
+        &:global(.ant-btn) {
+            padding: 8px 12px;
+        }
+    }
+
+    &Regular {
+        &:global(.ant-btn) {
+            padding: 8px 16px;
+        }
+    }
+
+    &Large {
+        &:global(.ant-btn) {
+            padding: 12px 24px;
+        }
     }
 }
 
@@ -26,69 +146,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    background-color: var(--primary-900);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: var(--transition-normal);
 
-.primary {
-    color: var(--neutral-0);
-
-    &,
-    .loaderWrapper {
-        background-color: var(--primary-500);
-    }
-
-    &:hover {
-        background-color: var(--primary-300);
-    }
-
-    &:active {
-        background-color: var(--primary-700);
-    }
-
-    &:disabled {
-        background-color: var(--neutral-100);
-        color: var(--neutral-600);
+    &Visible {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
-.secondary {
-    color: var(--primary-500);
-
-    &,
-    .loaderWrapper {
-        background-color: var(--primary-20);
+.spin {
+    &:global(.ant-spin) {
+        &,
+        :global(.ant-spin-dot-holder) {
+            color: var(--neture-0);
+        }
     }
-
-    &:hover {
-        color: var(--primary-300);
-    }
-
-    &:active {
-        color: var(--primary-700);
-    }
-
-    &:disabled {
-        background-color: var(--neutral-100);
-        color: var(--neutral-600);
-    }
-}
-
-%icon {
-    display: inline-block;
-
-    & svg {
-        fill: currentcolor;
-        vertical-align: middle;
-    }
-}
-
-.startIcon {
-    margin-right: 6px;
-
-    @extend %icon;
-}
-
-.endIcon {
-    margin-left: 6px;
-
-    @extend %icon;
 }

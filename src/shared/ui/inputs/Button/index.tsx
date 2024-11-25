@@ -1,73 +1,62 @@
-import {
-    ButtonHTMLAttributes,
-    ElementType,
-    ComponentPropsWithoutRef,
-    ReactNode,
-    Ref,
-    forwardRef,
-    ForwardedRef,
-} from 'react';
+import type { GetProp } from 'antd/lib';
+import { forwardRef } from 'react';
+import BaseButton, { ButtonProps as BaseButtonProps } from 'antd/es/button';
+import Spin from 'antd/es/spin';
 import clsx from 'clsx';
-import { Loader } from 'shared/ui/display/Loader';
-import { ButtonVariant, MAP_BUTTON_VARIANT_TO_LOADER_VARIANT } from './utils';
 import styles from './styles.module.scss';
 
-export type { ButtonVariant };
+type BaseButtonType = GetProp<BaseButtonProps, 'type'>;
+type CustomButtonType = 'secondary' | 'secondaryDanger' | 'tertiary' | 'quaternary' | 'danger';
+type ButtonType = BaseButtonType | CustomButtonType;
 
-type InternalButtonProps<T extends ElementType> = ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: ButtonVariant;
-    startIcon?: ReactNode;
-    endIcon?: ReactNode;
-    isLoading?: boolean;
-    as?: T;
+export type ButtonProps = Omit<BaseButtonProps, 'type' | 'variant'> & {
+    type?: ButtonType;
+    padding?: 'None' | 'Icon' | 'IconLarge' | 'Small' | 'Smaller' | 'Medium' | 'Regular' | 'Large';
+    baseLoading?: boolean;
 };
 
-export type ButtonProps<T extends ElementType = 'button'> = InternalButtonProps<T> &
-    Omit<ComponentPropsWithoutRef<T>, keyof InternalButtonProps<T>>;
+const CUSTOM_BUTTON_TYPES: ButtonType[] = ['secondary', 'tertiary', 'quaternary', 'danger'];
 
-const ButtonWithRef = <T extends ElementType = 'button'>(
-    props: ButtonProps<T>,
-    ref?: Ref<HTMLButtonElement>,
-) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     const {
         children,
-        variant = 'primary',
-        startIcon,
-        endIcon,
-        as = 'button',
-        className,
-        isLoading,
+        type: baseType = 'default',
+        padding = 'Regular',
         disabled,
+        loading,
+        baseLoading,
+        className,
         ...restProps
     } = props;
-    const Element = as;
+    const type = CUSTOM_BUTTON_TYPES.includes(baseType) ? undefined : (baseType as BaseButtonType);
 
     return (
-        <Element
+        <BaseButton
             ref={ref}
-            type={as === 'button' ? 'button' : undefined}
-            disabled={disabled || isLoading}
-            className={clsx(styles.wrapper, styles[variant], className, {
-                [styles.loading]: isLoading,
-            })}
+            type={type}
+            disabled={disabled || !!loading || baseLoading}
+            loading={baseLoading}
+            className={clsx(
+                styles.button,
+                styles[baseType],
+                styles[`padding${padding}`],
+                className,
+                {
+                    [styles.buttonLoading]: !!loading,
+                },
+            )}
             {...restProps}
         >
-            {startIcon && <span className={styles.startIcon}>{startIcon}</span>}
+            <span
+                className={clsx(styles.loaderWrapper, {
+                    [styles.loaderWrapperVisible]: !!loading,
+                })}
+            >
+                <Spin size="small" className={styles.spin} />
+            </span>
             {children}
-            {endIcon && <span className={styles.endIcon}>{endIcon}</span>}
-            {isLoading && (
-                <span className={styles.loaderWrapper}>
-                    <Loader
-                        variant={MAP_BUTTON_VARIANT_TO_LOADER_VARIANT[variant]}
-                        size={16}
-                        strokeWidth={8}
-                    />
-                </span>
-            )}
-        </Element>
+        </BaseButton>
     );
-};
+});
 
-export const Button = forwardRef(ButtonWithRef) as <T extends ElementType = 'button'>(
-    props: ButtonProps<T> & { ref?: ForwardedRef<HTMLButtonElement> },
-) => ReturnType<typeof ButtonWithRef>;
+Button.displayName = 'Button';

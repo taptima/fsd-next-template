@@ -1,0 +1,29 @@
+@use 'shared/styles/font';
+
+.wrapper {
+    width: 220px;
+}
+
+.content {
+    padding: 8px;
+}
+
+.input {
+    &:global(.ant-input-outlined) {
+        padding: 10px 12px;
+        border-color: var(--neture-300);
+    }
+
+    :global(.ant-input) {
+        &::placeholder {
+            color: var(--neture-400);
+        }
+    }
+}
+
+.actions {
+    padding: 0 8px 8px;
+    display: grid;
+    grid-auto-flow: column;
+    column-gap: 8px;
+}

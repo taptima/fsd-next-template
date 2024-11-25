@@ -1,0 +1,7 @@
+@use 'shared/styles/font';
+
+.header {
+    color: var(--neture-500);
+
+    @include font.h4;
+}

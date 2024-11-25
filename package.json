@@ -39,12 +39,19 @@
         "pnpm": "^8.7.0"
     },
     "dependencies": {
+        "@ant-design/nextjs-registry": "^1.0.0",
+        "@dnd-kit/core": "^6.1.0",
+        "@dnd-kit/modifiers": "^7.0.0",
+        "@dnd-kit/sortable": "^8.0.0",
+        "@dnd-kit/utilities": "^3.2.2",
         "@sentry/nextjs": "^7.118.0",
+        "antd": "5.19.3",
+        "antd-5-mask-input": "^1.1.0",
         "async-mutex": "^0.5.0",
         "axios": "^1.7.2",
         "clsx": "^2.1.1",
         "graphql": "^16.9.0",
-        "next": "14.2.3",
+        "next": "14.2.0",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "sharp": "^0.33.4",
@@ -104,7 +111,7 @@
     },
     "pnpm": {
         "patchedDependencies": {
-            "next@14.2.3": "patches/next@14.2.3.patch"
+            "next@14.2.0": "patches/next@14.2.0.patch"
         }
     }
 }

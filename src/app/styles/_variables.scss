@@ -1,4 +1,19 @@
+@use 'shared/styles/mq';
+
 :root {
     --container-gutter: 80px;
-    --container-width: 1600px;
+    --container-width: 1920px;
+    --client-mobile-navigation-height: 65px;
+
+    @include mq.lower-xxxl {
+        --container-gutter: 60px;
+    }
+
+    @include mq.lower-md {
+        --container-gutter: 40px;
+    }
+
+    @include mq.lower-xs {
+        --container-gutter: 16px;
+    }
 }

@@ -1,0 +1,11 @@
+.inputWrapper {
+    :global(.ant-input) {
+        &:-webkit-autofill {
+            background-clip: text;
+        }
+    }
+}
+
+.errorLabel {
+    color: var(--error-900);
+}

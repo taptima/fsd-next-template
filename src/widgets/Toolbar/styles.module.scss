@@ -1,0 +1,67 @@
+@use 'shared/styles/font';
+@use 'shared/styles/mq';
+
+.wrapper {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--neture-100);
+
+    @include mq.lower-md {
+        display: grid;
+        gap: 16px;
+    }
+}
+
+.titleWrapper {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    column-gap: 8px;
+    align-items: center;
+}
+
+.backButton {
+    margin-right: 2px;
+
+    &Icon {
+        width: 24px;
+
+        @include mq.lower-sm {
+            width: 16px;
+        }
+    }
+
+    @include mq.lower-sm {
+        min-width: 32px;
+        min-height: 32px;
+        border-color: var(--neture-100);
+    }
+}
+
+.title {
+    @include font.h2;
+
+    @include mq.lower-sm {
+        @include font.h3;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+
+    @include mq.lower-md {
+        display: grid;
+        justify-content: initial;
+    }
+}
+
+.actionsWrapper {
+    display: flex;
+    gap: 16px;
+
+    @include mq.lower-md {
+        display: grid;
+    }
+}

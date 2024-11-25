@@ -1,0 +1,9 @@
+@use 'shared/styles/font';
+
+.title {
+    @include font.h2;
+}
+
+.subtitle {
+    color: var(--black);
+}

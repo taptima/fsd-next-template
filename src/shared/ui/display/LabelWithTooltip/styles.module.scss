@@ -1,0 +1,40 @@
+@use 'shared/styles/font';
+
+.wrapper {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+
+    @include font.b2;
+}
+
+.label {
+    &Gray {
+        color: var(--neture-500);
+    }
+}
+
+.tooltipButton {
+    margin-left: 4px;
+    display: flex;
+    z-index: var(--z-dropdown);
+}
+
+.tooltipOverlay {
+    &:global(.ant-tooltip) {
+        max-width: max-content;
+    }
+}
+
+.icon {
+    cursor: help;
+}
+
+.postfix {
+    margin-left: 4px;
+    color: var(--neture-400);
+
+    &JustifyEnd {
+        margin-left: auto;
+    }
+}

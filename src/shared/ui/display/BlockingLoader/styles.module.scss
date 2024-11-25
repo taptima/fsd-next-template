@@ -15,9 +15,6 @@
     bottom: 0;
     left: 0;
     z-index: var(--z-blocking-loader);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     animation-name: show;
     animation-duration: var(--transition-fast);
 
@@ -31,8 +28,8 @@
         background-color: var(--neutral-900);
         opacity: 0.3;
     }
-}
 
-.loader {
-    position: relative;
+    :global(.ant-spin-fullscreen) {
+        background-color: rgb(17 25 40 / 20%);
+    }
 }

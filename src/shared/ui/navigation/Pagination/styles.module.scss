@@ -1,0 +1,100 @@
+@use 'shared/styles/mq';
+
+.wrapper {
+    padding: 20px;
+    border: 1px solid #f3f4f6;
+    background-color: var(--neture-0);
+
+    &Fixed {
+        @include mq.greater-md {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            left: 208px;
+        }
+
+        @include mq.lower-md {
+            margin-top: auto;
+            position: sticky;
+            left: 0;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+    }
+}
+
+.selectWrapper {
+    &:global(.ant-space) {
+        @include mq.hide-lower(md);
+    }
+}
+
+.grey {
+    color: var(--neture-500);
+}
+
+.pagination {
+    &:global(.ant-pagination) {
+        align-items: center;
+
+        @include mq.lower-md {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+    }
+
+    &:global(.ant-pagination .ant-pagination-item),
+    &:global(.ant-pagination .ant-pagination-prev),
+    &:global(.ant-pagination .ant-pagination-next) {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:global(.ant-pagination.ant-pagination-mini .ant-pagination-item),
+    &:global(.ant-pagination.ant-pagination-mini .ant-pagination-prev),
+    &:global(.ant-pagination.ant-pagination-mini .ant-pagination-next) {
+        max-width: 44px;
+        width: 44px;
+        height: 44px;
+    }
+
+    :global(.ant-pagination-item),
+    :global(.ant-pagination-item-link) {
+        // stylelint-disable-next-line declaration-no-important
+        border-color: var(--neture-100) !important;
+        // stylelint-disable-next-line declaration-no-important
+        background-color: var(--neture-0) !important;
+    }
+
+    :global(.ant-pagination-item-active) {
+        // stylelint-disable-next-line declaration-no-important
+        border: 1px solid var(--primary-900) !important;
+    }
+
+    @include mq.lower-md {
+        &:global(.ant-pagination .ant-pagination-item),
+        &:global(.ant-pagination .ant-pagination-prev),
+        &:global(.ant-pagination .ant-pagination-next) {
+            margin: 0;
+        }
+    }
+
+    @include mq.lower-xs {
+        &:global(.ant-pagination .ant-pagination-jump-next),
+        &:global(.ant-pagination .ant-pagination-jump-prev) {
+            @include mq.hide-lower(xs);
+        }
+    }
+
+    @include mq.lower-xxs {
+        &:global(.ant-pagination) {
+            gap: 4px;
+        }
+    }
+}

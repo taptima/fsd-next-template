@@ -1,0 +1,78 @@
+@use 'shared/styles/mixins';
+@use 'shared/styles/mq';
+
+.wrapper {
+    --header-height: 102px;
+
+    min-height: 100vh;
+
+    &MobileCard {
+        background-color: var(--neture-50);
+    }
+
+    @include mq.greater-xs {
+        --header-height: 221px;
+
+        background-color: var(--neture-50);
+    }
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 80px 0;
+
+    @include mq.lower-xs {
+        padding: 32px 0;
+    }
+
+    @media (height < 620px) {
+        display: none;
+    }
+}
+
+.headerContainer {
+    @include mixins.container;
+}
+
+.logoWrapper {
+    position: relative;
+    width: 136px;
+    height: 61px;
+
+    @include mq.lower-xs {
+        width: 86px;
+        height: 38px;
+    }
+}
+
+.contentContainer {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+
+    @include mixins.container;
+}
+
+.card {
+    width: 425px;
+
+    &Regular {
+        @include mq.lower-xs {
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
+
+    &MobileCard {
+        @include mq.lower-xs {
+            padding: 20px;
+        }
+    }
+}
