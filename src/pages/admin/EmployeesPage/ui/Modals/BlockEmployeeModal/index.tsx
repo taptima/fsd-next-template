@@ -1,13 +1,13 @@
 import type { FC } from 'react';
-import { message } from 'antd';
+import useMessage from 'antd/es/message/useMessage';
 import type { DynamicModalProps } from 'shared/types/modal';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { Accent } from 'shared/ui/display/Accent';
 import { Button } from 'shared/ui/inputs/Button';
-import { useBlockEmployeeMutation } from 'pages/admin/EmployeesPage/model/api/swr/useBlockEmployeeMutation';
+import { UserStateEnum } from 'entities/User';
+import { useEditEmployeeStateMutation } from 'pages/admin/EmployeesPage/api/swr/useEditEmployeeStateMutation';
 import { useEmployeesActionsStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import { ActionModal } from 'widgets/ActionModal';
 
 type Props = DynamicModalProps;
@@ -17,31 +17,27 @@ export const BlockEmployeeModal: FC<Props> = (props) => {
     const employeeForBlocking = useEmployeesActionsStore.use.employeeForBlocking();
     const { id } = employeeForBlocking ?? {};
     const fullName = getFullName(employeeForBlocking);
-    const { isMutating, trigger } = useBlockEmployeeMutation();
-    const { setIsBlockEmployeeModalOpen } = useEmployeesPageModalStore.use.actions();
-    const [messageApi, contextHolder] = message.useMessage();
+    const { isMutating, trigger } = useEditEmployeeStateMutation();
+    const [messageApi, contextHolder] = useMessage();
 
-    const handleConfirmButtonClick = async () => {
-        //! статус пока временно
-        const response = await trigger({ id: Number(id), status: true });
+    const handleConfirm = async () => {
+        if (!id) {
+            return;
+        }
+
+        const response = await trigger({ id, state: UserStateEnum.Blocked });
 
         handleApiErrors({
             response,
             onSuccess: () => {
-                setIsBlockEmployeeModalOpen(false);
+                onCancel();
                 messageApi.open({
                     type: 'info',
                     content: (
                         <>
-                            Сотрудник <Accent>{fullName}</Accent> заблокирован
+                            Пользователь <Accent>{fullName}</Accent> заблокирован
                         </>
                     ),
-                });
-            },
-            onError: () => {
-                messageApi.open({
-                    type: 'error',
-                    content: 'При блокировке сотрудника произошла ошибка',
                 });
             },
         });
@@ -52,23 +48,13 @@ export const BlockEmployeeModal: FC<Props> = (props) => {
             {contextHolder}
             <ActionModal
                 onCancel={onCancel}
-                title="Заблокировать сотрудника"
+                title="Блокировка пользователя"
                 actions={
                     <>
-                        <Button
-                            type="secondary"
-                            padding="Large"
-                            disabled={isMutating}
-                            onClick={onCancel}
-                        >
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
                             Отменить
                         </Button>
-                        <Button
-                            type="primary"
-                            padding="Large"
-                            loading={isMutating}
-                            onClick={handleConfirmButtonClick}
-                        >
+                        <Button type="primary" loading={isMutating} onClick={handleConfirm}>
                             Заблокировать
                         </Button>
                     </>

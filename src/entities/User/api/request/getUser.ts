@@ -6,5 +6,8 @@ export const getUser = async () => {
 
     return <User>{
         id: 1,
+        lastname: 'Фамилия',
+        firstname: 'Имя',
+        middlename: 'Отчество',
     };
 };

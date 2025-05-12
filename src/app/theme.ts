@@ -1,4 +1,4 @@
-import type { ThemeConfig } from 'antd';
+import type { ThemeConfig } from 'antd/lib';
 
 export const theme: ThemeConfig = {
     token: {
@@ -43,6 +43,7 @@ export const theme: ThemeConfig = {
             paddingInline: 16,
             paddingXXS: 16, // OTP
             colorBorder: 'var(--neture-100)',
+            colorTextDisabled: 'var(--neture-400)',
             colorBgContainerDisabled: 'var(--neture-50)',
         },
         DatePicker: {
@@ -56,7 +57,7 @@ export const theme: ThemeConfig = {
         Layout: {
             headerBg: 'var(--neture-0)',
             headerHeight: 'auto',
-            headerPadding: '12px 20px',
+            headerPadding: '13px 16px',
             bodyBg: 'var(--neture-50)',
         },
         List: {

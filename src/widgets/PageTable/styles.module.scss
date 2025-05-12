@@ -1,5 +1,20 @@
 .wrapper {
     position: relative;
     height: 100%;
-    padding-bottom: 106px;
+    display: flex;
+    flex-direction: column;
+
+    &PaginationOffset {
+        padding-bottom: calc(var(--pagination-height) + 20px);
+    }
+}
+
+.tableWrapper {
+    position: relative;
+    height: 100%;
+    padding: 20px 24px 0;
+}
+
+.tabsWrapper {
+    padding: 12px 24px 0;
 }

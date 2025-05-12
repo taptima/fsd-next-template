@@ -1,101 +1,95 @@
-import type { FC } from 'react';
+import { useMemo, FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
 import useMessage from 'antd/es/message/useMessage';
-import type { DynamicDrawerProps } from 'shared/types/modal';
-import type { EmployeeForm } from 'pages/admin/EmployeesPage/model/types/form';
+import type { DynamicModalProps } from 'shared/types/modal';
+import type { EmployeeForm as EmployeeFormEntity } from 'pages/admin/EmployeesPage/model/types/form';
+import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { useFormInit } from 'shared/lib/hooks/form/useFormInit';
+import { Accent } from 'shared/ui/display/Accent';
+import { Screen } from 'shared/ui/feedback/Screen';
 import { Button } from 'shared/ui/inputs/Button';
-import { useAddEmployeeMutation } from 'pages/admin/EmployeesPage/model/api/swr/useAddEmployeeMutation';
+import { useEditEmployeeMutation } from 'pages/admin/EmployeesPage/api/swr/useEditEmployeeMutation';
+import { useEmployee } from 'pages/admin/EmployeesPage/api/swr/useEmployee';
+import { mapEmployeeFormToQuery } from 'pages/admin/EmployeesPage/model/mapper/mapEmployeeFormToQuery';
 import { mapEmployeeToForm } from 'pages/admin/EmployeesPage/model/mapper/mapEmployeeToForm';
 import { useEmployeesActionsStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
-import { EmployeeModal } from 'pages/admin/EmployeesPage/ui/Modals/common/EmployeeModal';
+import { EmployeeForm } from 'pages/admin/EmployeesPage/ui/Modals/common/EmployeeForm';
 
-type Props = DynamicDrawerProps;
+type Props = DynamicModalProps;
+
+const FORM_ID = 'edit-employee-form';
 
 export const EditEmployeeModal: FC<Props> = (props) => {
-    const { open, onClose } = props;
+    const { open, onCancel } = props;
     const employeeForEdit = useEmployeesActionsStore.use.employeeForEdit();
-    const initialValues = mapEmployeeToForm(employeeForEdit);
-    const { isMutating, trigger } = useAddEmployeeMutation();
+    const { id } = employeeForEdit ?? {};
+    const { data, isLoading } = useEmployee(id);
+    const initialValues = useMemo(() => mapEmployeeToForm(data), [data]);
+    const { isMutating, trigger } = useEditEmployeeMutation();
     const [messageApi, contextHolder] = useMessage();
-    const [form] = useForm<EmployeeForm>();
+    const [form] = useForm<EmployeeFormEntity>();
 
     const { isDirty, onFieldsChange } = useFormInit({ form, open, initialValues });
 
-    const { setEmployeeForChangingPassword } = useEmployeesActionsStore.use.actions();
-    const { setIsEditEmployeeModalOpen, setIsChangePasswordEmployeeModalOpen } =
-        useEmployeesPageModalStore.use.actions();
+    const handleFinish = async (values: EmployeeFormEntity) => {
+        if (!id) {
+            return;
+        }
 
-    const handleFinish = async (values: EmployeeForm) => {
-        const response = await trigger(values);
+        const response = await trigger({
+            id,
+            ...mapEmployeeFormToQuery(values),
+        });
 
         handleApiErrors({
             response,
             onSuccess: () => {
-                onClose();
+                onCancel();
                 messageApi.open({
-                    type: 'success',
-                    content: 'Изменения сохранены',
-                });
-            },
-            onError: () => {
-                messageApi.open({
-                    type: 'error',
-                    content: 'При редактировании произошла ошибка',
+                    type: 'info',
+                    content: (
+                        <>
+                            Пользователь <Accent>{getFullName(data)}</Accent> изменён
+                        </>
+                    ),
                 });
             },
         });
     };
 
-    const handleChangeButtonClick = () => {
-        setEmployeeForChangingPassword(employeeForEdit);
-        setIsEditEmployeeModalOpen(false);
-        setIsChangePasswordEmployeeModalOpen(true);
-    };
-
     return (
         <>
             {contextHolder}
-            <EmployeeModal
+            <Screen
                 open={open}
-                onClose={onClose}
-                title="Редактирование сотрудника"
-                formProps={{
-                    form,
-                    initialValues,
-                    onFinish: handleFinish,
-                    onFieldsChange,
-                }}
-                isMutating={isMutating}
-                passwordRequired={false}
-                changePassword={
-                    <Button
-                        type="secondary"
-                        disabled={isMutating}
-                        onClick={handleChangeButtonClick}
-                    >
-                        Сменить пароль
-                    </Button>
+                onCancel={onCancel}
+                title="Редактирование пользователя"
+                isLoading={isLoading}
+                content={
+                    <EmployeeForm
+                        variant="edit"
+                        formProps={{
+                            id: FORM_ID,
+                            form,
+                            initialValues,
+                            onFieldsChange,
+                            onFinish: handleFinish,
+                        }}
+                        isMutating={isMutating}
+                    />
                 }
-                actions={
+                bottomActions={
                     <>
-                        <Button
-                            type="secondary"
-                            padding="Large"
-                            disabled={isMutating}
-                            onClick={onClose}
-                        >
-                            Отмена
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
+                            Отменить
                         </Button>
-
                         <Button
                             htmlType="submit"
+                            form={FORM_ID}
                             type="primary"
-                            padding="Large"
-                            loading={isMutating}
                             disabled={!isDirty}
+                            loading={isMutating}
                         >
                             Сохранить
                         </Button>

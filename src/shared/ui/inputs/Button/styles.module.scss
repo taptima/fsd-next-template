@@ -1,3 +1,38 @@
+@mixin loader($background, $color) {
+    .loaderWrapper {
+        background-color: $background;
+    }
+
+    .spin {
+        &:global(.ant-spin) {
+            &,
+            :global(.ant-spin-dot-holder) {
+                color: $color;
+            }
+        }
+    }
+}
+
+.loaderWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-900);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: var(--transition-normal);
+
+    &Visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .button {
     position: relative;
     overflow: hidden;
@@ -14,12 +49,29 @@
             background: var(--primary-900);
         }
     }
+
+    &:global(.ant-btn) > .loaderWrapper {
+        display: flex;
+    }
+
+    &:global(.ant-btn-primary.ant-btn-dangerous) {
+        @include loader(var(--error-900), var(--neture-0));
+    }
+
+    @include loader(var(--primary-900), var(--neture-0));
 }
 
 .text {
     &:global(.ant-btn-text:disabled) {
         background-color: var(--neture-100);
         opacity: 0.75;
+    }
+}
+
+.link {
+    &:global(.ant-btn) {
+        border: none;
+        border-radius: 0;
     }
 }
 
@@ -31,8 +83,15 @@
 
         &:disabled {
             color: var(--neture-400);
+            background: var(--neture-100);
+
+            svg {
+                fill: var(--neture-400);
+            }
         }
     }
+
+    @include loader(var(--neture-0), var(--primary-900));
 }
 
 .secondaryDanger {
@@ -41,7 +100,16 @@
         border-color: var(--neture-100);
         background-color: var(--neture-0);
 
-        &:hover {
+        &:disabled {
+            color: var(--neture-400);
+            background: var(--neture-100);
+
+            svg {
+                fill: var(--neture-400);
+            }
+        }
+
+        &:not(:disabled):hover {
             border-color: var(--error-900);
         }
     }
@@ -133,36 +201,6 @@
     &Large {
         &:global(.ant-btn) {
             padding: 12px 24px;
-        }
-    }
-}
-
-.loaderWrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--primary-900);
-    opacity: 0;
-    visibility: hidden;
-    transition-property: opacity, visibility;
-    transition-duration: var(--transition-normal);
-
-    &Visible {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-.spin {
-    &:global(.ant-spin) {
-        &,
-        :global(.ant-spin-dot-holder) {
-            color: var(--neture-0);
         }
     }
 }

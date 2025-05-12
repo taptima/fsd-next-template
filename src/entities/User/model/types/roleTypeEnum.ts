@@ -1,4 +1,5 @@
 export const enum RoleTypeEnum {
-    Client = 'CLIENT',
-    Admin = 'ADMIN',
+    RoleAdmin = 'ROLE_ADMIN',
+    RoleSuperAdmin = 'ROLE_SUPER_ADMIN',
+    RoleUser = 'ROLE_USER',
 }

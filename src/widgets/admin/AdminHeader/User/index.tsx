@@ -8,7 +8,8 @@ import styles from './styles.module.scss';
 
 export const User: FC = () => {
     const { data } = useUser();
-    const { username = '' } = data ?? {};
+    const { lastname = '', firstname = '' } = data ?? {};
+    const initials = `${lastname.slice(0, 1)}${firstname.slice(0, 1)}`;
     const { setIsLogoutModalOpen } = useAdminModalStore.use.actions();
     const [popoverOpen, setPopoverOpen] = useState(false);
 
@@ -37,8 +38,8 @@ export const User: FC = () => {
             overlayClassName={styles.popover}
         >
             <button type="button" className={styles.button}>
-                <Avatar>{username.slice(0, 1)}</Avatar>
-                <span className={styles.username}>{username}</span>
+                <Avatar>{initials}</Avatar>
+                <span className={styles.username}>{`${lastname} ${firstname}`}</span>
             </button>
         </Popover>
     );

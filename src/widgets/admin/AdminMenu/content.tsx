@@ -1,30 +1,11 @@
 import type { MenuItem } from 'shared/ui/display/Menu';
-import XIcon from 'shared/assets/icons/x.svg';
+import EmployeesIcon from 'shared/assets/icons/users.svg';
+import { ADMIN_EMPLOYEES } from 'shared/const/pageRoutes';
 
 export const ITEMS: MenuItem[] = [
     {
-        href: '#',
-        Icon: XIcon,
-        label: 'Label',
-    },
-    {
-        href: '#',
-        Icon: XIcon,
-        label: 'Label',
-    },
-    {
-        href: '#',
-        Icon: XIcon,
-        label: 'Label',
-    },
-    {
-        href: '#',
-        Icon: XIcon,
-        label: 'Label',
-    },
-    {
-        href: '#',
-        Icon: XIcon,
-        label: 'Label',
+        href: ADMIN_EMPLOYEES,
+        Icon: EmployeesIcon,
+        label: 'Сотрудники',
     },
 ];

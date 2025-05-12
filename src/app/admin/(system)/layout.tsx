@@ -8,6 +8,7 @@ import { AdminHeader } from 'widgets/admin/AdminHeader';
 import { AdminMenu } from 'widgets/admin/AdminMenu';
 import styles from './styles.module.scss';
 
+// TODO: move to `features/layout/AdminLayout`
 export default function SystemLayout({ children }: { children: React.ReactNode }) {
     return (
         <>

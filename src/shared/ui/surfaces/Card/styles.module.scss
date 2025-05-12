@@ -1,14 +1,11 @@
 .wrapper {
+    transition: border-color var(--transition-fast);
     overflow: hidden;
 }
 
 .variant {
     &White {
         background-color: var(--neture-0);
-    }
-
-    &Gray {
-        background-color: var(--neture-50);
     }
 }
 
@@ -27,8 +24,12 @@
 }
 
 .border {
-    &Gray {
+    &Default {
         border: 1px solid var(--neture-100);
+    }
+
+    &Gray {
+        border: 1px solid var(--neture-300);
     }
 }
 
@@ -38,6 +39,6 @@
     }
 
     &Large {
-        border-radius: 20px;
+        border-radius: 16px;
     }
 }

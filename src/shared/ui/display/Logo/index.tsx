@@ -1,5 +1,5 @@
 import type { FC, SVGProps } from 'react';
-import LogoIcon from 'shared/assets/icons/vercel.svg';
+import LogoIcon from 'shared/assets/icons/next.svg';
 import colors from 'shared/styles/colors.module.scss';
 
 type Props = SVGProps<SVGSVGElement>;

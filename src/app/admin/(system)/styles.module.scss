@@ -9,6 +9,7 @@
         top: 0;
         bottom: 0;
         transition: none;
+        z-index: var(--z-modal-backdrop);
     }
 }
 
@@ -20,5 +21,4 @@
 
 .card {
     height: 100%;
-    padding-bottom: 0;
 }

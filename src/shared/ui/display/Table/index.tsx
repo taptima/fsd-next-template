@@ -2,6 +2,7 @@
 
 import BaseTable, { TableProps as BaseTableProps } from 'antd/es/table';
 import clsx from 'clsx';
+import type { Classnames } from 'shared/types/styles';
 import { Actions } from './ui/Actions';
 import { DragHandle } from './ui/DragHandle';
 import { FilterDropdown } from './ui/FilterDropdown';
@@ -14,22 +15,28 @@ import { SortableRow } from './ui/SortableRow';
 import { Switch } from './ui/Switch';
 import styles from './styles.module.scss';
 
-export type TableProps<Data extends object = object> = BaseTableProps & {
-    onRowClick?: (data: Data) => void;
-};
+export type TableProps<Data extends object = object> = Omit<BaseTableProps, 'loading'> &
+    Classnames<'adaptiveListWrapper'> & {
+        loading?: boolean;
+        fill?: boolean;
+        absolute?: boolean;
+        onRowClick?: (data: Data) => void;
+    };
 
 export function Table<Data extends object = object>(props: TableProps<Data>) {
-    const { onRowClick, ...restProps } = props;
+    const { fill, absolute, onRowClick, ...restProps } = props;
 
     return (
         <BaseTable
             pagination={false}
             tableLayout="fixed"
+            className={clsx(styles.tableWrapper, {
+                [styles.tableWrapperFill]: fill,
+                [styles.tableWrapperAbsolute]: absolute,
+                [styles.rowClickable]: !!onRowClick,
+            })}
             onRow={(data) => ({
                 onClick: () => onRowClick?.(data),
-            })}
-            className={clsx(styles.tableWrapper, {
-                [styles.rowClickable]: !!onRowClick,
             })}
             {...restProps}
         />

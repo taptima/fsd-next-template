@@ -4,6 +4,8 @@
     --container-gutter: 80px;
     --container-width: 1920px;
     --client-mobile-navigation-height: 65px;
+    --layout-menu-width: 207px;
+    --pagination-height: 86px;
 
     @include mq.lower-xxxl {
         --container-gutter: 60px;

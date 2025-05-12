@@ -1,0 +1,13 @@
+@use 'shared/styles/utils';
+
+.wrapper {
+    position: relative;
+    height: 100%;
+    padding: var(--offset);
+    display: grid;
+    grid-auto-rows: max-content;
+    row-gap: 16px;
+    overflow-y: auto;
+
+    @include utils.custom-scrollbar;
+}

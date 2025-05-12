@@ -2,6 +2,8 @@
 
 import type { FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
+import { useRouter } from 'next/navigation';
+import { ADMIN_EMPLOYEES } from 'shared/const/pageRoutes';
 import { REQUIRED_RULE } from 'shared/lib/validation/rules';
 import { Button } from 'shared/ui/inputs/Button';
 import { Input } from 'shared/ui/inputs/Input';
@@ -12,7 +14,8 @@ import { Form as BaseForm } from 'features/form/Form';
 import { SignInForm } from 'pages/admin/SignInPage/model/types/form';
 
 export const Form: FC = () => {
-    const { isMutating, trigger } = useSignInMutation();
+    const { push } = useRouter();
+    const { isMutating, trigger } = useSignInMutation(() => push(ADMIN_EMPLOYEES));
     const [form] = useForm<SignInForm>();
 
     const handleFinish = async (values: SignInForm) => {

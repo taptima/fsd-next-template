@@ -37,7 +37,7 @@ export const FilterDropdown: FC<Props> = (props) => {
     return (
         <Form form={form} initialValues={initialValues} onFinish={handleFinish}>
             <div className={clsx(styles.wrapper, styles[`wrapper${size}`])}>
-                <div className={styles.filters}>
+                <div>
                     <FormItem<DropdownForm> name="query">
                         <Checkbox.Group>
                             {filters.map(({ value, text }, index) => (
