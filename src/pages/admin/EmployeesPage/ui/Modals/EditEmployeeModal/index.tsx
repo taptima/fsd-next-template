@@ -50,7 +50,7 @@ export const EditEmployeeModal: FC<Props> = (props) => {
                     type: 'info',
                     content: (
                         <>
-                            Пользователь <Accent>{getFullName(data)}</Accent> изменён
+                            Сотрудник <Accent>{getFullName(data)}</Accent> изменён
                         </>
                     ),
                 });
@@ -64,7 +64,7 @@ export const EditEmployeeModal: FC<Props> = (props) => {
             <Screen
                 open={open}
                 onCancel={onCancel}
-                title="Редактирование пользователя"
+                title="Редактирование сотрудника"
                 isLoading={isLoading}
                 content={
                     <EmployeeForm

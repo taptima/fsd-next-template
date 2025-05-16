@@ -34,10 +34,10 @@ export const DeleteEmployeeModal: FC<Props> = (props) => {
                 onCancel();
                 setIsViewEmployeeModalOpen(false);
                 messageApi.open({
-                    type: 'info',
+                    type: 'success',
                     content: (
                         <>
-                            Пользователь <Accent>{fullName}</Accent> удалён
+                            Сотрудник <Accent>{fullName}</Accent> удалён
                         </>
                     ),
                 });
@@ -50,7 +50,7 @@ export const DeleteEmployeeModal: FC<Props> = (props) => {
             {contextHolder}
             <ActionModal
                 onCancel={onCancel}
-                title="Удаление пользователя"
+                title="Удаление сотрудника"
                 actions={
                     <>
                         <Button type="secondary" disabled={isMutating} onClick={onCancel}>

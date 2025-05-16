@@ -38,7 +38,7 @@ export const AddEmployeeModal: FC<Props> = (props) => {
                     type: 'success',
                     content: (
                         <>
-                            Пользователь <Accent>{getFullName(values)}</Accent> успешно создан
+                            Сотрудник <Accent>{getFullName(values)}</Accent> добавлен
                         </>
                     ),
                 });
@@ -52,7 +52,7 @@ export const AddEmployeeModal: FC<Props> = (props) => {
             <Screen
                 open={open}
                 onCancel={onCancel}
-                title="Создание пользователя"
+                title="Добавление сотрудника"
                 content={
                     <EmployeeForm
                         variant="add"

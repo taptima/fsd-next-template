@@ -24,7 +24,7 @@ const BaseEmployeesPage: FC = () => {
         <>
             <PageTable
                 headerProps={{
-                    title: 'Пользователи',
+                    title: 'Сотрудники',
                     extra: [
                         <Button key="1" type="primary" onClick={handleAdd}>
                             Добавить

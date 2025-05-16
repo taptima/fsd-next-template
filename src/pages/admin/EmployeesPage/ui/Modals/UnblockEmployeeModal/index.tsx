@@ -32,10 +32,10 @@ export const UnblockEmployeeModal: FC<Props> = (props) => {
             onSuccess: () => {
                 onCancel();
                 messageApi.open({
-                    type: 'info',
+                    type: 'success',
                     content: (
                         <>
-                            Пользователь <Accent>{fullName}</Accent> разблокирован
+                            Сотрудник <Accent>{fullName}</Accent> разблокирован
                         </>
                     ),
                 });
@@ -48,7 +48,7 @@ export const UnblockEmployeeModal: FC<Props> = (props) => {
             {contextHolder}
             <ActionModal
                 onCancel={onCancel}
-                title="Разблокировка пользователя"
+                title="Разблокировка сотрудника"
                 actions={
                     <>
                         <Button type="secondary" disabled={isMutating} onClick={onCancel}>

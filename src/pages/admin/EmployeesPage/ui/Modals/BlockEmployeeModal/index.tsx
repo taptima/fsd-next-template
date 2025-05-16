@@ -35,7 +35,7 @@ export const BlockEmployeeModal: FC<Props> = (props) => {
                     type: 'info',
                     content: (
                         <>
-                            Пользователь <Accent>{fullName}</Accent> заблокирован
+                            Сотрудник <Accent>{fullName}</Accent> заблокирован
                         </>
                     ),
                 });
@@ -48,7 +48,7 @@ export const BlockEmployeeModal: FC<Props> = (props) => {
             {contextHolder}
             <ActionModal
                 onCancel={onCancel}
-                title="Блокировка пользователя"
+                title="Блокировка сотрудника"
                 actions={
                     <>
                         <Button type="secondary" disabled={isMutating} onClick={onCancel}>

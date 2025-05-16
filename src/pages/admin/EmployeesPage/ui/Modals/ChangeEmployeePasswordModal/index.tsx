@@ -52,9 +52,8 @@ export const ChangeEmployeePasswordModal: FC<Props> = (props) => {
                     type: 'info',
                     content: (
                         <>
-                            Пароль пользователя{' '}
-                            <Accent>{getFullName(employeeForChangingPassword)}</Accent> успешно
-                            изменён
+                            Пароль сотрудника{' '}
+                            <Accent>{getFullName(employeeForChangingPassword)}</Accent> изменён
                         </>
                     ),
                 });
