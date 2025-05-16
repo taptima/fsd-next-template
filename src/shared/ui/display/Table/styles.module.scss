@@ -1,15 +1,26 @@
 @use 'shared/styles/font';
+@use 'shared/styles/utils';
 
 .tableWrapper {
+    border: 1px solid var(--neture-100);
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow: hidden;
+
+    &:global(.ant-table-wrapper .ant-table-filter-trigger) {
+        margin-right: 0;
+    }
+
     table {
         th {
             user-select: none;
-        }
 
-        th:global(.ant-table-cell) {
-            color: var(--neture-500);
+            &:global(.ant-table-cell) {
+                color: var(--neture-500);
 
-            @include font.h4;
+                @include font.h4;
+            }
         }
 
         :global(.ant-table-cell) {
@@ -21,9 +32,48 @@
         }
     }
 
+    :global(.ant-table-content),
+    :global(.ant-table-container > .ant-table-body) {
+        @include utils.custom-scrollbar;
+    }
+
     :global(.ant-table-placeholder) {
         // stylelint-disable-next-line declaration-no-important
         z-index: auto !important;
+    }
+
+    &Fill {
+        &,
+        :global(.ant-spin-nested-loading),
+        :global(.ant-spin-container),
+        :global(.ant-table),
+        :global(.ant-table-body) {
+            height: 100%;
+        }
+
+        :global(.ant-table) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        :global(.ant-table-container) {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        :global(.ant-table-header) {
+            flex: none;
+        }
+    }
+
+    &Absolute {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
     }
 }
 

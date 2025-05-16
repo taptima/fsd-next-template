@@ -1,24 +1,25 @@
+import type { User } from 'entities/User';
 import type { EmployeeForm } from 'pages/admin/EmployeesPage/model/types/form';
-import { User } from 'entities/User';
+import { mapEnumToOption } from 'shared/lib/helpers/mapEnumToOption';
+import { prettifyPhone } from 'shared/lib/helpers/prettifyPhone';
+import { MAP_USER_ROLE_TO_TEXT } from 'entities/User/model/mapper/mapUserRoleToText';
 
-export const mapEmployeeToForm = (user: User | null): EmployeeForm => {
+export const mapEmployeeToForm = (user: User): EmployeeForm => {
     const {
-        role = null,
         lastname = '',
         firstname = '',
         middlename = '',
-        username = '',
+        email = '',
         phone = '',
+        role,
     } = user ?? {};
 
     return {
-        role,
         surname: lastname,
-        firstName: firstname,
-        middleName: middlename,
-        login: username,
-        email: '',
-        phone,
-        password: '',
+        firstname,
+        middlename,
+        email,
+        phone: prettifyPhone(phone),
+        role: mapEnumToOption(role, MAP_USER_ROLE_TO_TEXT),
     };
 };

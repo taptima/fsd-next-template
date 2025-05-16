@@ -1,0 +1,9 @@
+.pageHeader {
+    border: 1px solid var(--neture-100);
+    border-radius: 8px;
+
+    &:global(.ant-page-header) {
+        margin-bottom: 20px;
+        padding: 16px 24px;
+    }
+}

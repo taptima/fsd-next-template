@@ -1,39 +1,46 @@
-import type { FC } from 'react';
+import { useMemo, FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
 import useMessage from 'antd/es/message/useMessage';
-import type { DynamicDrawerProps } from 'shared/types/modal';
-import type { EmployeeWithPasswordForm } from 'pages/admin/EmployeesPage/model/types/form';
+import type { DynamicModalProps } from 'shared/types/modal';
+import type { EmployeeForm as EmployeeFormEntity } from 'pages/admin/EmployeesPage/model/types/form';
+import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
+import { useFormInit } from 'shared/lib/hooks/form/useFormInit';
+import { Accent } from 'shared/ui/display/Accent';
+import { Screen } from 'shared/ui/feedback/Screen';
 import { Button } from 'shared/ui/inputs/Button';
-import { useAddEmployeeMutation } from 'pages/admin/EmployeesPage/model/api/swr/useAddEmployeeMutation';
+import { useAddEmployeeMutation } from 'pages/admin/EmployeesPage/api/swr/useAddEmployeeMutation';
+import { mapEmployeeFormToQuery } from 'pages/admin/EmployeesPage/model/mapper/mapEmployeeFormToQuery';
 import { mapEmployeeToForm } from 'pages/admin/EmployeesPage/model/mapper/mapEmployeeToForm';
-import { EmployeeModal } from 'pages/admin/EmployeesPage/ui/Modals/common/EmployeeModal';
+import { EmployeeForm } from 'pages/admin/EmployeesPage/ui/Modals/common/EmployeeForm';
 
-type Props = DynamicDrawerProps;
+type Props = DynamicModalProps;
+
+const FORM_ID = 'add-employee-form';
 
 export const AddEmployeeModal: FC<Props> = (props) => {
-    const { open, onClose } = props;
-    const initialValues = mapEmployeeToForm(null);
+    const { open, onCancel } = props;
+    const initialValues = useMemo(() => mapEmployeeToForm(null), []);
     const { isMutating, trigger } = useAddEmployeeMutation();
     const [messageApi, contextHolder] = useMessage();
-    const [form] = useForm<EmployeeWithPasswordForm>();
+    const [form] = useForm<EmployeeFormEntity>();
 
-    const handleFinish = async (values: EmployeeWithPasswordForm) => {
-        const response = await trigger(values);
+    useFormInit({ form, open, initialValues });
+
+    const handleFinish = async (values: EmployeeFormEntity) => {
+        const response = await trigger(mapEmployeeFormToQuery(values));
 
         handleApiErrors({
             response,
             onSuccess: () => {
-                onClose();
+                onCancel();
                 messageApi.open({
                     type: 'success',
-                    content: 'Сотрудник успешно добавлен',
-                });
-            },
-            onError: () => {
-                messageApi.open({
-                    type: 'error',
-                    content: 'При добавлении сотрудника произошла ошибка',
+                    content: (
+                        <>
+                            Сотрудник <Accent>{getFullName(values)}</Accent> добавлен
+                        </>
+                    ),
                 });
             },
         });
@@ -42,34 +49,34 @@ export const AddEmployeeModal: FC<Props> = (props) => {
     return (
         <>
             {contextHolder}
-            <EmployeeModal
+            <Screen
                 open={open}
-                onClose={onClose}
+                onCancel={onCancel}
                 title="Добавление сотрудника"
-                isRequired
-                formProps={{
-                    form,
-                    initialValues,
-                    onFinish: handleFinish,
-                }}
-                isMutating={isMutating}
-                actions={
+                content={
+                    <EmployeeForm
+                        variant="add"
+                        formProps={{
+                            id: FORM_ID,
+                            form,
+                            initialValues,
+                            onFinish: handleFinish,
+                        }}
+                        isMutating={isMutating}
+                    />
+                }
+                bottomActions={
                     <>
-                        <Button
-                            type="secondary"
-                            padding="Large"
-                            disabled={isMutating}
-                            onClick={onClose}
-                        >
-                            Отмена
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
+                            Отменить
                         </Button>
                         <Button
                             htmlType="submit"
+                            form={FORM_ID}
                             type="primary"
-                            padding="Large"
                             loading={isMutating}
                         >
-                            Добавить
+                            Создать
                         </Button>
                     </>
                 }

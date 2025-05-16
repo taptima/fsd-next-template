@@ -5,7 +5,7 @@ import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { Accent } from 'shared/ui/display/Accent';
 import { Button } from 'shared/ui/inputs/Button';
-import { useDeleteEmployeeMutation } from 'pages/admin/EmployeesPage/model/api/swr/useDeleteEmployeeMutation';
+import { useDeleteEmployeeMutation } from 'pages/admin/EmployeesPage/api/swr/useDeleteEmployeeMutation';
 import { useEmployeesActionsStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesActionsStore';
 import { useEmployeesPageModalStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import { ActionModal } from 'widgets/ActionModal';
@@ -14,32 +14,32 @@ type Props = DynamicModalProps;
 
 export const DeleteEmployeeModal: FC<Props> = (props) => {
     const { onCancel, ...restProps } = props;
+    const { setIsViewEmployeeModalOpen } = useEmployeesPageModalStore.use.actions();
     const employeeForDeletion = useEmployeesActionsStore.use.employeeForDeletion();
     const { id } = employeeForDeletion ?? {};
     const fullName = getFullName(employeeForDeletion);
     const { isMutating, trigger } = useDeleteEmployeeMutation();
-    const { setIsDeleteEmployeeModalOpen } = useEmployeesPageModalStore.use.actions();
     const [messageApi, contextHolder] = useMessage();
 
-    const handleConfirmButtonClick = async () => {
-        const response = await trigger({ id: Number(id) });
+    const handleConfirm = async () => {
+        if (!id) {
+            return;
+        }
+
+        const response = await trigger({ id });
+
         handleApiErrors({
             response,
             onSuccess: () => {
-                setIsDeleteEmployeeModalOpen(false);
+                onCancel();
+                setIsViewEmployeeModalOpen(false);
                 messageApi.open({
-                    type: 'info',
+                    type: 'success',
                     content: (
                         <>
-                            Сотрудник <Accent>{fullName}</Accent> удален
+                            Сотрудник <Accent>{fullName}</Accent> удалён
                         </>
                     ),
-                });
-            },
-            onError: () => {
-                messageApi.open({
-                    type: 'error',
-                    content: 'При удалении сотрудника произошла ошибка',
                 });
             },
         });
@@ -50,23 +50,13 @@ export const DeleteEmployeeModal: FC<Props> = (props) => {
             {contextHolder}
             <ActionModal
                 onCancel={onCancel}
-                title="Удалить сотрудника"
+                title="Удаление сотрудника"
                 actions={
                     <>
-                        <Button
-                            type="secondary"
-                            padding="Large"
-                            disabled={isMutating}
-                            onClick={onCancel}
-                        >
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
                             Отменить
                         </Button>
-                        <Button
-                            type="primary"
-                            padding="Large"
-                            loading={isMutating}
-                            onClick={handleConfirmButtonClick}
-                        >
+                        <Button type="primary" danger loading={isMutating} onClick={handleConfirm}>
                             Удалить
                         </Button>
                     </>

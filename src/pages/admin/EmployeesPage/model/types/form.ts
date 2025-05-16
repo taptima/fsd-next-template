@@ -1,16 +1,16 @@
-import type { Role } from 'entities/User';
+import type { DefaultOptionType } from 'antd/es/select';
 
 export type EmployeeForm = {
-    role: Role | null;
     surname: string;
-    firstName: string;
-    middleName: string;
-    login: string;
+    firstname: string;
+    middlename: string;
     email: string;
+    password?: string | null;
     phone: string;
-    password?: string;
+    role: DefaultOptionType | null;
 };
 
-export type EmployeeWithPasswordForm = EmployeeForm & {
+export type ChangeEmployeePasswordForm = {
     password: string;
+    confirmPassword: string;
 };

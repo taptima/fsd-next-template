@@ -1,40 +1,43 @@
 'use client';
 
 import type { FC } from 'react';
-import InfoIcon from 'shared/assets/icons/info.svg';
-import { Pagination } from 'shared/ui/navigation/Pagination';
+import { Button } from 'shared/ui/inputs/Button';
+import { WithModalsReset } from 'shared/providers/WithModalsReset';
 import { PageTable } from 'widgets/PageTable';
-import { TABS } from './content';
+// import { useEmployees } from './api/swr/useEmployees';
 import { useEmployeesPageModalStore } from './model/store/useEmployeesPageModalsStore';
 import { EmployeesTable } from './ui/EmployeesTable';
 import { Modals } from './ui/Modals';
 
-export const EmployeesPage: FC = () => {
+const BaseEmployeesPage: FC = () => {
     const { setIsAddEmployeeModalOpen } = useEmployeesPageModalStore.use.actions();
+    // const { data } = useEmployees();
+    // const { elements = [], pagination } = data ?? {};
+    // const { itemsCount = 0 } = pagination ?? {};
+    const itemsCount = 0;
+
+    const handleAdd = () => {
+        setIsAddEmployeeModalOpen(true);
+    };
 
     return (
         <>
             <PageTable
-                cardProps={{
-                    border: 'None',
-                    variant: 'Gray',
+                headerProps={{
+                    title: 'Сотрудники',
+                    extra: [
+                        <Button key="1" type="primary" onClick={handleAdd}>
+                            Добавить
+                        </Button>,
+                    ],
                 }}
-                toolbarProps={{
-                    title: 'Справочник',
-                    Icon: InfoIcon,
-                    buttonProps: {
-                        children: 'Добавить сотрудника',
-                        onClick: () => setIsAddEmployeeModalOpen(true),
-                    },
-                }}
-                tabsProps={{
-                    items: TABS,
-                }}
+                withPaginationOffset={!!itemsCount}
             >
                 <EmployeesTable />
             </PageTable>
-            <Pagination placement="Fixed" />
             <Modals />
         </>
     );
 };
+
+export const EmployeesPage = WithModalsReset(BaseEmployeesPage);

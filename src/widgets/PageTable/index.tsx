@@ -1,30 +1,31 @@
 import type { FC, PropsWithChildren } from 'react';
-import { Tabs, TabsProps } from 'antd';
+import Tabs, { TabsProps } from 'antd/es/tabs';
 import clsx from 'clsx';
-import { Card, CardProps } from 'shared/ui/surfaces/Card';
-import { Toolbar, ToolbarProps } from 'widgets/Toolbar';
+import { PageHeader, PageHeaderProps } from 'shared/ui/display/PageHeader';
 import styles from './styles.module.scss';
 
 type Props = PropsWithChildren & {
-    toolbarProps: ToolbarProps;
+    headerProps: PageHeaderProps;
     tabsProps?: TabsProps;
-    cardProps?: CardProps;
+    withPaginationOffset?: boolean;
 };
 
 export const PageTable: FC<Props> = (props) => {
-    const { children, toolbarProps, tabsProps, cardProps } = props;
+    const { children, headerProps, tabsProps, withPaginationOffset } = props;
 
     return (
-        <div className={styles.wrapper}>
-            <Card padding="None" {...cardProps}>
-                <Toolbar
-                    className={clsx(toolbarProps.className, tabsProps && styles.toolbarWithTabs)}
-                    {...toolbarProps}
-                >
-                    {tabsProps && <Tabs className={styles.tabs} tabBarGutter={20} {...tabsProps} />}
-                </Toolbar>
-                {children}
-            </Card>
+        <div
+            className={clsx(styles.wrapper, {
+                [styles.wrapperPaginationOffset]: withPaginationOffset,
+            })}
+        >
+            <PageHeader {...headerProps} />
+            {tabsProps && (
+                <div className={styles.tabsWrapper}>
+                    <Tabs tabBarGutter={20} {...tabsProps} />
+                </div>
+            )}
+            <div className={styles.tableWrapper}>{children}</div>
         </div>
     );
 };

@@ -9,7 +9,7 @@ type BaseButtonType = GetProp<BaseButtonProps, 'type'>;
 type CustomButtonType = 'secondary' | 'secondaryDanger' | 'tertiary' | 'quaternary' | 'danger';
 type ButtonType = BaseButtonType | CustomButtonType;
 
-export type ButtonProps = Omit<BaseButtonProps, 'type' | 'variant'> & {
+export type ButtonProps = Omit<BaseButtonProps, 'type'> & {
     type?: ButtonType;
     padding?: 'None' | 'Icon' | 'IconLarge' | 'Small' | 'Smaller' | 'Medium' | 'Regular' | 'Large';
     baseLoading?: boolean;

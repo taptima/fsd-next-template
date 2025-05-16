@@ -1,28 +1,26 @@
 'use client';
 
-import { Layout } from 'antd';
-import Sider from 'antd/es/layout/Sider';
+import type { PropsWithChildren } from 'react';
 import { Modals } from 'app/admin/ui/Modals';
-import { Card } from 'shared/ui/surfaces/Card';
-import { AdminHeader } from 'widgets/admin/AdminHeader';
-import { AdminMenu } from 'widgets/admin/AdminMenu';
-import styles from './styles.module.scss';
+import { ADMIN_SIGN_IN } from 'shared/const/pageRoutes';
+import { RoleTypeEnum } from 'entities/User';
+import { createRefreshLayout } from 'features/auth/provider/createRefreshLayout';
+import { AdminLayout } from 'features/layout/AdminLayout';
 
-export default function SystemLayout({ children }: { children: React.ReactNode }) {
+type Props = PropsWithChildren;
+
+function SystemLayout(props: Props) {
+    const { children } = props;
+
     return (
         <>
-            <Layout className={styles.layout}>
-                <Sider width={208}>
-                    <AdminMenu />
-                </Sider>
-                <main className={styles.content}>
-                    <AdminHeader />
-                    <Card variant="Gray" borderRadius="None" className={styles.card}>
-                        {children}
-                    </Card>
-                </main>
-            </Layout>
+            <AdminLayout>{children}</AdminLayout>
             <Modals />
         </>
     );
 }
+
+export default createRefreshLayout(SystemLayout, {
+    roles: [RoleTypeEnum.RoleAdmin, RoleTypeEnum.RoleSuperAdmin],
+    redirectHref: ADMIN_SIGN_IN,
+});

@@ -5,7 +5,10 @@ import type { APIResponse } from 'shared/types/api';
 import { frontendApiClient } from 'shared/lib/api/client';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { useUser } from 'entities/User/api/swr/useUser';
-import { postRefresh, RefreshResponse } from 'features/auth/api/request/postRefresh';
+import {
+    // postRefresh,
+    RefreshResponse,
+} from 'features/auth/api/request/postRefresh';
 import { REFRESH_KEY } from './keys';
 
 export const useRefreshMutation = () => {
@@ -14,7 +17,17 @@ export const useRefreshMutation = () => {
     return useSWRMutation<AxiosResponse<APIResponse<RefreshResponse>>, unknown, string>(
         REFRESH_KEY,
         async () => {
-            const response = await postRefresh();
+            // const response = await postRefresh();
+            const response: AxiosResponse<APIResponse<RefreshResponse>> = await new Promise(
+                (resolve) => {
+                    setTimeout(() => {
+                        // @ts-expect-error: unused properties omitted
+                        resolve({
+                            data: { data: { access_token: 'accessToken', refresh_token: '' } },
+                        });
+                    }, 1000);
+                },
+            );
 
             await handleApiErrors({
                 response,

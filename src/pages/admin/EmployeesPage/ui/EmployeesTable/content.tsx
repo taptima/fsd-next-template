@@ -1,128 +1,83 @@
-import type { TableColumnsType } from 'antd';
+import type { TableColumnsType } from 'antd/lib';
+import type { RoleTypeEnum, User } from 'entities/User';
+import type { EmployeeFilterColumn } from 'pages/admin/EmployeesPage/model/types/table';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { Table } from 'shared/ui/display/Table';
-import { getTableBlockAction } from 'entities/Blockable/model/lib/helpers/getTableBlockAction';
+import { BANNED_FILTERS } from 'entities/Blockable/model/const/bannedFilters';
+import { DEFAULT_BANNED_FILTER } from 'entities/Blockable/model/const/filters';
 import { ActivityStatus } from 'entities/Blockable/ui/ActivityStatus';
-import { User, Role } from 'entities/User';
 import { EMPLOYEE_ROLE_FILTERS } from 'entities/User/model/const/employeeRoleFilters';
+import { DEFAULT_EMPLOYEE_ROLE_FILTER } from 'entities/User/model/const/filters';
 import { MAP_USER_ROLE_TO_TEXT } from 'entities/User/model/mapper/mapUserRoleToText';
-import { useEmployeesActionsStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
-
-const { actions: modalActions } = useEmployeesPageModalStore.getState();
-const {
-    setIsEditEmployeeModalOpen,
-    setIsDeleteEmployeeModalOpen,
-    setIsBlockEmployeeModalOpen,
-    setIsUnblockEmployeeModalOpen,
-} = modalActions;
-const { actions: actionsActions } = useEmployeesActionsStore.getState();
-const {
-    setEmployeeForEdit,
-    setEmployeeForDeletion,
-    setEmployeeForBlocking,
-    setEmployeeForUnblocking,
-} = actionsActions;
+import { Actions } from './Actions';
 
 export const COLUMNS: TableColumnsType<User> = [
     {
-        key: '1',
-        dataIndex: 'fullName',
-        title: <Table.Header>ФИО</Table.Header>,
-        width: '15%',
+        key: 'id' as EmployeeFilterColumn,
+        dataIndex: 'id',
+        title: <Table.Header>ID</Table.Header>,
+        width: 110,
+        fixed: true,
         sortIcon: Table.SortIcon,
-        sorter: (a, b) => a.lastname.localeCompare(b.lastname),
-        sortDirections: ['ascend'],
+        sorter: () => NaN,
+        sortDirections: ['descend'],
         showSorterTooltip: false,
         filterIcon: Table.SearchFilterIcon,
         filterDropdown: (props) => (
-            <Table.SearchFilterDropdown {...props} placeholder="Поиск по имени" />
+            <Table.SearchFilterDropdown placeholder="Поиск по ID" {...props} />
         ),
-        render: (_, employee) => getFullName(employee),
     },
     {
-        key: '2',
+        key: 'fullname' as EmployeeFilterColumn,
+        title: <Table.Header>ФИО</Table.Header>,
+        width: 240,
+        fixed: true,
+        ellipsis: true,
+        sortIcon: Table.SortIcon,
+        sorter: () => NaN,
+        sortDirections: ['descend', 'ascend'],
+        showSorterTooltip: false,
+        render: getFullName,
+        filterIcon: Table.SearchFilterIcon,
+        filterDropdown: (props) => (
+            <Table.SearchFilterDropdown placeholder="Поиск по ФИО" {...props} />
+        ),
+    },
+    {
+        dataIndex: 'email',
+        width: 150,
+        ellipsis: true,
+        title: <Table.Header>Email</Table.Header>,
+    },
+    {
+        key: 'role' as EmployeeFilterColumn,
         dataIndex: 'role',
         title: <Table.Header>Роль</Table.Header>,
-        width: '15%',
+        width: 150,
         sortIcon: Table.SortIcon,
-        sorter: (a, b) => a.role.localeCompare(b.role),
-        sortDirections: ['ascend', 'descend'],
+        sorter: () => NaN,
+        sortDirections: ['descend', 'ascend'],
         showSorterTooltip: false,
         filterIcon: Table.FilterIcon,
+        filterDropdown: (props) => <Table.FilterDropdown size="Large" {...props} />,
         filters: EMPLOYEE_ROLE_FILTERS,
-        onFilter: (value, record) => record.role === value,
-        render: (role: Role) => MAP_USER_ROLE_TO_TEXT[role],
+        defaultFilteredValue: DEFAULT_EMPLOYEE_ROLE_FILTER,
+        render: (role: RoleTypeEnum) => MAP_USER_ROLE_TO_TEXT[role],
     },
     {
-        key: '3',
-        dataIndex: 'email',
-        title: <Table.Header>Email</Table.Header>,
-        width: '15%',
-        filterIcon: Table.SearchFilterIcon,
-        filterDropdown: (props) => (
-            <Table.SearchFilterDropdown placeholder="Поиск по e-mail" {...props} />
-        ),
-    },
-    {
-        key: '4',
-        dataIndex: 'phone',
-        title: <Table.Header>Телефон</Table.Header>,
-        width: '15%',
-        filterIcon: Table.SearchFilterIcon,
-        filterDropdown: (props) => (
-            <Table.SearchFilterDropdown placeholder="Поиск по номеру" {...props} />
-        ),
-    },
-    {
-        key: '5',
-        dataIndex: 'login',
-        title: <Table.Header>Логин</Table.Header>,
-        width: '15%',
-    },
-    {
-        key: '6',
-        dataIndex: 'status',
+        key: 'status' as EmployeeFilterColumn,
+        dataIndex: 'banned',
         title: <Table.Header>Статус</Table.Header>,
-        width: '15%',
+        width: 120,
+        filterIcon: Table.FilterIcon,
+        filterDropdown: Table.FilterDropdown,
+        filters: BANNED_FILTERS,
+        defaultFilteredValue: DEFAULT_BANNED_FILTER,
         render: (banned) => <ActivityStatus banned={banned} />,
     },
-
     {
-        key: '7',
-        dataIndex: 'actions',
         title: <Table.Header>Действия</Table.Header>,
-        width: '8%',
-        render: (_, data) => (
-            <Table.Actions
-                items={[
-                    getTableBlockAction({
-                        blockable: data,
-                        lockAction: () => {
-                            setEmployeeForBlocking(data);
-                            setIsBlockEmployeeModalOpen(true);
-                        },
-                        unlockAction: () => {
-                            setEmployeeForUnblocking(data);
-                            setIsUnblockEmployeeModalOpen(true);
-                        },
-                    }),
-                    {
-                        variant: 'edit',
-                        onClick: () => {
-                            setEmployeeForEdit(data);
-                            setIsEditEmployeeModalOpen(true);
-                        },
-                    },
-                    {
-                        variant: 'delete',
-                        onClick: () => {
-                            setEmployeeForDeletion(data);
-                            setIsDeleteEmployeeModalOpen(true);
-                        },
-                    },
-                ]}
-            />
-        ),
+        width: 150,
+        render: (data) => <Actions data={data} />,
     },
 ];

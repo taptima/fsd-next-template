@@ -1,0 +1,21 @@
+@use 'shared/styles/font';
+
+.wrapper {
+    &:not(:first-of-type) {
+        margin-top: 40px;
+    }
+}
+
+.title {
+    display: block;
+
+    @include font.h4;
+}
+
+.default {
+    margin-bottom: 20px;
+}
+
+.compact {
+    margin-bottom: 16px;
+}

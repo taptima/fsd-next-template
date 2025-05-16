@@ -27,7 +27,7 @@ const nextConfig = {
             {
                 source: '/',
                 destination: '/admin/sign-in',
-                permanent: true,
+                permanent: false,
             },
         ];
     },

@@ -1,10 +1,10 @@
 import type { Rule } from 'antd/es/form';
 import { sanitizePhone } from 'shared/lib/helpers/sanitizePhone';
 import { maxLengthRule } from 'shared/lib/validation/rules';
-import { Role } from 'entities/User/model/types/role';
+import { RoleTypeEnum } from 'entities/User/model/types/roleTypeEnum';
 
 export const EMPLOYEE_ROLE_RULE: Rule = {
-    enum: [Role.RoleAdmin, Role.RoleSuperAdmin],
+    enum: [RoleTypeEnum.RoleAdmin, RoleTypeEnum.RoleSuperAdmin],
 };
 
 export const EMAIL_RULE: Rule = {

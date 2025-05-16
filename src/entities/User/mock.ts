@@ -1,14 +1,14 @@
 import type { User } from './model/types/user';
-import { Role } from './model/types/role';
+import { RoleTypeEnum } from './model/types/roleTypeEnum';
 
-export const USERS_MOCK: User[] = [
+export const EMPLOYEES_MOCK: User[] = [
     {
         id: 1,
         lastname: 'Петровская',
         firstname: 'Ольга',
         middlename: 'Дмитриевна',
-        role: Role.RoleAdmin,
-        username: 'asteward',
+        role: RoleTypeEnum.RoleAdmin,
+        email: 'asteward@mail.ru',
         phone: '+7 (903) 880-93-38',
         banned: false,
     },
@@ -17,9 +17,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Кулешова',
         firstname: 'Елена',
         middlename: 'Валерьевна',
-        role: Role.RoleUser,
+        role: RoleTypeEnum.RoleSuperAdmin,
         phone: '+7 (903) 679-96-15',
-        username: 'astewardwiyruefhwl',
+        email: 'astewardwiyruefhwl@mail.ru',
         banned: false,
     },
     {
@@ -27,9 +27,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Кулешова',
         firstname: 'Елена',
         middlename: 'Валерьевна',
-        role: Role.RoleUser,
+        role: RoleTypeEnum.RoleSuperAdmin,
         phone: '+7 (903) 679-96-14',
-        username: 'khowarduweb',
+        email: 'khowarduweb@mail.ru',
         banned: false,
     },
     {
@@ -37,9 +37,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Петровская',
         firstname: 'Ольга',
         middlename: 'Дмитриевна',
-        role: Role.RoleAdmin,
+        role: RoleTypeEnum.RoleAdmin,
         phone: '+7 (903) 880-91-85',
-        username: 'arussel',
+        email: 'arussel@mail.ru',
         banned: false,
     },
     {
@@ -47,9 +47,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Василенко',
         firstname: 'Кирилл',
         middlename: 'Никитич',
-        role: Role.RoleUser,
+        role: RoleTypeEnum.RoleSuperAdmin,
         phone: '+7 (903) 840-31-53',
-        username: 'afisherlala',
+        email: 'afisherlala@mail.ru',
         banned: false,
     },
     {
@@ -57,9 +57,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Василенко',
         firstname: 'Карл',
         middlename: 'Николаевич',
-        role: Role.RoleUser,
+        role: RoleTypeEnum.RoleSuperAdmin,
         phone: '+7 (903) 880-93-38',
-        username: 'prichards',
+        email: 'prichards@mail.ru',
         banned: true,
     },
     {
@@ -67,9 +67,9 @@ export const USERS_MOCK: User[] = [
         lastname: 'Вечерняя',
         firstname: 'Зоря',
         middlename: 'Сергеевна',
-        role: Role.RoleAdmin,
+        role: RoleTypeEnum.RoleAdmin,
         phone: '+7 (903) 880-91-85',
-        username: 'cwilliamson',
+        email: 'cwilliamson@mail.ru',
         banned: true,
     },
 ];

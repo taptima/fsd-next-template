@@ -10,8 +10,8 @@ export type FormProps = {
     actions?: ReactNode;
 };
 
-export type RequiredProps = {
-    isRequired?: boolean;
+export type FormVariantProps = {
+    variant: 'add' | 'edit';
 };
 
 export type ControlledInputProps<Form = unknown> = {

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useEmployeesPageModalStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import { AddEmployeeModal } from './AddEmployeeModal/dynamic';
 import { BlockEmployeeModal } from './BlockEmployeeModal/dynamic';
-import { ChangePasswordEmployeeModal } from './ChangePasswordEmployeeModal/dynamic';
+import { ChangeEmployeePasswordModal } from './ChangeEmployeePasswordModal/dynamic';
 import { DeleteEmployeeModal } from './DeleteEmployeeModal/dynamic';
 import { EditEmployeeModal } from './EditEmployeeModal/dynamic';
 import { UnblockEmployeeModal } from './UnblockEmployeeModal/dynamic';
@@ -15,8 +15,8 @@ export const Modals: FC = () => {
     const isViewEmployeeModalOpen = useEmployeesPageModalStore.use.isViewEmployeeModalOpen();
     const isBlockEmployeeModalOpen = useEmployeesPageModalStore.use.isBlockEmployeeModalOpen();
     const isUnblockEmployeeModalOpen = useEmployeesPageModalStore.use.isUnblockEmployeeModalOpen();
-    const isChangePasswordEmployeeModalOpen =
-        useEmployeesPageModalStore.use.isChangePasswordEmployeeModalOpen();
+    const isChangeEmployeePasswordModalOpen =
+        useEmployeesPageModalStore.use.isChangeEmployeePasswordModalOpen();
 
     const {
         setIsAddEmployeeModalOpen,
@@ -25,18 +25,18 @@ export const Modals: FC = () => {
         setIsViewEmployeeModalOpen,
         setIsBlockEmployeeModalOpen,
         setIsUnblockEmployeeModalOpen,
-        setIsChangePasswordEmployeeModalOpen,
+        setIsChangeEmployeePasswordModalOpen,
     } = useEmployeesPageModalStore.use.actions();
 
     return (
         <>
             <AddEmployeeModal
                 open={isAddEmployeeModalOpen}
-                onClose={() => setIsAddEmployeeModalOpen(false)}
+                onCancel={() => setIsAddEmployeeModalOpen(false)}
             />
             <EditEmployeeModal
                 open={isEditEmployeeModalOpen}
-                onClose={() => setIsEditEmployeeModalOpen(false)}
+                onCancel={() => setIsEditEmployeeModalOpen(false)}
             />
             <DeleteEmployeeModal
                 open={isDeleteEmployeeModalOpen}
@@ -44,7 +44,7 @@ export const Modals: FC = () => {
             />
             <ViewEmployeeModal
                 open={isViewEmployeeModalOpen}
-                onClose={() => setIsViewEmployeeModalOpen(false)}
+                onCancel={() => setIsViewEmployeeModalOpen(false)}
             />
             <BlockEmployeeModal
                 open={isBlockEmployeeModalOpen}
@@ -54,9 +54,9 @@ export const Modals: FC = () => {
                 open={isUnblockEmployeeModalOpen}
                 onCancel={() => setIsUnblockEmployeeModalOpen(false)}
             />
-            <ChangePasswordEmployeeModal
-                open={isChangePasswordEmployeeModalOpen}
-                onCancel={() => setIsChangePasswordEmployeeModalOpen(false)}
+            <ChangeEmployeePasswordModal
+                open={isChangeEmployeePasswordModalOpen}
+                onCancel={() => setIsChangeEmployeePasswordModalOpen(false)}
             />
         </>
     );
