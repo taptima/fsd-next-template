@@ -39,9 +39,7 @@ export const useSignInMutation = (onSuccess: () => void) => {
                 setTimeout(() => {
                     // @ts-expect-error: unused properties omitted
                     resolve({
-                        data: {
-                            data: { access_token: 'accessToken', refresh_token: 'refreshToken' },
-                        },
+                        data: { data: { access_token: 'accessToken', refresh_token: '' } },
                     });
                 }, 1000);
             });
