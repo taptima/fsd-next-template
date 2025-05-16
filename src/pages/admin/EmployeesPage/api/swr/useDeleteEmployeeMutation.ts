@@ -1,7 +1,10 @@
 import useSWRMutation from 'swr/mutation';
 import type { APIResponse } from 'shared/types/api';
 import { delay } from 'shared/lib/helpers/delay';
-import { DELETE_EMPLOYEE_KEY } from './keys';
+import { handleGraphQLMutationResult } from 'shared/lib/helpers/handleGraphQLMutationResult';
+import { invalidateWithKey } from 'shared/lib/helpers/invalidateWithKey';
+import { EMPLOYEE_OPTIONS_KEY } from 'entities/User/api/swr/keys';
+import { DELETE_EMPLOYEE_KEY, EMPLOYEES_KEY } from './keys';
 
 export const useDeleteEmployeeMutation = () => {
     return useSWRMutation<
@@ -20,6 +23,14 @@ export const useDeleteEmployeeMutation = () => {
             };
         },
         {
+            onSuccess: (response) =>
+                handleGraphQLMutationResult({
+                    response,
+                    onFulfilled: () => {
+                        invalidateWithKey(EMPLOYEES_KEY);
+                        invalidateWithKey(EMPLOYEE_OPTIONS_KEY);
+                    },
+                }),
             throwOnError: false,
         },
     );
