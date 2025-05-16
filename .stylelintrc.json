@@ -4,6 +4,13 @@
     "rules": {
         "font-family-name-quotes": "always-unless-keyword",
         "declaration-no-important": true,
+        "declaration-block-no-redundant-longhand-properties": [
+            true,
+            {
+                "ignoreLonghands": ["top", "right", "bottom", "left"]
+            }
+        ],
+        "property-disallowed-list": ["inset", "inset-block", "inset-inline"],
         "order/order": [
             "custom-properties",
             "dollar-variables",

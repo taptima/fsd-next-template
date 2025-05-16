@@ -1,13 +1,21 @@
-import { API_BASE_URL } from 'shared/const/env';
-import { REST_API_ENDPOINT } from 'shared/lib/api/const';
+import { REVALIDATE_IN_S } from 'shared/const/app';
+import { REST_URL } from 'shared/lib/api/const';
 
-export async function fetcher<T>(input: string, init?: RequestInit): Promise<T> {
-    const apiUrl = new URL(
-        input.startsWith('http') ? input : `${REST_API_ENDPOINT}${input}`,
-        API_BASE_URL,
-    );
+export async function fetcher<T>(input: string, init: RequestInit = {}): Promise<T> {
+    const { headers, ...restInit } = init;
+    const apiUrl = `${REST_URL}${input}`;
 
-    const response = await fetch(apiUrl, init);
+    const response = await fetch(apiUrl, {
+        ...restInit,
+        headers: {
+            ...headers,
+            Platform: 'Web',
+        },
+        next: {
+            revalidate: REVALIDATE_IN_S,
+        },
+    });
+    const res = await response.json();
 
-    return response.json();
+    return res;
 }

@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     },
     description: DESCRIPTION,
     keywords: KEYWORDS,
+    // manifest: '/site.webmanifest',
+    // metadataBase: new URL(API_BASE_URL),
     alternates: {
         canonical: API_BASE_URL,
     },
