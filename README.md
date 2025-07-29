@@ -33,12 +33,6 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
    API calls.
 2. `NEXT_PUBLIC_ASSETS_VERSION` — version of public assets. Can be used
    to reset browser cache of any assets.
-3. `NEXT_PUBLIC_SENTRY_DSN` — used to log errors to Sentry.
-
-**Sentry**
-1. Add `NEXT_PUBLIC_SENTRY_DSN` to `.env` file
-2. `sentry-cli login` — to login through browser or enter auth token
-3. Fill `defaults.project` field in `sentry.properties` file
 
 ## Storybook
 1. To start storybook locally
