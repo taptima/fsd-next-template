@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react';
+import type { Preview } from '@storybook/nextjs';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator';
 
 const preview: Preview = {

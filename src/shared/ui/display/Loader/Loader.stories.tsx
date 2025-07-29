@@ -1,4 +1,4 @@
-import type { Decorator, Meta, StoryContext, StoryFn, StoryObj } from '@storybook/react';
+import type { Decorator, Meta, StoryContext, StoryFn, StoryObj } from '@storybook/nextjs';
 import colors from 'shared/styles/colors.module.scss';
 import { Loader } from './index';
 
