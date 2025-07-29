@@ -1,26 +1,26 @@
-const { withSentryConfig } = require('@sentry/nextjs');
-const withBundleAnalyzer = require('@next/bundle-analyzer');
-const cssModulesConfig = require('./config/build/cssModules');
-const svgrConfig = require('./config/build/svgr');
+import type { NextConfig } from 'next';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import withBundleAnalyzer from '@next/bundle-analyzer';
+import cssModulesConfig from './config/build/cssModules';
+import svgrConfig from './config/build/svgr';
 
-/**
- * @type {import('next').NextConfig}
- **/
-const nextConfig = {
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_WITH_ANALYZE = process.env.NEXT_ANALYZE === 'true';
+const IMAGE_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN ?? '';
+
+const nextConfig: NextConfig = {
     reactStrictMode: true,
-    compiler: { reactRemoveProperties: process.env.NODE_ENV === 'production' },
-    i18n: {
-        locales: ['ru'],
-        defaultLocale: 'ru',
+    compiler: {
+        reactRemoveProperties: IS_PRODUCTION,
     },
     images: {
-        domains: [process.env.NEXT_PUBLIC_DOMAIN],
+        domains: [IMAGE_DOMAIN],
     },
     eslint: {
         ignoreDuringBuilds: true,
     },
     sassOptions: {
-        'includePaths': ['./src'],
+        includePaths: ['./src'],
     },
     async redirects() {
         return [
@@ -42,7 +42,7 @@ const nextConfig = {
                     },
                 ],
             },
-            ...(process.env.NODE_ENV !== 'production'
+            ...(!IS_PRODUCTION
                 ? [
                       {
                           source: '/api/(.*)',
@@ -63,40 +63,15 @@ const nextConfig = {
     },
     webpack(config) {
         cssModulesConfig(config);
-
         svgrConfig(config);
 
         return config;
     },
 };
 
-const withNextJSConfigs = [];
+const withNextJSConfigs: ((config: NextConfig) => NextConfig)[] = [];
 
-if (process.env.NODE_ENV === 'production' && Boolean(process.env.NEXT_PUBLIC_SENTRY_DSN)) {
-    /**
-     * @type {import('@sentry/nextjs').SentryWebpackPluginOptions}
-     **/
-    const SentryWebpackPluginOptions = {
-        include: '.next',
-        ignore: ['node_modules'],
-        urlPrefix: '~/_next',
-        configFile: 'sentry.properties',
-    };
-
-    withNextJSConfigs.push((config) =>
-        withSentryConfig(
-            {
-                ...config,
-                sentry: {
-                    hideSourceMaps: true,
-                },
-            },
-            SentryWebpackPluginOptions,
-        ),
-    );
-}
-
-if (process.env.NEXT_ANALYZE === 'true') {
+if (IS_WITH_ANALYZE) {
     withNextJSConfigs.push((config) =>
         withBundleAnalyzer({
             openAnalyzer: false,
@@ -110,4 +85,4 @@ const resultConfig = withNextJSConfigs.reduce(
     nextConfig,
 );
 
-module.exports = resultConfig;
+export default resultConfig;

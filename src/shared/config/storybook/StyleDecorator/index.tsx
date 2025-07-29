@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/nextjs/*';
 import { Inter } from 'next/font/google';
 import 'app/styles/index.scss';
 
