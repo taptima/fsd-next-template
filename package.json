@@ -96,7 +96,7 @@
         "stylelint-order": "^6.0.4",
         "svgo": "^3.3.2",
         "ts-prune": "^0.10.3",
-        "webpack": "^5.92.1"
+        "webpack": "^5.94.0"
     },
     "pnpm": {
         "patchedDependencies": {
