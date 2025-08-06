@@ -1,14 +1,11 @@
-import type { SortOrder } from 'antd/es/table/interface';
-import type { FC } from 'react';
+import type { TableColumnsType } from 'antd/lib';
 import clsx from 'clsx';
 import SortDescendIcon from 'shared/assets/icons/arrow-down-wide-narrow.svg';
 import styles from './styles.module.scss';
 
-type Props = {
-    sortOrder: SortOrder;
-};
+type Props = TableColumnsType[number];
 
-export const SortIcon: FC<Props> = (props) => {
+export const SortIcon = (props: Props) => {
     const { sortOrder } = props;
 
     return (

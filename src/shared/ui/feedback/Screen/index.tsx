@@ -23,7 +23,9 @@ export type ScreenProps = ModalProps &
         bottomActionsProps?: Partial<FlexProps>;
     };
 
-// TODO: use pages instead
+/**
+ * @deprecated Don't. Make pages instead
+ */
 export function Screen(props: ScreenProps) {
     const {
         title,

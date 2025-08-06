@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import AlignJustifyIcon from 'shared/assets/icons/align-justify.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { useSortableRowContext } from 'shared/ui/display/Table/ui/SortableRow';
 import { Button } from 'shared/ui/inputs/Button';
 import styles from './styles.module.scss';

@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import { inter } from './font';
 import { theme } from './theme';
 import './styles/index.scss';
+import '@ant-design/v5-patch-for-react-19';
 import styles from './styles.module.scss';
 
 export { metadata, viewport } from './meta';

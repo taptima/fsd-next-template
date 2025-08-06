@@ -15,14 +15,14 @@ export const getModalBlockAction = (parameters: Parameters): ButtonProps => {
     if (banned) {
         return {
             children: 'Разблокировать',
-            icon: UnlockIcon({ width: 16 }),
+            icon: <UnlockIcon width={16} />,
             onClick: unlockAction,
         };
     }
 
     return {
         children: 'Заблокировать',
-        icon: LockIcon({ width: 16 }),
+        icon: <LockIcon width={16} />,
         onClick: lockAction,
     };
 };

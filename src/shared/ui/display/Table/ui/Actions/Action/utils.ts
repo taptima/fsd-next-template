@@ -3,7 +3,7 @@ import LockIcon from 'shared/assets/icons/lock.svg';
 import UnlockIcon from 'shared/assets/icons/lock-open.svg';
 import PencilIcon from 'shared/assets/icons/pencil.svg';
 import TrashIcon from 'shared/assets/icons/trash-2.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 
 export type Variant = 'delete' | 'edit' | 'lock' | 'unlock';
 

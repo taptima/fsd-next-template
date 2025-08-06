@@ -13,6 +13,14 @@ const nextConfig: NextConfig = {
     compiler: {
         reactRemoveProperties: IS_PRODUCTION,
     },
+    turbopack: {
+        rules: {
+            '*.svg': {
+                loaders: ['@svgr/webpack'],
+                as: '*.js',
+            },
+        },
+    },
     images: {
         domains: [IMAGE_DOMAIN],
     },

@@ -1,4 +1,5 @@
-import type { SorterResult } from 'antd/es/table/interface';
+import type { TableProps } from 'shared/ui/display/Table';
+import type { User } from 'entities/User';
 import type { EmployeeFilterColumn } from 'pages/admin/EmployeesPage/model/types/table';
 import { getSortFilter } from 'shared/lib/mapper/getSortFilter';
 import { useEmployeesPageStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesPageStore';
@@ -6,7 +7,9 @@ import { useEmployeesPageStore } from 'pages/admin/EmployeesPage/model/store/use
 const { actions } = useEmployeesPageStore.getState();
 const { setOrderById, setOrderByFullname, setOrderByRole } = actions;
 
-export const handleEmployeeSorter = (sorter: SorterResult<unknown> | SorterResult<unknown>[]) => {
+type Sorter = Parameters<NonNullable<TableProps<User>['onChange']>>[2];
+
+export const handleEmployeeSorter = (sorter: Sorter) => {
     if (Array.isArray(sorter)) {
         return;
     }

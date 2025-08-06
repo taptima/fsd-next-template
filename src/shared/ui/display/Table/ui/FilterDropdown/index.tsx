@@ -1,5 +1,4 @@
 import type { FilterDropdownProps } from 'antd/es/table/interface';
-import type { FC } from 'react';
 import Checkbox from 'antd/es/checkbox';
 import Form, { useForm } from 'antd/es/form/Form';
 import clsx from 'clsx';
@@ -16,7 +15,7 @@ type Props = FilterDropdownProps & {
     size?: 'Regular' | 'Large';
 };
 
-export const FilterDropdown: FC<Props> = (props) => {
+export const FilterDropdown = (props: Props) => {
     const { filters = [], selectedKeys, confirm, setSelectedKeys, size = 'Regular' } = props;
     const initialValues = { query: selectedKeys } as DropdownForm;
     const [form] = useForm<DropdownForm>();

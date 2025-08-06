@@ -3,7 +3,7 @@ import { Drawer as BaseDrawer, DrawerProps as BaseDrawerProps } from 'antd';
 import clsx from 'clsx';
 import type { Classnames } from 'shared/types/styles';
 import XIcon from 'shared/assets/icons/x.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import {
     MAP_CLOSE_BUTTON_VARIANT_TO_PROPS,
     ModalCloseButtonVariant,

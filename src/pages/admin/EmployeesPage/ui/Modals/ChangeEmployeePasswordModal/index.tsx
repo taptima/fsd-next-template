@@ -68,6 +68,7 @@ export const ChangeEmployeePasswordModal: FC<Props> = (props) => {
                 open={open}
                 onCancel={onCancel}
                 title="Смена пароля"
+                width={600}
                 actions={
                     <>
                         <Button type="secondary" disabled={isMutating} onClick={onCancel}>
