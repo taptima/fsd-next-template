@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import type { IconComponent } from 'shared/types/icon';
 import type { Classname } from 'shared/types/styles';
 import PlusIcon from 'shared/assets/icons/plus.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { Button, ButtonProps } from 'shared/ui/inputs/Button';
 import { Input, InputProps } from 'shared/ui/inputs/Input';
 import { Card, CardProps } from 'shared/ui/surfaces/Card';

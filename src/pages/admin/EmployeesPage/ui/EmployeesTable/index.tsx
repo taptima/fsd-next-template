@@ -28,7 +28,7 @@ export const EmployeesTable: FC = () => {
         setIsViewEmployeeModalOpen(true);
     };
 
-    const handleTableChange: TableProps['onChange'] = (_, filters, sorter) => {
+    const handleTableChange: TableProps<User>['onChange'] = (_, filters, sorter) => {
         handleEmployeeFilters(filters);
         handleEmployeeSorter(sorter);
     };

@@ -12,7 +12,7 @@ export const LogoutModal: FC<Props> = (props) => {
     const { onCancel, ...restProps } = props;
     const { push } = useRouter();
 
-    const handleConfirmButtonClick = async () => {
+    const handleConfirmButtonClick = () => {
         logoutCurrentUser();
 
         onCancel();

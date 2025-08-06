@@ -4,7 +4,7 @@ import type { ControlledInputProps } from 'shared/types/form';
 import type { IconProps } from 'shared/types/icon';
 import CheckIcon from 'shared/assets/icons/check.svg';
 import XIcon from 'shared/assets/icons/x.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { Classnames } from 'shared/types/styles';
 import { FormItem } from 'shared/ui/inputs/FormItem';
 import styles from './styles.module.scss';

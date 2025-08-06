@@ -1,0 +1,7 @@
+@use 'shared/styles/utils';
+
+.textarea {
+    &:global(.ant-input) {
+        @include utils.custom-scrollbar;
+    }
+}

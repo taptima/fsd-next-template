@@ -3,7 +3,7 @@ import { Modal as BaseModal, ModalProps as BaseModalProps, Flex } from 'antd';
 import clsx from 'clsx';
 import type { Classnames } from 'shared/types/styles';
 import XIcon from 'shared/assets/icons/x.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import {
     MAP_CLOSE_BUTTON_VARIANT_TO_PROPS,
     ModalCloseButtonVariant,
@@ -43,13 +43,15 @@ export const Modal: FC<ModalProps> = (props) => {
             centered
             closeIcon={false}
             footer={null}
+            destroyOnHidden
+            getContainer={() => document.getElementById('modal-container') ?? document.body}
+            onCancel={onCancel}
             className={styles.modal}
             classNames={{
                 wrapper: clsx({ [styles.lowerWrapper]: !isCenteredInMobile }),
                 content: clsx({ [styles.lowerContent]: !isCenteredInMobile }),
             }}
             rootClassName={styles.modalRoot}
-            onCancel={onCancel}
             {...restProps}
         >
             <div className={clsx(styles.header, styles[`border${headerBorder}`], headerClassname)}>

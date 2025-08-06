@@ -1,5 +1,0 @@
-@use 'shared/styles/utils';
-
-.hidden {
-    @include utils.hide-visually;
-}

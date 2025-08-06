@@ -1,0 +1,66 @@
+.button {
+    width: 100%;
+}
+
+.formItem {
+    overflow: hidden;
+
+    &:global(.ant-form-item-has-error) {
+        .button {
+            &,
+            &:active {
+                fill: var(--error-900);
+                color: var(--error-900);
+                border-color: var(--error-900);
+            }
+
+            &:hover,
+            &:focus-visible,
+            &:global(.ant-btn-variant-outlined:not(:disabled, .ant-btn-disabled):hover),
+            &:global(.ant-btn-variant-outlined:not(:disabled, .ant-btn-disabled):active) {
+                fill: var(--error-focus);
+                color: var(--error-focus);
+                border-color: var(--error-focus);
+            }
+        }
+    }
+}
+
+.upload {
+    &:global(.ant-upload-wrapper .ant-upload-list .ant-upload-list-item) {
+        height: auto;
+        margin: 4px 0;
+        padding: 0 8px;
+        border-radius: 8px;
+    }
+
+    &:global(
+        .ant-upload-wrapper
+            .ant-upload-list
+            .ant-upload-list-item
+            .ant-upload-list-item-actions
+            .ant-upload-list-item-action
+    ) {
+        opacity: 1;
+    }
+
+    &:global(.ant-upload-wrapper .ant-upload-list .ant-upload-list-item .ant-upload-icon .anticon),
+    &:global(
+        .ant-upload-wrapper
+            .ant-upload-list
+            .ant-upload-list-item
+            .ant-upload-list-item-actions
+            .anticon
+    ) {
+        font-size: 16px;
+        color: var(--primary-900);
+    }
+
+    :global(.ant-upload-select) {
+        width: 100%;
+    }
+
+    :global(.ant-upload-list) {
+        margin-top: 4px;
+    }
+}

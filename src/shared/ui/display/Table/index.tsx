@@ -3,6 +3,7 @@
 import BaseTable, { TableProps as BaseTableProps } from 'antd/es/table';
 import clsx from 'clsx';
 import type { Classnames } from 'shared/types/styles';
+import type { GQLEntity } from 'shared/types/utility';
 import { Actions } from './ui/Actions';
 import { DragHandle } from './ui/DragHandle';
 import { FilterDropdown } from './ui/FilterDropdown';
@@ -15,7 +16,10 @@ import { SortableRow } from './ui/SortableRow';
 import { Switch } from './ui/Switch';
 import styles from './styles.module.scss';
 
-export type TableProps<Data extends object = object> = Omit<BaseTableProps, 'loading'> &
+export type TableProps<Data extends GQLEntity<object> = object> = Omit<
+    BaseTableProps<Data>,
+    'loading'
+> &
     Classnames<'adaptiveListWrapper'> & {
         loading?: boolean;
         fill?: boolean;
@@ -23,7 +27,7 @@ export type TableProps<Data extends object = object> = Omit<BaseTableProps, 'loa
         onRowClick?: (data: Data) => void;
     };
 
-export function Table<Data extends object = object>(props: TableProps<Data>) {
+export function Table<Data extends GQLEntity<object> = object>(props: TableProps<Data>) {
     const { fill, absolute, onRowClick, ...restProps } = props;
 
     return (

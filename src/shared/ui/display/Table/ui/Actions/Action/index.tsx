@@ -1,10 +1,10 @@
 import type { FC, MouseEventHandler } from 'react';
 import Tooltip from 'antd/es/tooltip';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { Button, ButtonProps } from 'shared/ui/inputs/Button';
 import { MAP_VARIANT_TO_ACTION, Variant } from './utils';
 
-export type ActionProps = ButtonProps & {
+export type ActionProps = Omit<ButtonProps, 'variant'> & {
     variant: Variant;
     tooltipTextOverride?: string;
     isAvailable?: boolean;

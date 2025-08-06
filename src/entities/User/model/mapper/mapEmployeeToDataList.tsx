@@ -30,18 +30,15 @@ export const mapEmployeeToDataList = (employee: User): DataList => {
             },
             {
                 term: 'Email',
-                description: Link({
-                    children: email,
-                    href: `mailto:${email}`,
-                    variant: 'secondary',
-                }),
+                description: (
+                    <Link variant="secondary" href={`mailto:${email}`}>
+                        {email}
+                    </Link>
+                ),
             },
             {
                 term: 'Телефон',
-                description: Link({
-                    variant: 'secondary',
-                    ...getPhoneLinkProps(phone),
-                }),
+                description: <Link variant="secondary" {...getPhoneLinkProps(phone)} />,
             },
             {
                 term: 'Роль',
@@ -49,7 +46,7 @@ export const mapEmployeeToDataList = (employee: User): DataList => {
             },
             {
                 term: 'Статус',
-                description: Status(getBannedStatus(state === UserStateEnum.Blocked)),
+                description: <Status {...getBannedStatus(state === UserStateEnum.Blocked)} />,
             },
         ],
     };

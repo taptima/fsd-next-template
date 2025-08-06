@@ -1,12 +1,8 @@
-import type { Decorator, Meta, StoryFn, StoryObj } from '@storybook/react';
+import type { Decorator, Meta, StoryObj } from '@storybook/nextjs';
 import { BlockingLoader } from './index';
 
-const LayoutDecorator: Decorator = (Story: StoryFn) => {
-    return (
-        <div style={{ height: 500 }}>
-            <Story />
-        </div>
-    );
+const LayoutDecorator: Decorator = (Story, context) => {
+    return <div style={{ height: 500 }}>{Story(context)}</div>;
 };
 
 const meta: Meta<typeof BlockingLoader> = {

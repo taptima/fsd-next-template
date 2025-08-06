@@ -1,7 +1,7 @@
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import type { ChangeEvent, FC } from 'react';
 import SearchIcon from 'shared/assets/icons/search.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { Button } from 'shared/ui/inputs/Button';
 import { Input } from 'shared/ui/inputs/Input';
 import styles from './styles.module.scss';

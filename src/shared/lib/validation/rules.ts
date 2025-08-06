@@ -1,6 +1,12 @@
 import type { Rule } from 'antd/es/form';
 import { decorateNumber } from 'shared/lib/helpers/decorateNumber';
-import { lengthSymbols, maxSymbols, minSymbols, requiredField } from './messages';
+import {
+    lengthSymbols,
+    maxSymbols,
+    minSymbols,
+    requiredField,
+    requiredFileField,
+} from './messages';
 
 export const lengthRule = (length: number): Rule => ({
     transform: (value: string) => value.replace(/ |-/g, ''),
@@ -54,6 +60,16 @@ export const NUMBER_RULE: Rule = {
     transform: Number,
     type: 'number',
     message: 'Поле должно содержать число',
+};
+
+export const EMPTY_REQUIRED_RULE: Rule = {
+    required: true,
+    message: '',
+};
+
+export const REQUIRED_FILE_RULE: Rule = {
+    required: true,
+    message: requiredFileField,
 };
 
 export const REQUIRED_RULE: Rule = {
