@@ -1,6 +1,6 @@
 import { useState, FC } from 'react';
 import { Avatar, Popover } from 'antd';
-import { useAdminModalStore } from 'app/admin/model/store/useAdminModalStore';
+import { useGlobalModalStore } from 'app/model/store/useGlobalModalStore';
 import LogoutIcon from 'shared/assets/icons/logout.svg';
 import { Button } from 'shared/ui/inputs/Button';
 import { useUser } from 'entities/User/api/swr/useUser';
@@ -10,7 +10,7 @@ export const User: FC = () => {
     const { data } = useUser();
     const { lastname = '', firstname = '' } = data ?? {};
     const initials = `${lastname.slice(0, 1)}${firstname.slice(0, 1)}`;
-    const { setIsLogoutModalOpen } = useAdminModalStore.use.actions();
+    const { setIsLogoutModalOpen } = useGlobalModalStore.use.actions();
     const [popoverOpen, setPopoverOpen] = useState(false);
 
     const handleLogoutClick = () => {

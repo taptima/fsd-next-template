@@ -8,6 +8,11 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+body:has(#modal-container > *) {
+    padding-right: var(--scrollbar-width);
+    overflow: hidden;
+}
+
 *,
 *::before,
 *::after {

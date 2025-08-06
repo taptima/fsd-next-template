@@ -43,13 +43,15 @@ export const Modal: FC<ModalProps> = (props) => {
             centered
             closeIcon={false}
             footer={null}
+            destroyOnHidden
+            getContainer={() => document.getElementById('modal-container') ?? document.body}
+            onCancel={onCancel}
             className={styles.modal}
             classNames={{
                 wrapper: clsx({ [styles.lowerWrapper]: !isCenteredInMobile }),
                 content: clsx({ [styles.lowerContent]: !isCenteredInMobile }),
             }}
             rootClassName={styles.modalRoot}
-            onCancel={onCancel}
             {...restProps}
         >
             <div className={clsx(styles.header, styles[`border${headerBorder}`], headerClassname)}>

@@ -1,5 +1,5 @@
 import { FC, PropsWithChildren, useLayoutEffect } from 'react';
-import { useSharedModalStore } from 'app/model/store/useSharedModalStore';
+import { useGlobalModalStore } from 'app/model/store/useGlobalModalStore';
 import type { createModalsStore } from 'shared/config/project/createModalsStore';
 
 type Options = {
@@ -12,7 +12,7 @@ const ModalsReset: FC<Props> = (props) => {
     const { children, modalsStore } = props;
 
     useLayoutEffect(() => {
-        [useSharedModalStore, modalsStore].forEach((store) =>
+        [useGlobalModalStore, modalsStore].forEach((store) =>
             store?.getState().actions.resetModals(),
         );
         // eslint-disable-next-line react-hooks/exhaustive-deps

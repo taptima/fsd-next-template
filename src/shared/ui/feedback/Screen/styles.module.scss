@@ -8,17 +8,6 @@
         height: 100%;
     }
 
-    &:global(.ant-modal) {
-        max-width: none;
-        width: calc(100% - var(--layout-menu-width));
-        height: 100%;
-        overflow: hidden;
-
-        @include mq.lower-sm {
-            margin: 0 auto;
-        }
-    }
-
     &:global(.ant-modal .ant-modal-content) {
         height: 100%;
         padding: 0;
@@ -32,6 +21,17 @@
     }
 
     &Root {
+        &:global(.ant-modal-root .ant-modal) {
+            max-width: none;
+            width: calc(100% - var(--layout-menu-width));
+            height: 100%;
+            overflow: hidden;
+
+            @include mq.lower-sm {
+                margin: 0 auto;
+            }
+        }
+
         &:global(.ant-modal-root .ant-modal-centered) {
             text-align: right;
         }
@@ -74,8 +74,10 @@
 }
 
 .right {
-    margin-left: auto;
-    padding-left: 16px;
+    &:global(.ant-flex) {
+        margin-left: auto;
+        padding-left: 16px;
+    }
 }
 
 .tabsWrapper {
@@ -89,6 +91,8 @@
 }
 
 .bottomActions {
-    padding: 16px var(--offset);
-    border-top: 1px solid var(--neture-100);
+    &:global(.ant-flex) {
+        padding: 16px var(--offset);
+        border-top: 1px solid var(--neture-100);
+    }
 }
