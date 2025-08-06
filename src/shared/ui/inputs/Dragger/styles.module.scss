@@ -1,0 +1,54 @@
+@use 'shared/styles/font';
+@use 'shared/styles/mq';
+
+.fieldLabel {
+    @include font.h5;
+}
+
+.icon {
+    fill: var(--primary-900);
+    transition: fill var(--transition-fast);
+}
+
+.formItem {
+    overflow: hidden;
+
+    &:global(.ant-form-item-has-error) {
+        :global(.ant-upload-wrapper .ant-upload-drag) {
+            // stylelint-disable-next-line declaration-no-important
+            color: var(--error-900) !important;
+            // stylelint-disable-next-line declaration-no-important
+            border-color: var(--error-900) !important;
+        }
+
+        .icon {
+            fill: var(--error-900);
+        }
+    }
+}
+
+.dragger {
+    &:global(.ant-upload-wrapper .ant-upload-drag .ant-upload-drag-container) {
+        display: grid;
+        row-gap: 16px;
+        justify-items: center;
+    }
+
+    :global(.ant-upload-disabled) .icon {
+        fill: rgb(0 0 0 / 25%);
+    }
+}
+
+.subtitle {
+    transition: color var(--transition-fast);
+
+    &Desktop {
+        @include mq.hide-lower(md);
+    }
+
+    &Mobile {
+        @include mq.hide-greater(md);
+    }
+
+    @include font.b1;
+}

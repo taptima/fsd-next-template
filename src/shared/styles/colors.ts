@@ -1,6 +1,7 @@
 export const colors = {
     success900: 'var(--success-900)',
     error900: 'var(--error-900)',
+    errorFocus: 'var(--error-focus)',
     black: 'var(--black)',
     neture0: 'var(--neture-0)',
     neture50: 'var(--neture-50)',
