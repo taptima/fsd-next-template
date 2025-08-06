@@ -1,3 +1,7 @@
+.labelWrapper {
+    overflow: hidden;
+}
+
 .select {
     &:global(.ant-select) {
         display: block;
@@ -21,4 +25,8 @@
             margin-left: 4px;
         }
     }
+}
+
+.loadingLabel {
+    color: var(--neture-500);
 }
