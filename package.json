@@ -7,6 +7,7 @@
     "scripts": {
         "dev": "next",
         "debug": "NODE_OPTIONS='--inspect' next dev",
+        "typecheck": "tsc --noEmit",
         "build": "next build",
         "start": "next start",
         "format": "prettier --write --check",
