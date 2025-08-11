@@ -5,8 +5,9 @@
     "license": "MIT",
     "author": "Taptima",
     "scripts": {
-        "dev": "next",
+        "dev": "next --turbo",
         "debug": "NODE_OPTIONS='--inspect' next dev",
+        "typecheck": "tsc --noEmit",
         "build": "next build",
         "start": "next start",
         "format": "prettier --write --check",

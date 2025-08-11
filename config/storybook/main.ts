@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/nextjs';
+import path from 'path';
 import svgrConfig from '../build/svgr';
 
 const config: StorybookConfig = {
@@ -12,7 +13,16 @@ const config: StorybookConfig = {
     webpackFinal: (webpackConfig) => {
         svgrConfig(webpackConfig);
 
-        return webpackConfig;
+        return {
+            ...webpackConfig,
+            resolve: {
+                ...webpackConfig.resolve,
+                alias: {
+                    ...webpackConfig.resolve?.alias,
+                    'shared': path.resolve(__dirname, '../../src/shared'),
+                },
+            },
+        };
     },
 };
 export default config;
