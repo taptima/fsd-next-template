@@ -1,8 +1,8 @@
-import type { Decorator, Meta, StoryContext, StoryFn, StoryObj } from '@storybook/nextjs';
-import colors from 'shared/styles/colors.module.scss';
+import type { Decorator, Meta, StoryObj } from '@storybook/nextjs';
+import { colors } from 'shared/styles/colors';
 import { Loader } from './index';
 
-const LayoutDecorator: Decorator = (Story: StoryFn, context: StoryContext) => {
+const LayoutDecorator: Decorator = (Story, context) => {
     const { args } = context;
     const { variant } = args;
 
@@ -16,7 +16,7 @@ const LayoutDecorator: Decorator = (Story: StoryFn, context: StoryContext) => {
                 backgroundColor: variant === 'white' ? colors.primary500 : colors.neutral0,
             }}
         >
-            <Story />
+            {Story(context)}
         </div>
     );
 };

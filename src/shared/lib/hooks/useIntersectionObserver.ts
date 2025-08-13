@@ -1,13 +1,15 @@
 import { RefObject, useEffect, useRef, useState } from 'react';
 
+type Return<T> = [RefObject<T | null>, boolean];
+
 /**
- * @warning: Do not use with multiple return statements
+ * @warning Do not use with multiple return statements
  * */
 export function useIntersectionObserver<T extends HTMLElement>(
     options?: IntersectionObserverInit,
     defaultState?: boolean,
-): [RefObject<T>, boolean] {
-    const intersectionObserver = useRef<IntersectionObserver>();
+): Return<T> {
+    const intersectionObserver = useRef<IntersectionObserver>(null);
     const observerRef = useRef<T>(null);
     const [isIntersecting, setIsIntersecting] = useState(defaultState ?? false);
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import NextIcon from 'shared/assets/icons/next.svg';
 import VercelIcon from 'shared/assets/icons/vercel.svg';
-import colors from 'shared/styles/colors.module.scss';
+import { colors } from 'shared/styles/colors';
 import { Button } from './index';
 
 const meta: Meta<typeof Button> = {
