@@ -1,0 +1,18 @@
+overwrite: true
+schema: "schema.graphql"
+documents: "src/**/*.{ts,tsx}"
+generates:
+  src/shared/types/graphql/schema.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+hooks:
+  afterOneFileWrite:
+    - prettier --write
+config:
+  skipTypename: true
+  constEnums: true
+  scalars:
+    UUID: string
+    Date: string
+    Time: string
