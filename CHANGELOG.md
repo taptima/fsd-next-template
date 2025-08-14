@@ -1,3 +1,9 @@
+## [1.0.1] - 2025-08-14
+
+### Changed
+
+- `at-rules` удален из `stylelintrc.rules.order/order`, чтобы избежать конфликтов с https://sass-lang.com/d/mixed-decls.
+
 ## [1.0.0] - 2025-08-13
 
 ### Dependencies
