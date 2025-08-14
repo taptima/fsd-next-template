@@ -8,7 +8,7 @@
 
 ### Dependencies
 
-- Обновлены ключевые зависимости проекта:
+- Обновлены ключевые зависимости:
     - **Next.js**: 15.0.1 → 15.4.5
     - **React / ReactDOM**: 18.3.1 → 19.0.0
     - **TypeScript**: 5.4.5 → 5.9.2
@@ -17,10 +17,13 @@
     - **SWR**: 2.3.0 → 2.3.4
     - **Yup**: 1.4.0 → 1.7.0
     - **Zustand**: 4.5.4 → 4.5.7
-- Обновлены дев-зависимости (ESLint, Storybook, Stylelint, Prettier, Husky и др.) до актуальных версий.
+- Обновлены дев-зависимости: ESLint, Storybook, Stylelint, Prettier, Husky и др.
 
 ### Changed
 
 - Цветовые токены перенесены из SCSS `:export` в JavaScript-объект `colors`
 - Компоненты `Storybook` адаптированы под обновленные зависимости
+
+### Removed
+
 - Удален дублирующий `utils.ts`
