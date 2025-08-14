@@ -1,6 +1,6 @@
 {
     "name": "fsd-next-template",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Skeleton front-end project built on top of Next.js",
     "license": "MIT",
     "author": "Taptima",
@@ -56,6 +56,9 @@
     "devDependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
+        "@graphql-codegen/cli": "^5.0.7",
+        "@graphql-codegen/typescript": "^4.1.6",
+        "@graphql-codegen/typescript-operations": "^4.6.1",
         "@next/bundle-analyzer": "^15.4.5",
         "@storybook/addon-docs": "^9.1.1",
         "@storybook/addon-links": "^9.1.1",
