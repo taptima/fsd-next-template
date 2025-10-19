@@ -1,5 +1,6 @@
 .button {
     position: relative;
+    max-width: max-content;
     padding: 10px 20px;
     border-radius: 8px;
     transition-property: border-color, fill, color, background-color, opacity;
