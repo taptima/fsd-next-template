@@ -1,8 +1,4 @@
-import { print } from 'graphql/language/printer';
-// import extractFiles from 'extract-files/extractFiles.mjs';
-// import isExtractableFile from 'extract-files/isExtractableFile.mjs';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-import type { DocumentNode } from 'graphql/language/ast';
 import { handleError } from 'shared/config/project/logger';
 import AbstractAxiosClient from 'shared/lib/api/axios';
 
@@ -10,77 +6,41 @@ type QueryVariables = {
     [key: string]: unknown;
 };
 
-const getGraphQLParams = (query: DocumentNode): AxiosRequestConfig['params'] => {
-    if (process.env.NODE_ENV === 'development') {
-        return {
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            operation: query.definitions[0]?.name?.value,
-        };
+const QUERY_NAME_REGEXP = /(?:query|mutation)\s+(\w+)/m;
+
+const getGraphQLParams = (query: string): AxiosRequestConfig['params'] => {
+    const searchParams: Record<string, string | number> = {};
+
+    const [, name] = query.match(QUERY_NAME_REGEXP) ?? [];
+
+    if (name) {
+        searchParams.q = name;
     }
 
-    return {};
+    return searchParams;
 };
 
 export default class GraphQL extends AbstractAxiosClient {
-    public async query<ResponseType = unknown, Variables = QueryVariables>(
-        query: DocumentNode,
+    public async query<ResponseType = unknown, Variables extends object = QueryVariables>(
+        query: string,
         variables?: Variables,
+        config?: AxiosRequestConfig,
     ): Promise<AxiosResponse<ResponseType>> {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const response = await this.client.post<ResponseType, any>(
             '',
             {
-                query: print(query),
+                query,
                 variables,
             },
             {
                 params: getGraphQLParams(query),
+                ...config,
             },
         );
 
         return this.withHandleErrors(response);
     }
-
-    // public async queryFormData<
-    //     ResponseType = unknown,
-    //     Variables extends QueryVariables = QueryVariables,
-    // >(query: DocumentNode, variables: Variables): Promise<AxiosResponse<ResponseType>> {
-    //     const { files, clone: variablesWithoutFiles } = extractFiles(
-    //         variables,
-    //         isExtractableFile,
-    //         'variables',
-    //     );
-    //
-    //     const map: Record<number, string[]> = {};
-    //     const mappedFiles: Record<number, Blob | File> = {};
-    //     let i = 0;
-    //     files.forEach((paths, file) => {
-    //         map[i] = paths;
-    //         mappedFiles[i] = file;
-    //         ++i;
-    //     });
-    //
-    //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    //     const response = await this.client.post<ResponseType, any>(
-    //         '',
-    //         {
-    //             operations: JSON.stringify({
-    //                 query: print(query),
-    //                 variables: variablesWithoutFiles,
-    //             }),
-    //             map: JSON.stringify(map),
-    //             ...mappedFiles,
-    //         },
-    //         {
-    //             headers: {
-    //                 'Content-Type': 'multipart/form-data',
-    //             },
-    //         },
-    //     );
-    //
-    //     return this.withHandleErrors(response);
-    // }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any,class-methods-use-this
     private withHandleErrors(response: any) {
