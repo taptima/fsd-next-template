@@ -1,3 +1,4 @@
+/** Generated via `utils:sync-colors`. Do not edit manually. */
 export const colors = {
     success900: 'var(--success-900)',
     error900: 'var(--error-900)',
