@@ -14,7 +14,7 @@ import {
     REGION,
     SITE_NAME,
     TITLE,
-} from 'shared/const/seo';
+} from 'features/seo/model/const/meta';
 
 export const metadata: Metadata = {
     title: {
