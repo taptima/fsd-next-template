@@ -34,9 +34,6 @@ dependencies:
   antd:
     specifier: 5.26.7
     version: 5.26.7(react-dom@19.0.0)(react@19.0.0)
-  antd-5-mask-input:
-    specifier: ^1.1.0
-    version: 1.1.0(antd@5.26.7)(react@19.0.0)
   async-mutex:
     specifier: ^0.5.0
     version: 0.5.0
@@ -58,6 +55,9 @@ dependencies:
   react-dom:
     specifier: 19.0.0
     version: 19.0.0(react@19.0.0)
+  react-imask:
+    specifier: ^7.6.1
+    version: 7.6.1(react@19.0.0)
   sharp:
     specifier: ^0.34.3
     version: 0.34.3
@@ -1900,6 +1900,13 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@babel/runtime-corejs3@7.28.4:
+    resolution: {integrity: sha512-h7iEYiW4HebClDEhtvFObtPmIvrd1SSfpI9EhOeKk4CtIK/ngBWFpuhCzhdmRKtg71ylcue+9I6dv54XYO1epQ==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      core-js-pure: 3.45.0
+    dev: false
 
   /@babel/runtime@7.28.2:
     resolution: {integrity: sha512-KHp2IflsnGywDjBWDkR9iEqiWSpc8GIi0lgTT3mOElT0PP1tG26P4tmFI2YvAdzgq9RGyoHZQEIEdZy6Ec5xCA==}
@@ -5648,17 +5655,6 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /antd-5-mask-input@1.1.0(antd@5.26.7)(react@19.0.0):
-    resolution: {integrity: sha512-U09CpE8wxIP3w+duP0ttGJAx1T37/iYX3fOiDAaeSMhXXwGUvJVg38UB9M3z+ezajRVq/KbN/gHxE0/Rupbi1Q==}
-    peerDependencies:
-      antd: '>=5.0.0'
-      react: '>=16.0.0'
-    dependencies:
-      antd: 5.26.7(react-dom@19.0.0)(react@19.0.0)
-      imask: 6.4.2
-      react: 19.0.0
-    dev: false
-
   /antd@5.26.7(react-dom@19.0.0)(react@19.0.0):
     resolution: {integrity: sha512-iCyXN6+i2CUVEOSzzJKfbKeg115qoJhGvSkCh5uzAf9hANwHUOJQhsMn+KtN+Lx/2NQ6wfM7nGZ+7NPNO5Pn1w==}
     peerDependencies:
@@ -6671,7 +6667,6 @@ packages:
   /core-js-pure@3.45.0:
     resolution: {integrity: sha512-OtwjqcDpY2X/eIIg1ol/n0y/X8A9foliaNt1dSK0gV3J2/zw+89FcNG3mPK+N8YWts4ZFUPxnrAzsxs/lf8yDA==}
     requiresBuild: true
-    dev: true
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
@@ -8903,9 +8898,11 @@ packages:
     hasBin: true
     dev: true
 
-  /imask@6.4.2:
-    resolution: {integrity: sha512-xvEgbTdk6y2dW2UAysq0NRPmO6PuaXM5NHIt4TXEJEwXUHj26M0p/fXqyrSJdNXFaGVOtqYjPRnNdrjQQhDuuA==}
+  /imask@7.6.1:
+    resolution: {integrity: sha512-sJlIFM7eathUEMChTh9Mrfw/IgiWgJqBKq2VNbyXvBZ7ev/IlO6/KQTKlV/Fm+viQMLrFLG/zCuudrLIwgK2dg==}
     engines: {npm: '>=4.0.0'}
+    dependencies:
+      '@babel/runtime-corejs3': 7.28.4
     dev: false
 
   /immutable@3.7.6:
@@ -11913,6 +11910,17 @@ packages:
     dependencies:
       react: 19.0.0
       scheduler: 0.25.0
+
+  /react-imask@7.6.1(react@19.0.0):
+    resolution: {integrity: sha512-vLNfzcCz62Yzx/GRGh5tiCph9Gbh2cZu+Tz8OiO5it2eNuuhpA0DWhhSlOtVtSJ80+Bx+vFK5De8eQ9AmbkXzA==}
+    engines: {npm: '>=4.0.0'}
+    peerDependencies:
+      react: '>=0.14.0'
+    dependencies:
+      imask: 7.6.1
+      prop-types: 15.8.1
+      react: 19.0.0
+    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
