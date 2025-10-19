@@ -1,19 +1,13 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/nextjs';
-import { colors } from 'shared/styles/colors';
 import { Loader } from './index';
 
 const LayoutDecorator: Decorator = (Story, context) => {
-    const { args } = context;
-    const { variant } = args;
-
     return (
         <div
             style={{
                 padding: '20px 0',
                 display: 'flex',
                 justifyContent: 'center',
-                borderRadius: 8,
-                backgroundColor: variant === 'white' ? colors.primary500 : colors.neutral0,
             }}
         >
             {Story(context)}
@@ -32,15 +26,9 @@ export default meta;
 
 type Story = StoryObj<typeof Loader>;
 
-export const Primary: Story = {
+export const Current: Story = {
     args: {
-        variant: 'primary',
-    },
-};
-
-export const White: Story = {
-    args: {
-        variant: 'white',
+        variant: 'Current',
     },
 };
 

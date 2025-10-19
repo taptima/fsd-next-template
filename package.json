@@ -1,6 +1,6 @@
 {
     "name": "fsd-next-template",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "description": "Skeleton front-end project built on top of Next.js",
     "license": "MIT",
     "author": "Taptima",
@@ -23,6 +23,7 @@
         "svg:optimize-all": "pnpm run svg:optimize -f src/shared/assets/icons",
         "storybook:dev": "storybook dev -p 6006 -c ./config/storybook --no-open",
         "storybook:build": "storybook build -c ./config/storybook",
+        "utils:sync-colors": "node scripts/sync-colors.js",
         "test:unit": "jest --config config/jest/jest.config.ts",
         "prepare": "husky"
     },
@@ -40,13 +41,17 @@
         "pnpm": "^8.7.0"
     },
     "dependencies": {
+        "@hookform/resolvers": "^5.2.2",
         "async-mutex": "^0.5.0",
         "axios": "^1.11.0",
         "clsx": "^2.1.1",
         "graphql": "^16.11.0",
-        "next": "^15.4.5",
+        "next": "15.4.6",
         "react": "19.0.0",
         "react-dom": "19.0.0",
+        "react-hook-form": "^7.65.0",
+        "react-hot-toast": "^2.6.0",
+        "react-imask": "^7.6.1",
         "sharp": "^0.34.3",
         "swr": "^2.3.4",
         "typescript": "^5.9.2",

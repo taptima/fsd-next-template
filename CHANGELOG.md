@@ -1,3 +1,35 @@
+## [1.1.0] - 2025-10-19
+
+### Dependencies
+
+- Зафиксирована версия **Next.js**: 15.4.6
+- Добавлены:
+    - **React Hook Form**: 7.65.0
+    - **React Hot Toast**: 2.6.0
+    - **React IMask**: 7.6.1
+
+### Added
+
+- Скрипт `utils:sync-colors` для генерации `colors.ts` на основе `_colors.scss`
+- Конфигурация изображений `deviceSizes` и `imageSizes`
+- Страницы ошибок
+- Базовая веб-аналитика `WebAnalytics`
+- Шаблонная форма `ExampleForm`
+- Компоненты:
+    - `Container`
+    - `FieldWrapper`
+    - `Input`
+    - `PhoneNumberInput`
+- `query.ts` для search-параметров
+- `plurals.ts`
+
+### Changed
+
+- GraphQL-клиент теперь добавляет запросам search-параметр `q` в продакшене
+- Шрифты:
+    - В варианты добавлен адаптив
+    - Добавлен вариант `custom`
+
 ## [1.0.2] - 2025-08-14
 
 ### Dependencies

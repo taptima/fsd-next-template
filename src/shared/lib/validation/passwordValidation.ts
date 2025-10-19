@@ -1,8 +1,8 @@
 import { string } from 'yup';
-import { requiredField } from './messages';
+import { fieldRequiredMessage } from './messages';
 
-export const passwordValidationSchema = string()
-    .required(requiredField)
+export const requiredPasswordValidation = string()
+    .required(fieldRequiredMessage)
     .matches(
         /^[\w#?!@$%^&*-]+$/i,
         'Пароль может содержать только латинские буквы, цифры и спецсимволы',

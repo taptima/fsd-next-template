@@ -1,0 +1,21 @@
+@use 'shared/styles/font';
+
+.body {
+    color: var(--neutral-10);
+
+    @include font.b1;
+}
+
+.main {
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+}
+
+.toasterContainer {
+    // stylelint-disable-next-line declaration-no-important
+    top: calc(var(--header-height) + 20px) !important;
+    // stylelint-disable-next-line declaration-no-important
+    z-index: calc(var(--z-fixed) - 1) !important;
+
+    @include font.b;
+}

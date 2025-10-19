@@ -1,0 +1,83 @@
+@use 'shared/styles/font';
+@use 'shared/styles/utils';
+@use 'shared/styles/mq';
+
+.label {
+    pointer-events: none;
+    position: absolute;
+    top: calc(50% - var(--border-offset));
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(--white);
+    background-color: var(--background-color);
+    opacity: 0.5;
+    transform: translateY(-50%) scale(1);
+    transition: var(--transition-fast);
+}
+
+.wrapper {
+    --border-offset: 8px;
+
+    position: relative;
+
+    &Error {
+        input,
+        textarea {
+            border-color: var(--red);
+        }
+    }
+
+    textarea {
+        resize: none;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding-bottom: var(--border-offset);
+        border: none;
+        outline: none;
+        color: var(--white);
+        background: transparent;
+        border-bottom: 1px solid var(--grey);
+        transition: var(--transition-fast);
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+
+            & + .label {
+                opacity: 0.25;
+            }
+        }
+
+        &:not(:disabled) {
+            &:hover,
+            &:focus-within {
+                border-color: var(--white);
+            }
+        }
+
+        &:focus + .label,
+        &:not(:placeholder-shown) + .label {
+            top: 0;
+            transform: translateY(-1.5rem);
+        }
+
+        &::placeholder {
+            // Пишут, что на Safari не работает placeholder-shown, если нет плейсхолдера
+            user-select: none;
+            color: transparent;
+        }
+    }
+}
+
+.content {
+    position: relative;
+}
+
+.error {
+    color: var(--red);
+    margin-top: 6px;
+}
