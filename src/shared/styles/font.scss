@@ -1,35 +1,67 @@
+@use 'sass:math';
+@use 'shared/styles/mq';
+
 @mixin h1 {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 48px;
+
+    @include mq.lower-xs {
+        font-size: 32px;
+        line-height: 40px;
+    }
 }
 
 @mixin h2 {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+
+    @include mq.lower-xs {
+        font-size: 26px;
+        line-height: 100%;
+    }
 }
 
 @mixin h3 {
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 34px;
+
+    @include mq.lower-xs {
+        font-size: 20px;
+        line-height: 30px;
+    }
+}
+
+// subheader
+@mixin sh {
+    font-weight: 600;
+    font-size: 18px;
     line-height: 28px;
-    font-weight: 700;
 }
 
 @mixin b1 {
-    font-size: 20px;
-    line-height: 28px;
     font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
 }
 
 @mixin b2 {
-    font-size: 16px;
-    line-height: 24px;
     font-weight: 400;
-}
-
-@mixin b3 {
     font-size: 14px;
     line-height: 22px;
+}
+
+// button
+@mixin b {
     font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+@mixin custom($weight, $size, $line-height) {
+    font-weight: $weight;
+    font-size: if(math.unit($size) == '', $size * 1px, $size);
+    line-height: if(math.unit($line-height) == '', $line-height * 1%, $line-height);
 }

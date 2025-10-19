@@ -1,12 +1,51 @@
 @use 'sass:math';
 
+.wrapper {
+    &Fill {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &WithBackground {
+        background-color: #00000010;
+
+        &Rounded {
+            border-radius: 16px;
+        }
+    }
+
+    &Hideable {
+        opacity: 0;
+        visibility: hidden;
+        transition-property: opacity, visibility;
+        transition-duration: var(--transition-normal);
+    }
+
+    &Visible {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
 .spinner {
-    &.primary {
+    width: var(--spinner-size, var(--base-size));
+
+    &Current {
+        stroke: currentcolor;
+    }
+
+    &Primary {
         stroke: var(--primary-500);
     }
 
-    &.white {
-        stroke: var(--neutral-0);
+    &White {
+        stroke: var(--neutral-1);
     }
 
     circle {

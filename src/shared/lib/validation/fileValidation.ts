@@ -3,7 +3,7 @@ import { fileRequiredMessage, fileSizeMessage } from './messages';
 
 const MAX_FILE_SIZE = 1000 * 1000 * 10; // bytes, 10 MB
 
-export const requiredFileValidationSchema = mixed()
+export const requiredFileValidation = mixed()
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .test('required', fileRequiredMessage, (value: any) => {
         return value && value.size !== 0;

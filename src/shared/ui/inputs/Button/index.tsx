@@ -1,43 +1,31 @@
-import {
-    ButtonHTMLAttributes,
-    ElementType,
-    ComponentPropsWithoutRef,
-    ReactNode,
-    Ref,
-    forwardRef,
-    ForwardedRef,
-} from 'react';
+import { ReactNode, Ref, forwardRef, ForwardedRef, ButtonHTMLAttributes, ElementType } from 'react';
 import clsx from 'clsx';
 import { Loader } from 'shared/ui/display/Loader';
-import { ButtonVariant, MAP_BUTTON_VARIANT_TO_LOADER_VARIANT } from './utils';
+import { MAP_BUTTON_VARIANT_TO_LOADER_VARIANT } from './utils';
 import styles from './styles.module.scss';
 
-export type { ButtonVariant };
+export type ButtonVariant = 'Primary' | 'Secondary';
 
-type InternalButtonProps<T extends ElementType> = ButtonHTMLAttributes<HTMLButtonElement> & {
+type InternalButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+    as?: ElementType;
     variant?: ButtonVariant;
     startIcon?: ReactNode;
     endIcon?: ReactNode;
     isLoading?: boolean;
-    as?: T;
 };
+export type ButtonProps = InternalButtonProps;
+type RefButtonProps = ButtonProps & { ref?: ForwardedRef<HTMLButtonElement> };
 
-export type ButtonProps<T extends ElementType = 'button'> = InternalButtonProps<T> &
-    Omit<ComponentPropsWithoutRef<T>, keyof InternalButtonProps<T>>;
-
-const ButtonWithRef = <T extends ElementType = 'button'>(
-    props: ButtonProps<T>,
-    ref?: Ref<HTMLButtonElement>,
-) => {
+const ButtonWithRef = (props: ButtonProps, ref?: Ref<HTMLButtonElement>) => {
     const {
         children,
-        variant = 'primary',
+        as = 'button',
+        variant = 'Secondary',
         startIcon,
         endIcon,
-        as = 'button',
-        className,
-        isLoading,
         disabled,
+        isLoading,
+        className,
         ...restProps
     } = props;
     const Element = as;
@@ -47,27 +35,24 @@ const ButtonWithRef = <T extends ElementType = 'button'>(
             ref={ref}
             type={as === 'button' ? 'button' : undefined}
             disabled={disabled || isLoading}
-            className={clsx(styles.wrapper, styles[variant], className, {
-                [styles.loading]: isLoading,
-            })}
+            className={clsx(styles.button, styles[`button${variant}`], className)}
             {...restProps}
         >
             {startIcon && <span className={styles.startIcon}>{startIcon}</span>}
             {children}
             {endIcon && <span className={styles.endIcon}>{endIcon}</span>}
-            {isLoading && (
-                <span className={styles.loaderWrapper}>
-                    <Loader
-                        variant={MAP_BUTTON_VARIANT_TO_LOADER_VARIANT[variant]}
-                        size={16}
-                        strokeWidth={8}
-                    />
-                </span>
-            )}
+
+            <Loader.Wrapper aria-hidden isVisible={isLoading}>
+                <Loader
+                    variant={MAP_BUTTON_VARIANT_TO_LOADER_VARIANT[variant]}
+                    size={16}
+                    strokeWidth={12}
+                />
+            </Loader.Wrapper>
         </Element>
     );
 };
 
-export const Button = forwardRef(ButtonWithRef) as <T extends ElementType = 'button'>(
-    props: ButtonProps<T> & { ref?: ForwardedRef<HTMLButtonElement> },
+export const Button = forwardRef(ButtonWithRef) as (
+    props: RefButtonProps,
 ) => ReturnType<typeof ButtonWithRef>;

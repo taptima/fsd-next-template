@@ -21,12 +21,13 @@ const COMMON_PROPS: Story['args'] = {
 export const Primary: Story = {
     args: {
         ...COMMON_PROPS,
+        variant: 'Primary',
     },
 };
 
 export const Secondary: Story = {
     args: {
         ...COMMON_PROPS,
-        variant: 'secondary',
+        variant: 'Secondary',
     },
 };

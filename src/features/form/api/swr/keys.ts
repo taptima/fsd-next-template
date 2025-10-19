@@ -1,0 +1,1 @@
+export const SUBMIT_REQUEST_KEY = 'SUBMIT_REQUEST';

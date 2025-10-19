@@ -1,74 +1,59 @@
-.wrapper {
+.button {
     position: relative;
     padding: 10px 20px;
     border-radius: 8px;
+    transition-property: border-color, fill, color, background-color, opacity;
+    transition-duration: var(--transition-fast);
     overflow: hidden;
-    transition: {
-        property: background-color, color, fill, border-color, opacity;
-        duration: var(--transition-fast);
-    }
 
     &:disabled {
         cursor: not-allowed;
     }
 
-    &.loading {
-        cursor: wait;
-    }
-}
+    &Primary {
+        color: var(--neutral-1);
 
-.loaderWrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        &,
+        :global(.loaderWrapper) {
+            background-color: var(--primary-500);
+        }
 
-.primary {
-    color: var(--neutral-0);
+        &:hover,
+        &:focus-visible {
+            background-color: var(--primary-300);
+        }
 
-    &,
-    .loaderWrapper {
-        background-color: var(--primary-500);
-    }
+        &:active {
+            background-color: var(--primary-700);
+        }
 
-    &:hover {
-        background-color: var(--primary-300);
+        &:disabled {
+            background-color: var(--neutral-3);
+            color: var(--neutral-8);
+        }
     }
 
-    &:active {
-        background-color: var(--primary-700);
-    }
+    &Secondary {
+        color: var(--primary-500);
 
-    &:disabled {
-        background-color: var(--neutral-100);
-        color: var(--neutral-600);
-    }
-}
+        &,
+        :global(.loaderWrapper) {
+            background-color: var(--primary-20);
+        }
 
-.secondary {
-    color: var(--primary-500);
+        &:hover,
+        &:focus-visible {
+            color: var(--primary-300);
+        }
 
-    &,
-    .loaderWrapper {
-        background-color: var(--primary-20);
-    }
+        &:active {
+            color: var(--primary-700);
+        }
 
-    &:hover {
-        color: var(--primary-300);
-    }
-
-    &:active {
-        color: var(--primary-700);
-    }
-
-    &:disabled {
-        background-color: var(--neutral-100);
-        color: var(--neutral-600);
+        &:disabled {
+            background-color: var(--neutral-3);
+            color: var(--neutral-8);
+        }
     }
 }
 

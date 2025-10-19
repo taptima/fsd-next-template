@@ -18,19 +18,51 @@ const text = 'SomeText';
 
 const COMMON_PROPS: Story['args'] = {
     children: text,
-    disabled: false,
 };
 
 export const Primary: Story = {
     args: {
         ...COMMON_PROPS,
+        variant: 'Primary',
+    },
+};
+
+export const PrimaryLoading: Story = {
+    args: {
+        ...COMMON_PROPS,
+        variant: 'Primary',
+        isLoading: true,
+    },
+};
+
+export const PrimaryDisabled: Story = {
+    args: {
+        ...COMMON_PROPS,
+        variant: 'Primary',
+        disabled: true,
     },
 };
 
 export const Secondary: Story = {
     args: {
         ...COMMON_PROPS,
-        variant: 'secondary',
+        variant: 'Secondary',
+    },
+};
+
+export const SecondaryLoading: Story = {
+    args: {
+        ...COMMON_PROPS,
+        variant: 'Secondary',
+        isLoading: true,
+    },
+};
+
+export const SecondaryDisabled: Story = {
+    args: {
+        ...COMMON_PROPS,
+        variant: 'Secondary',
+        disabled: true,
     },
 };
 
@@ -51,22 +83,7 @@ export const WithEndIcon: Story = {
 export const WithStartAndEndIcons: Story = {
     args: {
         ...COMMON_PROPS,
-        startIcon: <NextIcon width={16} fill={colors.neutral0} />,
+        startIcon: <NextIcon width={16} fill={colors.neutral1} />,
         endIcon: <VercelIcon width={16} fill={colors.primary20} />,
-    },
-};
-
-export const PrimaryLoading: Story = {
-    args: {
-        ...COMMON_PROPS,
-        isLoading: true,
-    },
-};
-
-export const SecondaryLoading: Story = {
-    args: {
-        ...COMMON_PROPS,
-        variant: 'secondary',
-        isLoading: true,
     },
 };
