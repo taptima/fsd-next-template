@@ -2,8 +2,8 @@
 
 :root {
     --container-gutter: 80px;
-    --container-width: 1920px;
-    --client-mobile-navigation-height: 65px;
+    --container-width: 1560px;
+    --header-height: 70px;
     --layout-menu-width: 207px;
     --pagination-height: 86px;
 
@@ -11,8 +11,12 @@
         --container-gutter: 60px;
     }
 
-    @include mq.lower-md {
+    @include mq.lower-xxl {
         --container-gutter: 40px;
+    }
+
+    @include mq.lower-md {
+        --container-gutter: 24px;
     }
 
     @include mq.lower-xs {

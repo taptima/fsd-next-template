@@ -1,0 +1,81 @@
+@use 'shared/styles/font';
+@use 'shared/styles/mixins';
+@use 'shared/styles/mq';
+
+.wrapper {
+    min-height: calc(100vh - var(--header-height));
+    background-color: var(--neture-50);
+
+    @include mq.lower-md {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    @include mixins.container;
+
+    @include mq.lower-md {
+        position: static;
+        display: grid;
+        grid-auto-rows: max-content;
+        row-gap: 16px;
+        justify-content: center;
+    }
+}
+
+%vertical-centered {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @include mq.lower-md {
+        position: static;
+        transform: none;
+    }
+}
+
+.code {
+    right: var(--container-gutter);
+    color: var(--neture-200);
+    font-size: 420px;
+    font-weight: 700;
+    line-height: 1;
+
+    @extend %vertical-centered;
+
+    @include mq.lower-xxxl {
+        font-size: 380px;
+    }
+
+    @include mq.lower-xl {
+        font-size: 280px;
+    }
+
+    @include mq.lower-md {
+        font-size: 150px;
+    }
+}
+
+.content {
+    left: var(--container-gutter);
+    max-width: 410px;
+    display: grid;
+    row-gap: 16px;
+
+    @extend %vertical-centered;
+}
+
+.title {
+    @include font.h1;
+}
+
+.description {
+    color: var(--neture-500);
+}

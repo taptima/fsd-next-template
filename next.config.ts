@@ -30,15 +30,6 @@ const nextConfig: NextConfig = {
     sassOptions: {
         includePaths: ['./src'],
     },
-    async redirects() {
-        return [
-            {
-                source: '/',
-                destination: '/admin/sign-in',
-                permanent: false,
-            },
-        ];
-    },
     async headers() {
         return [
             {
