@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import { Toaster } from 'react-hot-toast';
 import clsx from 'clsx';
 import { WebAnalytics } from 'features/seo/ui/WebAnalytics';
@@ -9,7 +10,11 @@ import styles from './styles.module.scss';
 
 export { metadata, viewport } from './meta';
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+type Props = PropsWithChildren;
+
+export default function RootLayout(props: Props) {
+    const { children } = props;
+
     return (
         <html lang="ru">
             {/* <head>
