@@ -1,6 +1,7 @@
-import type { FormInstance, FormItemProps, FormProps as BaseFormProps } from 'antd/es/form';
+import type { FormInstance, FormProps as BaseFormProps } from 'antd/es/form';
 import type { ReactNode } from 'react';
 import type { FieldLabelProps } from 'shared/ui/display/FieldLabel';
+import type { FormItemProps } from 'shared/ui/inputs/FormItem';
 
 export type FormProps = {
     formProps: Omit<BaseFormProps, 'form'> & {

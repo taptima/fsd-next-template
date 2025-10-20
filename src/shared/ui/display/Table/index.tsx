@@ -16,10 +16,7 @@ import { SortableRow } from './ui/SortableRow';
 import { Switch } from './ui/Switch';
 import styles from './styles.module.scss';
 
-export type TableProps<Data extends GQLEntity<object> = object> = Omit<
-    BaseTableProps<Data>,
-    'loading'
-> &
+export type TableProps<Data extends GQLEntity<object>> = BaseTableProps<Data> &
     Classnames<'adaptiveListWrapper'> & {
         loading?: boolean;
         fill?: boolean;
@@ -27,7 +24,7 @@ export type TableProps<Data extends GQLEntity<object> = object> = Omit<
         onRowClick?: (data: Data) => void;
     };
 
-export function Table<Data extends GQLEntity<object> = object>(props: TableProps<Data>) {
+export function Table<Data extends GQLEntity<object>>(props: TableProps<Data>) {
     const { fill, absolute, onRowClick, ...restProps } = props;
 
     return (
