@@ -62,11 +62,6 @@ export const NUMBER_RULE: Rule = {
     message: 'Поле должно содержать число',
 };
 
-export const EMPTY_REQUIRED_RULE: Rule = {
-    required: true,
-    message: '',
-};
-
 export const REQUIRED_FILE_RULE: Rule = {
     required: true,
     message: requiredFileField,
