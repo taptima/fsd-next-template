@@ -18,6 +18,7 @@
     - `Container`
     - `PhoneNumberInput`
 - `query.ts` для search-параметров
+- `.npmrc` - фиксирует параметр `auto-install-peers`, чтобы восстановить предыдущее поведение pnpm
 
 ### Changed
 
