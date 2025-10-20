@@ -1,5 +1,5 @@
+import { API_BASE_URL } from 'shared/const/env';
 import { asset } from 'shared/lib/helpers/asset';
-import { API_BASE_URL } from './env';
 
 export const SITE_NAME = 'Site';
 export const TITLE = 'Title';
