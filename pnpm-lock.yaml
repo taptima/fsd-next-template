@@ -47,7 +47,7 @@ dependencies:
     specifier: ^16.11.0
     version: 16.11.0
   next:
-    specifier: ^15.4.5
+    specifier: 15.4.5
     version: 15.4.5(patch_hash=l3euz4dtx62el4ijj4nipt6zuq)(@babel/core@7.28.0)(react-dom@19.0.0)(react@19.0.0)(sass@1.89.2)
   react:
     specifier: 19.0.0
