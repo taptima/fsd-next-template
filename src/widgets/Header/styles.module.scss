@@ -1,0 +1,9 @@
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: var(--header-height);
+    background-color: var(--neture-0);
+    z-index: var(--z-fixed);
+}

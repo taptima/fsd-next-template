@@ -2,10 +2,23 @@ import BaseFormItem, { FormItemProps as BaseFormItemProps } from 'antd/es/form/F
 import clsx from 'clsx';
 import styles from './styles.module.scss';
 
-export type FormItemProps<Form> = BaseFormItemProps<Form>;
+export type FormItemProps<Form> = BaseFormItemProps<Form> & {
+    hideValidation?: boolean;
+};
 
 export function FormItem<Form>(props: FormItemProps<Form>) {
-    const { className, ...restProps } = props;
+    const { className, hideValidation, ...restProps } = props;
 
-    return <BaseFormItem className={clsx(styles.formItem, className)} {...restProps} />;
+    return (
+        <BaseFormItem
+            className={clsx(
+                styles.formItem,
+                {
+                    [styles.formItemHideValidation]: hideValidation,
+                },
+                className,
+            )}
+            {...restProps}
+        />
+    );
 }

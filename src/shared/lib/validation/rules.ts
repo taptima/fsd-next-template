@@ -4,8 +4,8 @@ import {
     lengthSymbols,
     maxSymbols,
     minSymbols,
-    requiredField,
-    requiredFileField,
+    requiredMessage,
+    requiredFileMessage,
 } from './messages';
 
 export const lengthRule = (length: number): Rule => ({
@@ -62,22 +62,17 @@ export const NUMBER_RULE: Rule = {
     message: 'Поле должно содержать число',
 };
 
-export const EMPTY_REQUIRED_RULE: Rule = {
-    required: true,
-    message: '',
-};
-
 export const REQUIRED_FILE_RULE: Rule = {
     required: true,
-    message: requiredFileField,
+    message: requiredFileMessage,
 };
 
 export const REQUIRED_RULE: Rule = {
     required: true,
-    message: requiredField,
+    message: requiredMessage,
     validator(_, value) {
         if (!value || String(value).trim().length === 0) {
-            return Promise.reject(new Error(requiredField));
+            return Promise.reject(new Error(requiredMessage));
         }
 
         return Promise.resolve();

@@ -1,8 +1,0 @@
-// ant changes the element to which the class is applied based on the `allowClear` prop
-.input {
-    &:-webkit-autofill,
-    :-webkit-autofill {
-        // stylelint-disable-next-line declaration-no-important
-        background-clip: text !important;
-    }
-}

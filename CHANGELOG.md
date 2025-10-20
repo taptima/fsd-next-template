@@ -1,3 +1,34 @@
+## [1.1.0] - 2025-10-21
+
+### Dependencies
+
+- Зафиксирована версия **Next.js**: 15.4.5
+- Добавлены:
+    - **React IMask**: 7.6.1
+- Удалены:
+    - **antd-5-mask-input**
+
+### Added
+
+- Скрипт `utils:sync-colors` для генерации `colors.ts` на основе `_colors.scss`
+- Конфигурация изображений `deviceSizes` и `imageSizes`
+- Страницы ошибок
+- Базовая веб-аналитика `WebAnalytics`
+- Компоненты:
+    - `Container`
+    - `PhoneNumberInput`
+- `query.ts` для search-параметров
+
+### Changed
+
+- GraphQL-клиент теперь добавляет запросам search-параметр `q` в продакшене
+- В `FormItem` добавлен проп `hideValidation`. Он должен использоваться вместо правил без сообщений для улучшения доступности.
+
+### Removed
+
+- Редирект с главной на авторизацию
+- autofill-стили инпутов
+
 ## [1.0.2] - 2025-08-14
 
 ### Dependencies

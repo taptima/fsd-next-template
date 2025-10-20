@@ -38,6 +38,7 @@
     overflow: hidden;
 
     &:global(.ant-btn) {
+        max-width: max-content;
         height: auto;
         border-radius: 8px;
         white-space: normal;
