@@ -1,8 +1,14 @@
+## [1.1.2] - 2025-12-08
+
+### Dependencies
+
+- Обновлен **react**: 19.0.0 -> 19.0.1 - [CVE-2025-55182](https://react.dev/blog/2025/12/03/critical-security-vulnerability-in-react-server-components)
+
 ## [1.1.1] - 2025-12-05
 
 ### Dependencies
 
-- Обновлен **next**: 15.4.6 -> 15.4.8 - исправлен [CVE-2025-66478](https://nextjs.org/blog/CVE-2025-66478)
+- Обновлен **next**: 15.4.6 -> 15.4.8 - [CVE-2025-66478](https://nextjs.org/blog/CVE-2025-66478)
 
 ### Removed
 
