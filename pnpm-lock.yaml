@@ -106,10 +106,10 @@ devDependencies:
     specifier: ^20.19.9
     version: 20.19.10
   '@types/react':
-    specifier: ^19.0.3
+    specifier: 19.0.3
     version: 19.0.3
   '@types/react-dom':
-    specifier: ^19.0.3
+    specifier: 19.0.3
     version: 19.0.3(@types/react@19.0.3)
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.18.0
