@@ -1,3 +1,10 @@
+## [1.1.3] - 2025-12-15
+
+### Dependencies
+
+- Обновлен **next**: 15.4.8 -> 15.4.10 - [CVE-2025-55183 & CVE-2025-55184](https://vercel.com/kb/bulletin/security-bulletin-cve-2025-55184-and-cve-2025-55183#how-to-upgrade-and-protect-your-next.js-app)
+- Обновлен **react**: 19.0.1 -> 19.0.3 - [CVE-2025-55183 & CVE-2025-55184](https://react.dev/blog/2025/12/11/denial-of-service-and-source-code-exposure-in-react-server-components)
+
 ## [1.1.2] - 2025-12-08
 
 ### Dependencies
