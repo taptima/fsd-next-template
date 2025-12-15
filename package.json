@@ -53,9 +53,9 @@
         "axios": "^1.11.0",
         "clsx": "^2.1.1",
         "graphql": "^16.11.0",
-        "next": "15.4.8",
-        "react": "19.0.1",
-        "react-dom": "19.0.1",
+        "next": "15.4.10",
+        "react": "19.0.3",
+        "react-dom": "19.0.3",
         "react-imask": "^7.6.1",
         "sharp": "^0.34.3",
         "swr": "^2.3.4",
@@ -79,8 +79,8 @@
         "@testing-library/react": "^16.3.0",
         "@types/jest": "^29.5.14",
         "@types/node": "^20.19.9",
-        "@types/react": "^19.0.0",
-        "@types/react-dom": "^19.0.0",
+        "@types/react": "19.0.3",
+        "@types/react-dom": "19.0.3",
         "@typescript-eslint/eslint-plugin": "^7.18.0",
         "@typescript-eslint/parser": "^7.18.0",
         "eslint": "^8.57.1",
@@ -114,7 +114,7 @@
     },
     "pnpm": {
         "patchedDependencies": {
-            "next@15.4.8": "patches/next@15.4.8.patch"
+            "next@15.4.10": "patches/next@15.4.10.patch"
         }
     }
 }
