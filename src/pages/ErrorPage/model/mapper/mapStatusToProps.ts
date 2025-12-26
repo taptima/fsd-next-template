@@ -13,7 +13,7 @@ export const MAP_STATUS_TO_PROPS: Record<Variant, StatusProps> = {
         description: 'Возможно, она была перемещена или удалена',
     },
     '500': {
-        code: '505',
+        code: '500',
         title: 'Ошибка сервера',
         description:
             'На сервере произошла непредвиденная ошибка. Пожалуйста, подождите, скоро она будет исправлена',

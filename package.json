@@ -16,7 +16,7 @@
         "lint-js-all": "pnpm run lint-js \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint-styles": "stylelint --fix --config .stylelintrc.json",
         "lint-styles-all": "pnpm run lint-styles \"src/**/*.{css,scss}\"",
-        "lint-deadcode": "ts-prune --skip \"@types|data/driver/graphql.ts\" --ignore '.next|middleware|config|app|shared/lib/mock|shared/types/graphql|.d.ts|.stories.tsx'",
+        "lint-deadcode": "ts-prune --skip '@types' --ignore '.next|middleware|config|app|shared/lib/mock|shared/types/graphql|.d.ts|.stories.tsx'",
         "lint": "pnpm run lint-js-all && pnpm run lint-styles-all && pnpm format-all --check",
         "graphql:build": "graphql-codegen --config codegen.yml --verbose",
         "svg:optimize": "svgo --exclude \".*\\.raw\\.svg\"",
