@@ -106,10 +106,5 @@
         "svgo": "^3.3.2",
         "ts-prune": "^0.10.3",
         "webpack": "^5.101.0"
-    },
-    "pnpm": {
-        "patchedDependencies": {
-            "next@15.4.10": "patches/next@15.4.10.patch"
-        }
     }
 }
