@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 import Script from 'next/script';
-import { ENABLE_METRICS, IS_PRODUCTION } from 'shared/const/env';
+import { ENABLE_ANALYTICS, IS_PRODUCTION } from 'shared/const/env';
 import { YANDEX_METRIKA, YANDEX_METRIKA_NO_SCRIPT } from 'features/seo/model/const/analytics';
 
 export const WebAnalytics: FC = () => {
-    if (!IS_PRODUCTION || !ENABLE_METRICS) {
+    if (!IS_PRODUCTION || !ENABLE_ANALYTICS) {
         return null;
     }
 
