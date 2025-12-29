@@ -3,6 +3,7 @@
 import type { FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
 import { useRouter } from 'next/navigation';
+import type { SignInForm } from 'pages/admin/SignInPage/model/types/form';
 import { ADMIN_EMPLOYEES } from 'shared/const/pageRoutes';
 import { REQUIRED_RULE } from 'shared/lib/validation/rules';
 import { Button } from 'shared/ui/inputs/Button';
@@ -11,7 +12,6 @@ import { PasswordInput } from 'shared/ui/inputs/PasswordInput';
 import { LOGIN_RULE, PSEUDO_PASSWORD_RULE } from 'entities/User/model/validation/rules';
 import { useSignInMutation } from 'features/auth/api/swr/useSignInMutation';
 import { Form as BaseForm } from 'features/form/Form';
-import { SignInForm } from 'pages/admin/SignInPage/model/types/form';
 
 export const Form: FC = () => {
     const { push } = useRouter();
