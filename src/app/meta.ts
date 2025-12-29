@@ -11,6 +11,7 @@ import {
     MAIN_IMAGE,
     PHONE,
     POSTAL_CODE,
+    PREVIEW_IMAGE,
     REGION,
     SITE_NAME,
     TITLE,
@@ -34,12 +35,7 @@ export const metadata: Metadata = {
         siteName: SITE_NAME,
         url: API_BASE_URL,
         locale: 'ru_RU',
-        images: [
-            {
-                url: MAIN_IMAGE,
-                type: 'image/png',
-            },
-        ],
+        images: PREVIEW_IMAGE,
     },
     other: {
         'business:contact_data:region': REGION,
