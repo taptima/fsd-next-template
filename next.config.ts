@@ -13,14 +13,6 @@ const nextConfig: NextConfig = {
     compiler: {
         reactRemoveProperties: IS_PRODUCTION,
     },
-    turbopack: {
-        rules: {
-            '*.svg': {
-                loaders: ['@svgr/webpack'],
-                as: '*.js',
-            },
-        },
-    },
     images: {
         domains: [IMAGE_DOMAIN],
         deviceSizes: [375, 576, 768, 1080, 1200, 1300, 1440, 1600, 1920],
@@ -61,6 +53,18 @@ const nextConfig: NextConfig = {
                   ]
                 : []),
         ];
+    },
+    turbopack: {
+        rules: {
+            '*.raw.svg': {
+                loaders: [{ loader: '@svgr/webpack', options: { svgo: false } }],
+                as: '*.js',
+            },
+            '*.svg': {
+                loaders: [{ loader: '@svgr/webpack', options: { svgo: true } }],
+                as: '*.js',
+            },
+        },
     },
     webpack(config) {
         cssModulesConfig(config);
