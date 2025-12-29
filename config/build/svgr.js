@@ -6,11 +6,13 @@ function svgrConfig(config) {
         {
             ...fileLoaderRule,
             test: /\.svg$/i,
+            include: /src\/shared\/assets\/icons/,
             resourceQuery: /url/, // *.svg?url
         },
         // Convert all other *.svg imports to React components
         {
             test: /\.svg$/i,
+            include: /src\/shared\/assets\/icons/,
             issuer: fileLoaderRule.issuer,
             resourceQuery: { not: /url/ }, // exclude if *.svg?url
             use: [{ loader: '@svgr/webpack', options: { svgo: false } }],
