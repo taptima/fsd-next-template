@@ -5,5 +5,5 @@ export type ItemFilter = {
 };
 
 export type CatalogFilter = PaginationFilter & {
-    category?: number;
+    category: number;
 };
