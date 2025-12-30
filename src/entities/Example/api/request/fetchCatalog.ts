@@ -1,9 +1,10 @@
+import type { DeepPartial } from 'shared/types/utility';
 import type { CatalogFilter } from 'entities/Example/api/types/filter';
 import { delay } from 'shared/lib/helpers/delay';
 import { CATALOG_MOCK } from 'entities/Example/mock';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const fetchCatalog = async (filters?: CatalogFilter) => {
+export const fetchCatalog = async (filters?: DeepPartial<CatalogFilter>) => {
     await delay(500);
 
     return CATALOG_MOCK;
