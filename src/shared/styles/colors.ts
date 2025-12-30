@@ -17,4 +17,5 @@ export const colors = {
     primary300: 'var(--primary-300)',
     primary500: 'var(--primary-500)',
     primary700: 'var(--primary-700)',
+    taptima: 'var(--taptima)',
 };

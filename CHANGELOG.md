@@ -1,3 +1,22 @@
+## [2.0.0] - 2025-12-30
+
+### Added
+
+- _NEXT_PUBLIC_BASE_URL_ для разделения с _NEXT_PUBLIC_API_BASE_URL_ - на случай, когда бэкенд расположен по другому адресу (на поддомене).
+- Поддержка `.raw.svg` и мета-иконок (`app/icon0.svg`)
+- Шаблоны:
+    - entities/Example
+    - pages/example
+    - meta
+    - JSON-LD
+- Блок "Сайт находится в разработке"
+
+### Changed
+
+- Патч **next** заменен глобальными типами `@types/global.d.ts`
+- _NEXT_PUBLIC_ENABLE_METRICS_ переименована в _NEXT_PUBLIC_ENABLE_ANALYTICS_
+- _NEXT_ANALYZE_ заменена командой `analyze`
+
 ## [1.1.4] - 2025-12-15
 
 ### Dependencies

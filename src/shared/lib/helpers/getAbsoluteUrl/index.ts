@@ -1,3 +1,3 @@
-import { API_BASE_URL } from 'shared/const/env';
+import { BASE_URL } from 'shared/const/env';
 
-export const getAbsoluteUrl = (url: string) => `${API_BASE_URL}${url}`;
+export const getAbsoluteUrl = (url: string) => `${BASE_URL}${url}`;

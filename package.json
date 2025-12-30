@@ -1,7 +1,7 @@
 {
     "name": "fsd-next-template",
-    "version": "1.1.2",
-    "description": "Skeleton front-end project built on top of Next.js",
+    "version": "2.0.0",
+    "description": "Taptima's Next.js Foundation powered by Feature-Sliced Design (FSD)",
     "license": "MIT",
     "author": "Taptima",
     "scripts": {
@@ -9,6 +9,7 @@
         "debug": "NODE_OPTIONS='--inspect' next dev",
         "typecheck": "tsc --noEmit",
         "build": "next build",
+        "analyze": "NEXT_ANALYZE=true next build",
         "start": "next start",
         "format": "prettier --write --check",
         "format-all": "pnpm run format \"src/**/*.{js,jsx,ts,tsx,json,css,scss}\"",
@@ -16,7 +17,7 @@
         "lint-js-all": "pnpm run lint-js \"src/**/*.{js,jsx,ts,tsx}\"",
         "lint-styles": "stylelint --fix --config .stylelintrc.json",
         "lint-styles-all": "pnpm run lint-styles \"src/**/*.{css,scss}\"",
-        "lint-deadcode": "ts-prune --skip \"@types|data/driver/graphql.ts\" --ignore '.next|middleware|config|app|shared/lib/mock|shared/types/graphql|.d.ts|.stories.tsx'",
+        "lint-deadcode": "ts-prune --skip '@types' --ignore '.next|middleware|config|app|shared/lib/mock|shared/types/graphql|.d.ts|.stories.tsx'",
         "lint": "pnpm run lint-js-all && pnpm run lint-styles-all && pnpm format-all --check",
         "graphql:build": "graphql-codegen --config codegen.yml --verbose",
         "svg:optimize": "svgo --exclude \".*\\.raw\\.svg\"",
@@ -106,10 +107,5 @@
         "svgo": "^3.3.2",
         "ts-prune": "^0.10.3",
         "webpack": "^5.101.0"
-    },
-    "pnpm": {
-        "patchedDependencies": {
-            "next@15.4.10": "patches/next@15.4.10.patch"
-        }
     }
 }
