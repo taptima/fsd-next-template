@@ -1,0 +1,10 @@
+.input {
+    &:global(.ant-input-number) {
+        width: 100%;
+        border-color: var(--neture-100);
+    }
+
+    &:global(.ant-input-number .ant-input-number-input) {
+        padding: 11px 16px;
+    }
+}

@@ -57,7 +57,6 @@
         "next": "15.4.10",
         "react": "19.0.3",
         "react-dom": "19.0.3",
-        "react-imask": "^7.6.1",
         "sharp": "^0.34.3",
         "swr": "^2.3.4",
         "typescript": "^5.9.2",

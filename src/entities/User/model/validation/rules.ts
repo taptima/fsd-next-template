@@ -1,5 +1,4 @@
 import type { Rule } from 'antd/es/form';
-import { sanitizePhone } from 'shared/lib/helpers/sanitizePhone';
 import { maxLengthRule } from 'shared/lib/validation/rules';
 import { RoleTypeEnum } from 'entities/User/model/types/roleTypeEnum';
 
@@ -7,25 +6,9 @@ export const EMPLOYEE_ROLE_RULE: Rule = {
     enum: [RoleTypeEnum.RoleAdmin, RoleTypeEnum.RoleSuperAdmin],
 };
 
-export const EMAIL_RULE: Rule = {
-    type: 'email',
-    message: 'Введите корректный email адрес',
-};
-
 export const LOGIN_RULE: Rule = {
     transform: String.prototype.trim,
     ...maxLengthRule(50),
-};
-
-export const PHONE_NUMBER_RULE: Rule = {
-    transform: sanitizePhone,
-    validator(_, value) {
-        if (!value.match(/(^\+7\d{10}$)|(^$)/g)) {
-            return Promise.reject(new Error('Введите реальный номер'));
-        }
-
-        return Promise.resolve();
-    },
 };
 
 export const PSEUDO_PASSWORD_RULE: Rule = maxLengthRule(50);

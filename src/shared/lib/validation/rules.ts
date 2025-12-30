@@ -56,6 +56,21 @@ export const NAME_RULE: Rule = {
     },
 };
 
+export const PHONE_NUMBER_RULE: Rule = {
+    validator(_, value) {
+        if (value && String(value).length < 11) {
+            return Promise.reject(new Error('Введите реальный номер'));
+        }
+
+        return Promise.resolve();
+    },
+};
+
+export const EMAIL_RULE: Rule = {
+    type: 'email',
+    message: 'Введите корректный E-mail',
+};
+
 export const NUMBER_RULE: Rule = {
     transform: Number,
     type: 'number',
