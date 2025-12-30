@@ -1,5 +1,11 @@
-import type { Metadata } from 'next';
+import { getPageMetadata } from 'features/seo/model/helper/getPageMetadata';
 
-export const metadata: Metadata = {
-    title: 'Вход в систему',
-};
+export const TITLE = 'Вход в систему';
+export const DESCRIPTION = '';
+export const KEYWORDS = '';
+
+export const metadata = getPageMetadata({
+    title: TITLE,
+    description: DESCRIPTION,
+    keywords: KEYWORDS,
+});

@@ -1,7 +1,12 @@
 import type { FC } from 'react';
 import type { FormProps, FormVariantProps } from 'shared/types/form';
 import type { EmployeeForm as EmployeeFormEntity } from 'pages/admin/EmployeesPage/model/types/form';
-import { NAME_RULE, REQUIRED_RULE } from 'shared/lib/validation/rules';
+import {
+    EMAIL_RULE,
+    NAME_RULE,
+    PHONE_NUMBER_RULE,
+    REQUIRED_RULE,
+} from 'shared/lib/validation/rules';
 import { Screen } from 'shared/ui/feedback/Screen';
 import { Input } from 'shared/ui/inputs/Input';
 import { PasswordInput } from 'shared/ui/inputs/PasswordInput';
@@ -9,11 +14,7 @@ import { PhoneNumberInput } from 'shared/ui/inputs/PhoneNumberInput';
 import { Select } from 'shared/ui/inputs/Select';
 import { EMPLOYEE_ROLE_OPTIONS } from 'entities/User/model/const/employeeRoleOptions';
 import { useUserActionsCheck } from 'entities/User/model/service/useUserActionsCheck';
-import {
-    PASSWORD_RULES,
-    PHONE_NUMBER_RULE,
-    EMAIL_RULE,
-} from 'entities/User/model/validation/rules';
+import { PASSWORD_RULES } from 'entities/User/model/validation/rules';
 import { useEmployeesActionsStore } from 'pages/admin/EmployeesPage/model/store/useEmployeesActionsStore';
 import { PasswordTooltipList } from 'pages/admin/EmployeesPage/ui/Modals/common/PasswordTooltipList';
 

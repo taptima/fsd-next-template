@@ -1,9 +1,9 @@
 import type { FC, ReactNode } from 'react';
-import Tooltip from 'antd/es/tooltip';
 import clsx from 'clsx';
 import InfoIcon from 'shared/assets/icons/info.svg';
 import { colors } from 'shared/styles/colors';
 import { Classnames } from 'shared/types/styles';
+import { Tooltip } from 'shared/ui/display/Tooltip/dynamic';
 import styles from './styles.module.scss';
 
 export type LabelWithTooltipProps = Classnames<'label' | 'wrapper'> & {

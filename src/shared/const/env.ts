@@ -1,5 +1,9 @@
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? '';
-export const ASSETS_VERSION = process.env.NEXT_PUBLIC_ASSETS_VERSION;
-export const ENABLE_METRICS = process.env.NEXT_PUBLIC_ENABLE_METRICS === 'true';
-export const IS_DEV = process.env.NODE_ENV === 'development';
 export const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+export const IS_DEV = process.env.NODE_ENV === 'development';
+
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? '';
+export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? '';
+export const PUBLIC_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN ?? '';
+export const ENABLE_ANALYTICS = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true';
+export const ENABLE_DEV_LAYOUT = process.env.NEXT_PUBLIC_ENABLE_DEV_LAYOUT;
+export const ASSETS_VERSION = process.env.NEXT_PUBLIC_ASSETS_VERSION;

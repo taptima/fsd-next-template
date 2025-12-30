@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { API_BASE_URL } from 'shared/const/env';
+import { BASE_URL } from 'shared/const/env';
 import {
     ADDRESS,
     DESCRIPTION,
@@ -11,6 +11,7 @@ import {
     MAIN_IMAGE,
     PHONE,
     POSTAL_CODE,
+    PREVIEW_IMAGE,
     REGION,
     SITE_NAME,
     TITLE,
@@ -24,22 +25,17 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     keywords: KEYWORDS,
     // manifest: '/site.webmanifest',
-    // metadataBase: new URL(API_BASE_URL),
+    // metadataBase: new URL(BASE_URL),
     alternates: {
-        canonical: API_BASE_URL,
+        canonical: BASE_URL,
     },
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
         siteName: SITE_NAME,
-        url: API_BASE_URL,
+        url: BASE_URL,
         locale: 'ru_RU',
-        images: [
-            {
-                url: MAIN_IMAGE,
-                type: 'image/png',
-            },
-        ],
+        images: PREVIEW_IMAGE,
     },
     other: {
         'business:contact_data:region': REGION,
@@ -51,7 +47,7 @@ export const metadata: Metadata = {
         'business:contact_data:phone_number': PHONE,
         'place:location:latitude': LATITUDE,
         'place:location:longitude': LONGITUDE,
-        'business:contact_data:website': API_BASE_URL,
+        'business:contact_data:website': BASE_URL,
         'image_src': MAIN_IMAGE,
         'copyright': SITE_NAME,
     },

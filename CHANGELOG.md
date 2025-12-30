@@ -1,3 +1,28 @@
+## [2.0.0] - 2025-12-30
+
+### Added
+
+- _NEXT_PUBLIC_BASE_URL_ для разделения с _NEXT_PUBLIC_API_BASE_URL_ - на случай, когда бэкенд расположен по другому адресу (на поддомене).
+- Поддержка `.raw.svg` и мета-иконок (`app/icon0.svg`)
+- Шаблоны:
+    - entities/Example
+    - pages/example
+    - meta
+    - JSON-LD
+- Блок "Сайт находится в разработке"
+- Динамический `Tooltip`
+
+### Changed
+
+- Патч **next** заменен глобальными типами `@types/global.d.ts`
+- _NEXT_PUBLIC_ENABLE_METRICS_ переименована в _NEXT_PUBLIC_ENABLE_ANALYTICS_
+- _NEXT_ANALYZE_ заменена командой `analyze`
+- `PhoneNumberInput` на **react-imask** заменен компонентом на `input-number` из **antd**
+
+### Removed
+
+- `.npmrc` - покрывается настройками по умолчанию
+
 ## [1.1.3] - 2025-12-15
 
 ### Dependencies
@@ -16,10 +41,6 @@
 ### Dependencies
 
 - Обновлен **next**: 15.4.6 -> 15.4.8 - [CVE-2025-66478](https://nextjs.org/blog/CVE-2025-66478)
-
-### Removed
-
-- `.npmrc` - покрывается настройками по умолчанию
 
 ## [1.1.0] - 2025-10-21
 
