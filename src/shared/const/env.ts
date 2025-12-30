@@ -5,4 +5,5 @@ export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? '';
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? '';
 export const PUBLIC_DOMAIN = process.env.NEXT_PUBLIC_DOMAIN ?? '';
 export const ENABLE_ANALYTICS = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true';
+export const ENABLE_DEV_LAYOUT = process.env.NEXT_PUBLIC_ENABLE_DEV_LAYOUT;
 export const ASSETS_VERSION = process.env.NEXT_PUBLIC_ASSETS_VERSION;

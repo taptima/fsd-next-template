@@ -1,0 +1,22 @@
+@use 'shared/styles/font';
+@use 'shared/styles/mq';
+
+.wrapper {
+    padding: 8px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    color: var(--neture-0);
+    background-color: var(--taptima);
+}
+
+.imageWrapper {
+    display: flex;
+}
+
+.text {
+    text-transform: uppercase;
+
+    @include font.b1;
+}
