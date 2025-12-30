@@ -1,7 +1,7 @@
 {
     "name": "fsd-next-template",
-    "version": "1.1.2",
-    "description": "Skeleton front-end project built on top of Next.js",
+    "version": "2.0.0",
+    "description": "Taptima's Next.js Foundation powered by Feature-Sliced Design (FSD)",
     "license": "MIT",
     "author": "Taptima",
     "scripts": {
