@@ -1,6 +1,6 @@
 import type { FC, MouseEventHandler } from 'react';
-import Tooltip from 'antd/es/tooltip';
 import { colors } from 'shared/styles/colors';
+import { Tooltip } from 'shared/ui/display/Tooltip/dynamic';
 import { Button, ButtonProps } from 'shared/ui/inputs/Button';
 import { MAP_VARIANT_TO_ACTION, Variant } from './utils';
 
