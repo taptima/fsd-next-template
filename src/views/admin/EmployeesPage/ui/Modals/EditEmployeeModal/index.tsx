@@ -1,0 +1,101 @@
+import type { EmployeeForm as EmployeeFormEntity } from 'views/admin/EmployeesPage/model/types/form';
+import { useMemo, FC } from 'react';
+import { useForm } from 'antd/es/form/Form';
+import useMessage from 'antd/es/message/useMessage';
+import { useEditEmployeeMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeeMutation';
+import { useEmployee } from 'views/admin/EmployeesPage/api/swr/useEmployee';
+import { mapEmployeeFormToQuery } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeFormToQuery';
+import { mapEmployeeToForm } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeToForm';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { EmployeeForm } from 'views/admin/EmployeesPage/ui/Modals/common/EmployeeForm';
+import type { DynamicModalProps } from 'shared/types/modal';
+import { getFullName } from 'shared/lib/helpers/getFullName';
+import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
+import { useFormInit } from 'shared/lib/hooks/form/useFormInit';
+import { Accent } from 'shared/ui/display/Accent';
+import { Screen } from 'shared/ui/feedback/Screen';
+import { Button } from 'shared/ui/inputs/Button';
+
+type Props = DynamicModalProps;
+
+const FORM_ID = 'edit-employee-form';
+
+export const EditEmployeeModal: FC<Props> = (props) => {
+    const { open, onCancel } = props;
+    const employeeForEdit = useEmployeesActionsStore.use.employeeForEdit();
+    const { id } = employeeForEdit ?? {};
+    const { data, isLoading } = useEmployee(id);
+    const initialValues = useMemo(() => mapEmployeeToForm(data), [data]);
+    const { isMutating, trigger } = useEditEmployeeMutation();
+    const [messageApi, contextHolder] = useMessage();
+    const [form] = useForm<EmployeeFormEntity>();
+
+    const { isDirty, onFieldsChange } = useFormInit({ form, open, initialValues });
+
+    const handleFinish = async (values: EmployeeFormEntity) => {
+        if (!id) {
+            return;
+        }
+
+        const response = await trigger({
+            id,
+            ...mapEmployeeFormToQuery(values),
+        });
+
+        handleApiErrors({
+            response,
+            onSuccess: () => {
+                onCancel();
+                messageApi.open({
+                    type: 'info',
+                    content: (
+                        <>
+                            Сотрудник <Accent>{getFullName(data)}</Accent> изменён
+                        </>
+                    ),
+                });
+            },
+        });
+    };
+
+    return (
+        <>
+            {contextHolder}
+            <Screen
+                open={open}
+                onCancel={onCancel}
+                title="Редактирование сотрудника"
+                isLoading={isLoading}
+                content={
+                    <EmployeeForm
+                        variant="edit"
+                        formProps={{
+                            id: FORM_ID,
+                            form,
+                            initialValues,
+                            onFieldsChange,
+                            onFinish: handleFinish,
+                        }}
+                        isMutating={isMutating}
+                    />
+                }
+                bottomActions={
+                    <>
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
+                            Отменить
+                        </Button>
+                        <Button
+                            htmlType="submit"
+                            form={FORM_ID}
+                            type="primary"
+                            disabled={!isDirty}
+                            loading={isMutating}
+                        >
+                            Сохранить
+                        </Button>
+                    </>
+                }
+            />
+        </>
+    );
+};

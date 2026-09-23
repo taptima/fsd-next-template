@@ -1,4 +1,4 @@
-import { SignInPage } from 'pages/admin/SignInPage';
+import { SignInPage } from 'views/admin/SignInPage';
 
 export { metadata } from './meta';
 

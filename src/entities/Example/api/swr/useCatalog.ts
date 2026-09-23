@@ -1,8 +1,8 @@
 import useSWR from 'swr';
+import { useCatalogPageStore } from 'views/example/CatalogPage/model/store/useCatalogPageStore';
 import type { CatalogFilter } from 'entities/Example/api/types/filter';
 import { composeSWRKey } from 'shared/lib/helpers/composeSWRKey';
 import { fetchCatalog } from 'entities/Example/api/request/fetchCatalog';
-import { useCatalogPageStore } from 'pages/example/CatalogPage/model/store/useCatalogPageStore';
 import { CATALOG_KEY } from './keys';
 
 export const useCatalog = () => {
