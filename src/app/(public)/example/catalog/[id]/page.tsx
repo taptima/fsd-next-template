@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import type { PageId } from 'shared/types/page';
+import type { IdParams } from 'shared/types/page';
 import { IS_PRODUCTION } from 'shared/const/env';
 import { JsonLd } from 'features/seo/ui/JsonLD';
 import { ItemPage } from 'views/example/ItemPage';
@@ -7,7 +7,7 @@ import { getJsonLd } from './jsonLd';
 
 export { generateMetadata } from './meta';
 
-type Props = PageId;
+type Props = IdParams;
 
 export default async function Item(props: Props) {
     if (IS_PRODUCTION) {
