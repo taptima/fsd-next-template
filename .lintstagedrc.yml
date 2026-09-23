@@ -9,5 +9,9 @@
   - pnpm run lint-styles
   - pnpm run format --write
 
+"src/app/styles/_colors.scss":
+  - pnpm run utils:sync-colors
+  - git add src/shared/styles/colors.ts
+
 "src/shared/assets/icons/!(*.raw).svg":
   - pnpm run svg:optimize -i
