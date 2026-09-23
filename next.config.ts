@@ -18,9 +18,6 @@ const nextConfig: NextConfig = {
         deviceSizes: [375, 576, 768, 1080, 1200, 1300, 1440, 1600, 1920],
         imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 640, 750, 828, 1024, 1366, 1600, 1920],
     },
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
     sassOptions: {
         includePaths: ['./src'],
     },

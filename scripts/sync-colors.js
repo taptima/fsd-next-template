@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const IN_PATH = 'src/app/styles/_colors.scss';
+const IN_PATH = 'src/app/styles/colors.scss';
 const OUT_PATH = 'src/shared/styles/colors.ts';
 
 const scss = fs.readFileSync(IN_PATH, 'utf8');

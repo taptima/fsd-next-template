@@ -1,4 +1,4 @@
-import type { Variant } from 'pages/ErrorPage/model/type/variant';
+import type { Variant } from 'views/ErrorPage/model/type/variant';
 
 type StatusProps = {
     code: string;

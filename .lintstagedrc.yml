@@ -1,13 +1,17 @@
-"*.{js,jsx,ts,tsx}":
-  - pnpm run lint-js
-  - pnpm run format --write
+'*.{js,jsx,ts,tsx}':
+    - pnpm run lint-js
+    - pnpm run format --write
 
-"*.json":
-  - pnpm run format --write
+'*.json':
+    - pnpm run format --write
 
-"*{css,scss}":
-  - pnpm run lint-styles
-  - pnpm run format --write
+'*{css,scss}':
+    - pnpm run lint-styles
+    - pnpm run format --write
 
-"!(*.raw).svg":
-  - pnpm run svg:optimize -i
+'src/app/styles/colors.scss':
+    - pnpm run utils:sync-colors
+    - git add src/shared/styles/colors.ts
+
+'src/shared/assets/icons/!(*.raw).svg':
+    - pnpm run svg:optimize -i

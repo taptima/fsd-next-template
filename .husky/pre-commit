@@ -1,1 +1,5 @@
 pnpm lint-staged
+
+if git diff --cached --name-only | grep -qE '^(package\.json|CHANGELOG\.md)$'; then
+    node scripts/verify-release-version.cjs --changelog-only
+fi

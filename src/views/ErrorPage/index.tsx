@@ -1,8 +1,8 @@
 import type { FC } from 'react';
-import type { Variant } from 'pages/ErrorPage/model/type/variant';
+import type { Variant } from 'views/ErrorPage/model/type/variant';
 import { HOME } from 'shared/const/pageRoutes';
 import { ButtonLink } from 'shared/ui/navigation/Link/ButtonLink';
-import { MAP_STATUS_TO_PROPS } from 'pages/ErrorPage/model/mapper/mapStatusToProps';
+import { MAP_STATUS_TO_PROPS } from 'views/ErrorPage/model/mapper/mapStatusToProps';
 import styles from './styles.module.scss';
 
 export type ErrorPageProps = {
