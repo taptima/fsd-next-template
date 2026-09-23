@@ -29,6 +29,7 @@
         "storybook:dev": "storybook dev -p 6006 -c ./config/storybook --no-open",
         "storybook:build": "storybook build -c ./config/storybook",
         "utils:sync-colors": "node scripts/sync-colors.js",
+        "verify:release-version": "node scripts/verify-release-version.cjs",
         "test:unit": "jest --config config/jest/jest.config.ts",
         "prepare": "husky"
     },
