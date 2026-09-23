@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import useMessage from 'antd/es/message/useMessage';
-import { useDeleteEmployeeMutation } from 'views/admin/EmployeesPage/api/swr/useDeleteEmployeeMutation';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import type { DynamicModalProps } from 'shared/types/modal';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { Accent } from 'shared/ui/display/Accent';
 import { Button } from 'shared/ui/inputs/Button';
+import { useDeleteEmployeeMutation } from 'views/admin/EmployeesPage/api/swr/useDeleteEmployeeMutation';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import { ActionModal } from 'widgets/ActionModal';
 
 type Props = DynamicModalProps;

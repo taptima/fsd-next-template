@@ -1,6 +1,6 @@
+import { GRAPHQL_URL, REST_URL } from 'shared/lib/api/const';
 import GraphQL from 'shared/lib/api/GraphQL';
 import REST from 'shared/lib/api/REST';
-import { GRAPHQL_URL, REST_URL } from 'shared/lib/api/const';
 import AbstractApiClient from './AbstractApiClient';
 
 export default class ApiClient extends AbstractApiClient {

@@ -1,6 +1,6 @@
 import type { ButtonProps } from 'shared/ui/inputs/Button';
-import LockIcon from 'shared/assets/icons/lock.svg';
 import UnlockIcon from 'shared/assets/icons/lock-open.svg';
+import LockIcon from 'shared/assets/icons/lock.svg';
 import { Blockable } from 'entities/Blockable';
 
 type Parameters = {

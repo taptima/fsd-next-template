@@ -1,10 +1,10 @@
 import type { FC } from 'react';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import type { User } from 'entities/User';
 import { Table } from 'shared/ui/display/Table';
 import { getTableBlockAction } from 'entities/Blockable/model/helper/getTableBlockAction';
 import { useUserActionsCheck } from 'entities/User/model/service/useUserActionsCheck';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 
 type Props = {
     data: User;

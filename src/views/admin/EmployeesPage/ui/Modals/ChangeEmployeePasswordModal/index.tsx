@@ -1,13 +1,10 @@
-import type { ChangeEmployeePasswordForm } from 'views/admin/EmployeesPage/model/types/form';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import Flex from 'antd/es/flex';
 import { useForm } from 'antd/es/form/Form';
 import useMessage from 'antd/es/message/useMessage';
-import { useEditEmployeePasswordMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeePasswordMutation';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { PasswordTooltipList } from 'views/admin/EmployeesPage/ui/Modals/common/PasswordTooltipList';
 import type { DynamicModalProps } from 'shared/types/modal';
+import type { ChangeEmployeePasswordForm } from 'views/admin/EmployeesPage/model/types/form';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { useFormInit } from 'shared/lib/hooks/form/useFormInit';
@@ -17,6 +14,9 @@ import { Button } from 'shared/ui/inputs/Button';
 import { PasswordInput } from 'shared/ui/inputs/PasswordInput';
 import { PASSWORD_RULES, PASSWORD_CONFIRMATION_RULE } from 'entities/User/model/validation/rules';
 import { Form as BaseForm } from 'features/form/Form';
+import { useEditEmployeePasswordMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeePasswordMutation';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { PasswordTooltipList } from 'views/admin/EmployeesPage/ui/Modals/common/PasswordTooltipList';
 import { ActionModal } from 'widgets/ActionModal';
 
 type Props = DynamicModalProps;

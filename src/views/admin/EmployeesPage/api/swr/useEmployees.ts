@@ -1,10 +1,10 @@
 import useSWR from 'swr';
-import { useEmployeesPageStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageStore';
 import type { SWRKey } from 'shared/types/api/swrKey';
 import { delay } from 'shared/lib/helpers/delay';
 import { prepareIdQuery } from 'shared/lib/helpers/prepareIdQuery';
 import { prepareBannedQuery } from 'entities/Blockable/model/helper/prepareBannedQuery';
 import { EMPLOYEES_MOCK } from 'entities/User/mock';
+import { useEmployeesPageStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageStore';
 import { EMPLOYEES_KEY } from './keys';
 
 export const useEmployees = () => {

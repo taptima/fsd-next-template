@@ -1,8 +1,8 @@
-import type { EmployeeFilterColumn } from 'views/admin/EmployeesPage/model/types/table';
-import { useEmployeesPageStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageStore';
 import type { TableProps } from 'shared/ui/display/Table';
 import type { User } from 'entities/User';
+import type { EmployeeFilterColumn } from 'views/admin/EmployeesPage/model/types/table';
 import { getSortFilter } from 'shared/lib/mapper/getSortFilter';
+import { useEmployeesPageStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageStore';
 
 const { actions } = useEmployeesPageStore.getState();
 const { setOrderById, setOrderByFullname, setOrderByRole } = actions;

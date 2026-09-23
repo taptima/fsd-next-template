@@ -1,15 +1,15 @@
 import type { FC } from 'react';
+import type { User } from 'entities/User';
+// import { usePaginationRollback } from 'shared/lib/hooks/usePaginationRollback';
+import { mapDataToTableEntries } from 'shared/lib/mapper/mapDataToTableEntries';
+import { Table, TableProps } from 'shared/ui/display/Table';
+import { Pagination } from 'shared/ui/navigation/Pagination';
 import { useEmployees } from 'views/admin/EmployeesPage/api/swr/useEmployees';
 import { handleEmployeeFilters } from 'views/admin/EmployeesPage/model/helper/handleEmployeeFilters';
 import { handleEmployeeSorter } from 'views/admin/EmployeesPage/model/helper/handleEmployeeSorter';
 import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
 import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import { useEmployeesPageStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageStore';
-import type { User } from 'entities/User';
-// import { usePaginationRollback } from 'shared/lib/hooks/usePaginationRollback';
-import { mapDataToTableEntries } from 'shared/lib/mapper/mapDataToTableEntries';
-import { Table, TableProps } from 'shared/ui/display/Table';
-import { Pagination } from 'shared/ui/navigation/Pagination';
 import { COLUMNS } from './content';
 
 export const EmployeesTable: FC = () => {

@@ -1,7 +1,4 @@
 import type { FC } from 'react';
-import { useEmployee } from 'views/admin/EmployeesPage/api/swr/useEmployee';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 import type { DynamicModalProps } from 'shared/types/modal';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { DataList } from 'shared/ui/display/DataList';
@@ -10,6 +7,9 @@ import { Button } from 'shared/ui/inputs/Button';
 import { getModalBlockAction } from 'entities/Blockable/model/helper/getModalBlockAction';
 import { mapEmployeeToDataList } from 'entities/User/model/mapper/mapEmployeeToDataList';
 import { useUserActionsCheck } from 'entities/User/model/service/useUserActionsCheck';
+import { useEmployee } from 'views/admin/EmployeesPage/api/swr/useEmployee';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { useEmployeesPageModalStore } from 'views/admin/EmployeesPage/model/store/useEmployeesPageModalsStore';
 
 type Props = DynamicModalProps;
 

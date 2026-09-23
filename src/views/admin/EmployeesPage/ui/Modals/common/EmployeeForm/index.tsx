@@ -1,8 +1,6 @@
-import type { EmployeeForm as EmployeeFormEntity } from 'views/admin/EmployeesPage/model/types/form';
 import type { FC } from 'react';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { PasswordTooltipList } from 'views/admin/EmployeesPage/ui/Modals/common/PasswordTooltipList';
 import type { FormProps, FormVariantProps } from 'shared/types/form';
+import type { EmployeeForm as EmployeeFormEntity } from 'views/admin/EmployeesPage/model/types/form';
 import {
     EMAIL_RULE,
     NAME_RULE,
@@ -17,6 +15,8 @@ import { Select } from 'shared/ui/inputs/Select';
 import { EMPLOYEE_ROLE_OPTIONS } from 'entities/User/model/const/employeeRoleOptions';
 import { useUserActionsCheck } from 'entities/User/model/service/useUserActionsCheck';
 import { PASSWORD_RULES } from 'entities/User/model/validation/rules';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { PasswordTooltipList } from 'views/admin/EmployeesPage/ui/Modals/common/PasswordTooltipList';
 
 type Props = FormProps &
     FormVariantProps & {

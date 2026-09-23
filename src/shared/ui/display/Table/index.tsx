@@ -11,8 +11,8 @@ import { FilterIcon } from './ui/FilterIcon';
 import { Header } from './ui/Header';
 import { SearchFilterDropdown } from './ui/SearchFilterDropdown';
 import { SearchFilterIcon } from './ui/SearchFilterIcon';
-import { SortIcon } from './ui/SortIcon';
 import { SortableRow } from './ui/SortableRow';
+import { SortIcon } from './ui/SortIcon';
 import { Switch } from './ui/Switch';
 import styles from './styles.module.scss';
 

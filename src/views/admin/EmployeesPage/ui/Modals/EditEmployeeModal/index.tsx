@@ -1,20 +1,20 @@
-import type { EmployeeForm as EmployeeFormEntity } from 'views/admin/EmployeesPage/model/types/form';
 import { useMemo, FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
 import useMessage from 'antd/es/message/useMessage';
-import { useEditEmployeeMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeeMutation';
-import { useEmployee } from 'views/admin/EmployeesPage/api/swr/useEmployee';
-import { mapEmployeeFormToQuery } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeFormToQuery';
-import { mapEmployeeToForm } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeToForm';
-import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
-import { EmployeeForm } from 'views/admin/EmployeesPage/ui/Modals/common/EmployeeForm';
 import type { DynamicModalProps } from 'shared/types/modal';
+import type { EmployeeForm as EmployeeFormEntity } from 'views/admin/EmployeesPage/model/types/form';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
 import { useFormInit } from 'shared/lib/hooks/form/useFormInit';
 import { Accent } from 'shared/ui/display/Accent';
 import { Screen } from 'shared/ui/feedback/Screen';
 import { Button } from 'shared/ui/inputs/Button';
+import { useEditEmployeeMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeeMutation';
+import { useEmployee } from 'views/admin/EmployeesPage/api/swr/useEmployee';
+import { mapEmployeeFormToQuery } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeFormToQuery';
+import { mapEmployeeToForm } from 'views/admin/EmployeesPage/model/mapper/mapEmployeeToForm';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { EmployeeForm } from 'views/admin/EmployeesPage/ui/Modals/common/EmployeeForm';
 
 type Props = DynamicModalProps;
 

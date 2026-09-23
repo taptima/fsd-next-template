@@ -1,6 +1,6 @@
 import type { TableColumnsType } from 'antd/lib';
-import type { EmployeeFilterColumn } from 'views/admin/EmployeesPage/model/types/table';
 import type { RoleTypeEnum, User } from 'entities/User';
+import type { EmployeeFilterColumn } from 'views/admin/EmployeesPage/model/types/table';
 import { getFullName } from 'shared/lib/helpers/getFullName';
 import { Table } from 'shared/ui/display/Table';
 import { BANNED_FILTERS } from 'entities/Blockable/model/const/bannedFilters';

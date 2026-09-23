@@ -1,9 +1,9 @@
 'use client';
 
-import type { SignInForm } from 'views/admin/SignInPage/model/types/form';
 import type { FC } from 'react';
 import { useForm } from 'antd/es/form/Form';
 import { useRouter } from 'next/navigation';
+import type { SignInForm } from 'views/admin/SignInPage/model/types/form';
 import { ADMIN_EMPLOYEES } from 'shared/const/pageRoutes';
 import { REQUIRED_RULE } from 'shared/lib/validation/rules';
 import { Button } from 'shared/ui/inputs/Button';
