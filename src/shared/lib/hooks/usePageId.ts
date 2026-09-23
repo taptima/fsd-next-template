@@ -1,8 +1,8 @@
 import { useParams } from 'next/navigation';
-import type { IdParam } from 'shared/types/page';
+import type { IdFilter } from 'shared/types/page';
 
 export const usePageId = () => {
-    const { id = '' } = useParams<IdParam>() ?? {};
+    const { id = '' } = useParams<IdFilter>() ?? {};
 
     return Number(id);
 };

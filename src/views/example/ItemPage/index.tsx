@@ -1,9 +1,9 @@
 import type { FC } from 'react';
-import type { PageId } from 'shared/types/page';
+import type { IdParams } from 'shared/types/page';
 import { Client } from './client';
 import { SSR } from './ssr';
 
-type Props = PageId;
+type Props = IdParams;
 
 export const ItemPage: FC<Props> = async (props) => {
     return (

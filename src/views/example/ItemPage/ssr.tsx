@@ -1,13 +1,13 @@
 import type { FC, PropsWithChildren } from 'react';
 import { unstable_serialize } from 'swr';
-import type { PageId } from 'shared/types/page';
+import type { IdParams } from 'shared/types/page';
 import type { ItemFilter } from 'entities/Example/api/types/filter';
 import { composeSWRKey } from 'shared/lib/helpers/composeSWRKey';
 import { fetchItem } from 'entities/Example/api/request/fetchItem';
 import { ITEM_KEY } from 'entities/Example/api/swr/keys';
 import { SWRFallback } from 'shared/providers/SWRFallback';
 
-type Props = PropsWithChildren & PageId;
+type Props = PropsWithChildren & IdParams;
 
 export const SSR: FC<Props> = async (props) => {
     const { children, params } = props;
