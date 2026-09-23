@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
+import { ItemPage } from 'views/example/ItemPage';
 import type { PageId } from 'shared/types/page';
 import { IS_PRODUCTION } from 'shared/const/env';
 import { JsonLd } from 'features/seo/ui/JsonLD';
-import { ItemPage } from 'pages/example/ItemPage';
 import { getJsonLd } from './jsonLd';
 
 export { generateMetadata } from './meta';
