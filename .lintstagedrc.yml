@@ -9,5 +9,5 @@
   - pnpm run lint-styles
   - pnpm run format --write
 
-"!(*.raw).svg":
+"src/shared/assets/icons/!(*.raw).svg":
   - pnpm run svg:optimize -i
