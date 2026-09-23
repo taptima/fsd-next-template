@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
-import { ExamplePage } from 'views/example/ExamplePage';
 import { IS_PRODUCTION } from 'shared/const/env';
 import { JsonLd } from 'features/seo/ui/JsonLD';
+import { ExamplePage } from 'views/example/ExamplePage';
 import { JSON_LD } from './jsonLd';
 
 export { metadata } from './meta';

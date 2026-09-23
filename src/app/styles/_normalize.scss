@@ -97,7 +97,7 @@ button,
 html [type='button'],
 [type='reset'],
 [type='submit'] {
-    appearance: button;
+    appearance: auto;
 }
 
 button::-moz-focus-inner,
@@ -158,7 +158,7 @@ textarea {
 }
 
 ::-webkit-file-upload-button {
-    appearance: button;
+    appearance: auto;
     font: inherit;
 }
 
