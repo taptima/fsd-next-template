@@ -1,12 +1,13 @@
 {
     "compilerOptions": {
         "strict": true,
+        "ignoreDeprecations": "6.0",
         "baseUrl": "./src",
         "paths": {
             // To fix the error: Cannot find module 'node_modules/entities/*'
             "entities/*": ["entities/*"]
         },
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "allowSyntheticDefaultImports": true,
         "target": "es6",
         "lib": ["dom", "dom.iterable", "esnext"],
@@ -16,7 +17,7 @@
         "noEmit": true,
         "esModuleInterop": true,
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "bundler",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "experimentalDecorators": true,
@@ -31,13 +32,13 @@
     },
     "exclude": ["node_modules"],
     "include": [
-        "src/@types/global.d.ts",
-        "next.config.ts",
-        "next-env.d.ts",
+        "./config/**/*.ts",
+        "./config/**/*.tsx",
         "./src/**/*.ts",
         "./src/**/*.tsx",
+        ".next/dev/types/**/*.ts",
         ".next/types/**/*.ts",
-        "./config/**/*.ts",
-        "./config/**/*.tsx"
+        "next-env.d.ts",
+        "next.config.ts"
     ]
 }

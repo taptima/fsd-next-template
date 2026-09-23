@@ -1,0 +1,7 @@
+allowBuilds:
+  '@parcel/watcher': true
+  core-js-pure: true
+  esbuild: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - prettier@3.9.9
