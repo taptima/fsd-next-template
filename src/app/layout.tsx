@@ -7,7 +7,12 @@ import { Footer } from 'widgets/Footer';
 import { Header } from 'widgets/Header';
 import { body } from './font';
 import { ORGANIZATION_JSON_LD, WEB_SITE_JSON_LD } from './jsonLd';
-import './styles/index.scss';
+import './styles/normalize.scss';
+import './styles/global.scss';
+import './styles/colors.scss';
+import './styles/transitions.scss';
+import './styles/zIndex.scss';
+import './styles/variables.scss';
 import styles from './styles.module.scss';
 
 export { metadata, viewport } from './meta';
