@@ -1,0 +1,70 @@
+import type { FC } from 'react';
+import useMessage from 'antd/es/message/useMessage';
+import type { DynamicModalProps } from 'shared/types/modal';
+import { getFullName } from 'shared/lib/helpers/getFullName';
+import { handleApiErrors } from 'shared/lib/helpers/handleApiErrors';
+import { Accent } from 'shared/ui/display/Accent';
+import { Button } from 'shared/ui/inputs/Button';
+import { UserStateEnum } from 'entities/User';
+import { useEditEmployeeStateMutation } from 'views/admin/EmployeesPage/api/swr/useEditEmployeeStateMutation';
+import { useEmployeesActionsStore } from 'views/admin/EmployeesPage/model/store/useEmployeesActionsStore';
+import { ActionModal } from 'widgets/ActionModal';
+
+type Props = DynamicModalProps;
+
+export const BlockEmployeeModal: FC<Props> = (props) => {
+    const { onCancel, ...restProps } = props;
+    const employeeForBlocking = useEmployeesActionsStore.use.employeeForBlocking();
+    const { id } = employeeForBlocking ?? {};
+    const fullName = getFullName(employeeForBlocking);
+    const { isMutating, trigger } = useEditEmployeeStateMutation();
+    const [messageApi, contextHolder] = useMessage();
+
+    const handleConfirm = async () => {
+        if (!id) {
+            return;
+        }
+
+        const response = await trigger({ id, state: UserStateEnum.Blocked });
+
+        handleApiErrors({
+            response,
+            onSuccess: () => {
+                onCancel();
+                messageApi.open({
+                    type: 'info',
+                    content: (
+                        <>
+                            Сотрудник <Accent>{fullName}</Accent> заблокирован
+                        </>
+                    ),
+                });
+            },
+        });
+    };
+
+    return (
+        <>
+            {contextHolder}
+            <ActionModal
+                onCancel={onCancel}
+                title="Блокировка сотрудника"
+                actions={
+                    <>
+                        <Button type="secondary" disabled={isMutating} onClick={onCancel}>
+                            Отменить
+                        </Button>
+                        <Button type="primary" loading={isMutating} onClick={handleConfirm}>
+                            Заблокировать
+                        </Button>
+                    </>
+                }
+                {...restProps}
+            >
+                <span>
+                    Вы действительно хотите заблокировать <Accent>{fullName}</Accent>?
+                </span>
+            </ActionModal>
+        </>
+    );
+};

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import type { PageId } from 'shared/types/page';
+import type { IdParams } from 'shared/types/page';
 import { fetchItem } from 'entities/Example/api/request/fetchItem';
 import { mapItemMetadata } from 'entities/Example/model/mapper/mapItemMetadata';
 
-type Parameters = PageId;
+type Parameters = IdParams;
 
 export const generateMetadata = async (parameters: Parameters): Promise<Metadata> => {
     const { params } = parameters;

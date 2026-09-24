@@ -2,8 +2,8 @@ on:
   - pull_request
 
 env:
-  NODE_VERSION: 20.12.x
-  PNPM_VERSION: 8.7.x
+  NODE_VERSION: 24.19.x
+  PNPM_VERSION: 12.3.4
 
 jobs:
   build:

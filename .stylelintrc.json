@@ -4,13 +4,13 @@
     "rules": {
         "font-family-name-quotes": "always-unless-keyword",
         "declaration-no-important": true,
-        "declaration-block-no-redundant-longhand-properties": [
+        "declaration-block-no-redundant-longhand-properties": true,
+        "declaration-property-value-keyword-no-deprecated": [
             true,
             {
-                "ignoreLonghands": ["top", "right", "bottom", "left"]
+                "ignoreKeywords": ["break-word"]
             }
         ],
-        "property-disallowed-list": ["inset", "inset-block", "inset-inline"],
         "order/order": ["custom-properties", "dollar-variables", "declarations", "rules"],
         "selector-class-pattern": null,
         "selector-pseudo-class-no-unknown": [
@@ -19,10 +19,11 @@
                 "ignorePseudoClasses": ["global"]
             }
         ],
-        "selector-no-qualifying-type": [
+        "selector-no-qualifying-type": null,
+        "property-no-deprecated": [
             true,
             {
-                "ignore": ["attribute"]
+                "ignoreProperties": ["clip"]
             }
         ]
     }

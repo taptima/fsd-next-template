@@ -1,3 +1,38 @@
+## [3.0.0] - 2026-09-23
+
+### Dependencies
+
+- **Node.js**: 20.12.0 -> 24.19.0
+- **pnpm**: 8.7.0 -> 12.3.4
+- **Next.js**: 15.4.10 -> 16.3.5
+- **React / ReactDOM**: 19.0.3 -> 19.3.0
+- **AntD**: 5.26.7 -> 6.6.5
+- **TypeScript**: 5.9.2 -> 6.0.3
+- **GraphQL**: 16.11.0 -> 17.0.2
+- **Zustand**: 4.5.7 -> 5.0.15
+- **Axios**, **SWR**, **Sharp**, **React Hook Form** и др.
+- Обновлены дев-зависимости: ESLint 9 (flat config), Storybook 10, Stylelint 17, Jest 30, GraphQL Codegen, SVGO 4 и др.
+
+### Added
+
+- Хелпер `withQuery` для сборки URL с query-параметрами
+- Проверка согласованности версии `package.json` и `CHANGELOG.md` перед коммитом (`verify:release-version`)
+- Автосинхронизация `colors.ts` при коммите изменений `_colors.scss` / `colors.scss`
+- Опциональный `className` у `Container`
+
+### Changed
+
+- Слой `pages` переименован в `views` (конфликт с роутингом Next.js после обновления)
+- Тема подключается напрямую в `layout` для hot-reload (partials `_*.scss` → `*.scss`)
+- Типы страниц, добавлен `SearchParams`
+- ESLint переведён на flat config (`eslint.config.mjs`)
+- `.raw.svg` исключены из оптимизации SVGO на pre-commit
+
+### Fixed
+
+- Проверка переменной для `DevLayout`
+- Лишние CSS-правила
+
 ## [2.0.0] - 2025-12-30
 
 ### Added

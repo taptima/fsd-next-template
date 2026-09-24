@@ -1,47 +1,22 @@
 @use 'shared/styles/font';
-@use 'shared/styles/mq';
 
 .modal {
+    &:global(.ant-modal .ant-modal-container) {
+        padding: 0;
+    }
+
     :global(.ant-modal-content) {
         box-shadow: none;
     }
 }
 
 .modalRoot {
-    // TODO: resolve !important
-    :global(.ant-modal-mask) {
-        // stylelint-disable-next-line declaration-no-important
-        z-index: var(--z-modal-backdrop) !important;
+    &:global(.ant-modal-root .ant-modal-mask) {
+        z-index: var(--z-modal-backdrop);
     }
 
-    :global(.ant-modal-wrap) {
-        // stylelint-disable-next-line declaration-no-important
-        z-index: var(--z-modal) !important;
-    }
-}
-
-.lowerWrapper {
-    @include mq.lower-sm {
-        display: flex;
-        align-items: flex-end;
-
-        :global(.ant-modal) {
-            bottom: 0;
-
-            // stylelint-disable-next-line declaration-no-important
-            max-width: 100vw !important;
-            // stylelint-disable-next-line declaration-no-important
-            margin: 0 !important;
-        }
-    }
-}
-
-.lowerContent {
-    @include mq.lower-sm {
-        /* stylelint-disable */
-        border-bottom-right-radius: 0 !important;
-        border-bottom-left-radius: 0 !important;
-        /* stylelint-enable */
+    &:global(.ant-modal-root .ant-modal-wrap) {
+        z-index: var(--z-modal);
     }
 }
 

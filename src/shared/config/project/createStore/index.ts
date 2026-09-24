@@ -18,7 +18,6 @@ export const createStore = <Schema extends StoreActions>(
                     Schema | Partial<Schema> | ((state: Schema) => Schema | Partial<Schema>),
                     string
                 >();
-                // eslint-disable-next-line no-param-reassign
                 store.setState = (state, replace, nameOrAction) => {
                     const currentState = getState();
                     let actionName = 'anonymous';
@@ -39,10 +38,24 @@ export const createStore = <Schema extends StoreActions>(
                             if (stateAsString && fnAsString?.includes(stateAsString)) {
                                 actionName = key;
                             }
+
+                            if (typeof state === 'object') {
+                                const isKeyUsedInFn = Object.keys(state).some((stateKey) => {
+                                    return fnAsString?.includes(stateKey);
+                                });
+
+                                if (isKeyUsedInFn) {
+                                    actionName = key;
+                                }
+                            }
                         });
                     }
 
-                    return setState(state, replace, (nameOrAction ?? actionName) as string);
+                    return setState(
+                        state,
+                        replace as false | undefined,
+                        (nameOrAction ?? actionName) as string,
+                    );
                 };
             }
 

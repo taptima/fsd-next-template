@@ -1,6 +1,7 @@
 import type { FC, ReactNode } from 'react';
 import { Modal as BaseModal, ModalProps as BaseModalProps, Flex } from 'antd';
 import clsx from 'clsx';
+import type { DynamicModalProps } from 'shared/types/modal';
 import type { Classnames } from 'shared/types/styles';
 import XIcon from 'shared/assets/icons/x.svg';
 import { colors } from 'shared/styles/colors';
@@ -12,12 +13,12 @@ import { Button } from 'shared/ui/inputs/Button';
 import styles from './styles.module.scss';
 
 export type ModalProps = BaseModalProps &
+    Partial<DynamicModalProps> &
     Classnames<'header' | 'content' | 'footer'> & {
         actions?: ReactNode;
         headerBorder?: 'None' | 'Regular';
         footerBorder?: 'None' | 'Regular';
         closeButtonVariant?: ModalCloseButtonVariant;
-        isCenteredInMobile?: boolean;
     };
 
 export const Modal: FC<ModalProps> = (props) => {
@@ -32,7 +33,6 @@ export const Modal: FC<ModalProps> = (props) => {
         headerClassname,
         contentClassname,
         footerClassname,
-        isCenteredInMobile = true,
         ...restProps
     } = props;
     const { closeButtonProps, closeIconProps } =
@@ -47,10 +47,6 @@ export const Modal: FC<ModalProps> = (props) => {
             getContainer={() => document.getElementById('modal-container') ?? document.body}
             onCancel={onCancel}
             className={styles.modal}
-            classNames={{
-                wrapper: clsx({ [styles.lowerWrapper]: !isCenteredInMobile }),
-                content: clsx({ [styles.lowerContent]: !isCenteredInMobile }),
-            }}
             rootClassName={styles.modalRoot}
             {...restProps}
         >
@@ -64,17 +60,7 @@ export const Modal: FC<ModalProps> = (props) => {
                     {...closeButtonProps}
                 />
             </div>
-            <div
-                className={clsx(
-                    styles.content,
-                    {
-                        [styles.lowerContent]: !isCenteredInMobile,
-                    },
-                    contentClassname,
-                )}
-            >
-                {children}
-            </div>
+            <div className={clsx(styles.content, contentClassname)}>{children}</div>
             {actions && (
                 <div
                     className={clsx(

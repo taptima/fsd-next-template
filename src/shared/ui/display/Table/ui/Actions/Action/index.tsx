@@ -3,6 +3,7 @@ import { colors } from 'shared/styles/colors';
 import { Tooltip } from 'shared/ui/display/Tooltip/dynamic';
 import { Button, ButtonProps } from 'shared/ui/inputs/Button';
 import { MAP_VARIANT_TO_ACTION, Variant } from './utils';
+import styles from './styles.module.scss';
 
 export type ActionProps = Omit<ButtonProps, 'variant'> & {
     variant: Variant;
@@ -39,6 +40,7 @@ export const Action: FC<ActionProps> = (props) => {
                 padding="None"
                 disabled={disabled}
                 icon={<Icon width={24} fill={disabled ? colors.neture300 : fill} />}
+                className={styles.button}
                 onClick={handleClick}
                 {...restProps}
             />

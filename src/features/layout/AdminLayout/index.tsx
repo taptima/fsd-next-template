@@ -1,8 +1,8 @@
 'use client';
 
 import type { FC, PropsWithChildren } from 'react';
-import Sider from 'antd/es/layout/Sider';
 import Layout from 'antd/es/layout/layout';
+import Sider from 'antd/es/layout/Sider';
 import { Card } from 'shared/ui/surfaces/Card';
 import { AdminHeader } from 'widgets/admin/AdminHeader';
 import { AdminMenu } from 'widgets/admin/AdminMenu';

@@ -2,6 +2,7 @@ import type { FlexProps } from 'antd/es/flex/interface';
 import type { ReactNode } from 'react';
 import Flex from 'antd/es/flex';
 import Modal, { ModalProps } from 'antd/es/modal';
+import type { DynamicModalProps } from 'shared/types/modal';
 import type { Classnames } from 'shared/types/styles';
 import ArrowLeftOutlinedIcon from 'shared/assets/icons/arrow-left-outlined.svg';
 import { Loader } from 'shared/ui/display/Loader';
@@ -13,6 +14,7 @@ import { TableWrapper } from './ui/TableWrapper';
 import styles from './styles.module.scss';
 
 export type ScreenProps = ModalProps &
+    DynamicModalProps &
     Classnames<'scrollWrapper'> & {
         suffix?: ReactNode;
         isLoading?: boolean;

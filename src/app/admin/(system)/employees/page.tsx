@@ -1,4 +1,4 @@
-import { EmployeesPage } from 'pages/admin/EmployeesPage';
+import { EmployeesPage } from 'views/admin/EmployeesPage';
 
 export { metadata } from './meta';
 
