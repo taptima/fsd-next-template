@@ -1,0 +1,5 @@
+.button {
+    &:global(.ant-btn:not(:disabled, .ant-btn-disabled):hover) {
+        border: none;
+    }
+}

@@ -1,7 +1,22 @@
 .input {
+    --ant-input-hover-border-color: #4676b0;
+    --ant-input-active-border-color: #285ba4;
+    --ant-input-active-shadow: 0 0 0 2px rgb(8 55 90 / 17%);
+
     &:global(.ant-input-number) {
         width: 100%;
+        padding: 0;
         border-color: var(--neture-100);
+    }
+
+    &:global(.ant-input-number:hover) {
+        border-color: var(--ant-input-hover-border-color);
+    }
+
+    &:global(.ant-input-number:focus-within) {
+        border-color: var(--ant-input-active-border-color);
+        box-shadow: var(--ant-input-active-shadow);
+        outline: 0;
     }
 
     &:global(.ant-input-number .ant-input-number-input) {

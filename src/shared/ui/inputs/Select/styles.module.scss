@@ -4,8 +4,8 @@
 
 .select {
     &:global(.ant-select) {
-        display: block;
         height: auto;
+        padding-block: 10px;
     }
 
     &:global(.ant-select-single .ant-select-selector) {

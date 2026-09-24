@@ -1,5 +1,5 @@
+import type { ModalProps } from 'antd';
 import type { DrawerProps } from 'shared/ui/feedback/Drawer';
-import type { ModalProps } from 'shared/ui/feedback/Modal';
 
 export type DynamicModalProps = Pick<ModalProps, 'open'> & {
     onCancel: () => void;

@@ -1,12 +1,14 @@
+import type { DynamicModalProps } from 'shared/types/modal';
 import { Modal, ModalProps } from 'shared/ui/feedback/Modal';
 import { GridActions } from './ui/GridActions';
 import styles from './styles.module.scss';
 
 type Variant = 'Default' | 'Compact';
 
-type Props = ModalProps & {
-    variant?: Variant;
-};
+type Props = ModalProps &
+    DynamicModalProps & {
+        variant?: Variant;
+    };
 
 const MAP_VARIANT_TO_PROPS: Record<Variant, ModalProps> = {
     Default: {
@@ -32,9 +34,6 @@ export function ActionModal(props: Props) {
             title={title}
             closeButtonVariant="Text"
             width="max-content"
-            classNames={{
-                content: styles.modalContent,
-            }}
             {...variantProps}
             {...restProps}
         >
