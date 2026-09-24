@@ -17,4 +17,5 @@ export const colors = {
     neture500: 'var(--neture-500)',
     neture900: 'var(--neture-900)',
     black: 'var(--black)',
+    taptima: 'var(--taptima)',
 };

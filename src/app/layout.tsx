@@ -8,8 +8,13 @@ import { body } from './font';
 import { ORGANIZATION_JSON_LD, WEB_SITE_JSON_LD } from './jsonLd';
 import { theme } from './theme';
 import { Modals } from './ui/Modals';
-import './styles/index.scss';
 import '@ant-design/v5-patch-for-react-19';
+import './styles/normalize.scss';
+import './styles/global.scss';
+import './styles/colors.scss';
+import './styles/transitions.scss';
+import './styles/zIndex.scss';
+import './styles/variables.scss';
 import styles from './styles.module.scss';
 
 export { metadata, viewport } from './meta';
